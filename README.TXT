@@ -1,14 +1,13 @@
 HOAX_BOOT
 =========
 
-AdaBoot by Adafruit modified for ATmega644P(A)
-by Carsten Meyer, cm@ct.de
 
 Vorbereitung:
 -------------
 
-- Diesen gesamten Ordner \HOAX_BOOT auf Laufwerk C: kopieren
-- Pfad C:\HOAX_BOOT\...
+- Dieses gesamte Verzeichnis aus https://github.com/heise/HOAX
+  als *ZIP* downloaden und auf Laufwerk C: extrahieren
+- Verzeichnis umbenennen in Pfad C:\HOAX\...
 
 Vorbereiten des FTDI-Treibers:
 ------------------------------
@@ -28,6 +27,9 @@ Flashen des Controllers per Bootloader:
 ---------------------------------------
 
 Für Updates/Änderungen der Controller-Firmware
+AdaBoot by Adafruit 
+modified for ATmega644P(A)
+by Carsten Meyer, cm@ct.de
 
 - Ggf. aktuelles "HOAX_main.hex" und "HOAX_main.eep" in dieses Verzeichnis kopieren
 - Platine mit Strom versorgen (5V/250mA)
