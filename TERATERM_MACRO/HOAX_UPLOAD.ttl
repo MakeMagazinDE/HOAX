@@ -99,6 +99,13 @@ waitln '[START XMODEM]'
 xmodemsend mypath 1
 waitln '000]'
 
+; Core 6 = Testroutine Hardware
+mypath='C:\HOAX\FPGACORES\HX_test.dat'
+sendln  'DFX 1=6'
+waitln '[START XMODEM]'
+xmodemsend mypath 1
+waitln '000]'
+
 ; Core 7 = OptoScan von Gerrit
 mypath='C:\HOAX\FPGACORES\HX_opto.dat'
 sendln  'DFX 1=7'
