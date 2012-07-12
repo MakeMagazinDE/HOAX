@@ -162,5 +162,5 @@ Nur für Updates/Änderungen der FPGA-Konfiguration (HOAX-Sound-Engine)!
 nur für OEM:
 ============
 
-Zum erstmaligen Flashen des Controllers bitte ReadMe in Verzeichnis "FOR_ISP" beachten.
+Zum erstmaligen Flashen des Controllers bitte ReadMe in Verzeichnis "FOR_OEM" beachten.
 
