@@ -53,7 +53,7 @@ Für Updates/Änderungen der FPGA-Konfiguration (HOAX-Sound-Engine)
   downloaden und istallieren (falls nicht schon vorhanden)
 - In der Makro-Datei "HOAX_UPLOAD.TTL" in "\TERATERM_MACRO"
   Pfade "mypath=..." konrollieren (mehrfach vorhanden, mit Texeditor zu öffnen)
-  und ggf. auf aktuellen Pfad zu "<drive>:\HOAX_BOOT\FPGACORES" setzen (Default C:\HOAX_BOOT\FPGACORES)
+  und ggf. auf aktuellen Pfad zu "<drive>:\HOAX\FPGACORES" setzen (Default C:\HOAX\FPGACORES)
 - TeraTerm starten
 - Unter "Setup/Serial Port..." oben notierten COM-Port des FTDI-Kabels eintragen, sowie
   Baud rate 57600, Data 8 bit, Parity none, Stop 1 bit,
