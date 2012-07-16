@@ -78,14 +78,14 @@ auf den gewünschten Scan-Core "x" (0..7) umstellen:
 	Core 4 = Scan4014-16/Bass parallel 2x 49 Tasten, 2x 3 Platinen
 	Core 5 = Scan4014-16/Bass parallel 2x 61 Tasten, 2x 4 Platinen
 	         oder ein bis drei Scan4014-61 parallel
-	Core 6 = Test-Routine (auslieferungszustand)
+	Core 6 = Test-Routine (Auslieferungszustand)
 	Core 7 = OptoScan von B.A.S.S.
 
 Ein Reset kann jederzeit mit dem Befehl
 
 9999
 
-ausgeführt werden. <RETURN> am Zeilenende nich vergessen!
+ausgeführt werden. <RETURN> am Zeilenende nicht vergessen!
 
 Achtung: Das nicht lizensierte Leslie schaltet sich nach etwa zwei Minuten ab.
 
@@ -136,7 +136,7 @@ Nur für Updates/Änderungen der FPGA-Konfiguration (HOAX-Sound-Engine)!
   downloaden und istallieren (falls nicht schon vorhanden)
 - In der Makro-Datei "HOAX_UPLOAD.TTL" in "\TERATERM_MACRO"
   Pfade "mypath=..." konrollieren (mehrfach vorhanden, mit Texeditor zu öffnen)
-  und ggf. auf aktuellen Pfad zu "<drive>:\HOAX_BOOT\FPGACORES" setzen (Default C:\HOAX_BOOT\FPGACORES)
+  und ggf. auf aktuellen Pfad zu "<drive>:\HOAX\FPGACORES" setzen (Default C:\HOAX\FPGACORES)
 - TeraTerm starten
 - Unter "Setup/Serial Port..." oben notierten COM-Port des FTDI-Kabels eintragen, sowie
   Baud rate 57600, Data 8 bit, Parity none, Stop 1 bit,
