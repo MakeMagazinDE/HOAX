@@ -39,7 +39,7 @@ gleichzeitig in den völlig neuen Controller
 - JP5 setzen, Platine mit Strom versorgen (5V/250mA)
 - ATmega644P per ISP-Programmer an PL1 mit HEX-Files "HOAX_boot_main.hex"
   und "HOAX_main.eep" programmieren,
-  Fuse Setting: SPIEN, BOOTSZ1, BOOTRST, CKSEL3, BODLEVEL0, BODLEVEL1, BOOTLOCK11 (BLB11)
+  Fuse Setting: SPIEN, EESAVE, BOOTSZ1, BOOTRST, CKSEL3, BODLEVEL0, BODLEVEL1, BOOTLOCK11 (BLB11)
 
 
 
