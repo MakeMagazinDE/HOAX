@@ -1,6 +1,6 @@
 ; HOAX Patch Macro for Teraterm by cm
 ; Created by HOAX_CREATEPATCH.vi
-; Date 25.09.2012 / 17:31
+; Date 26.09.2012 / 10:39
 
 testlink
 save_result=result
@@ -11,7 +11,7 @@ sendln '522=255!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '523=70!'
+sendln '523=255!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -47,7 +47,7 @@ sendln '520=0!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '526=88!'
+sendln '526=100!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -56,6 +56,10 @@ waitln '[OK]'
 
 sendln 'wen=1'
 sendln '528=0!'
+waitln '[OK]'
+
+sendln 'wen=1'
+sendln '529=0!'
 waitln '[OK]'
 
 sendln 'wen=1'
