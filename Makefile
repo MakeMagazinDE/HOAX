@@ -4,7 +4,7 @@
 #
 # Instructions
 #
-# To build the HOAX  bootloader for the 644p: - by cm
+# To build the HOAX  bootloader for the 644p:  - by cm
 # make hoaxboot
 #
 
