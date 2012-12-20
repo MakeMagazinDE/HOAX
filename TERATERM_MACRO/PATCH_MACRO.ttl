@@ -1,6 +1,6 @@
 ; HOAX Patch Macro for Teraterm by cm
 ; Created by HOAX_CREATEPATCH.vi
-; Date 26.09.2012 / 10:39
+; Date 20.12.2012 / 10:18
 
 testlink
 save_result=result
@@ -19,7 +19,7 @@ sendln '524=0!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '525=110!'
+sendln '525=73!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -47,7 +47,7 @@ sendln '520=0!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '526=100!'
+sendln '526=63!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -63,19 +63,19 @@ sendln '529=0!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '512=130!'
+sendln '512=213!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '513=73!'
+sendln '513=115!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '514=15!'
+sendln '514=14!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '515=42!'
+sendln '515=28!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -87,7 +87,7 @@ sendln '503=55!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '504=95!'
+sendln '504=81!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -183,7 +183,7 @@ sendln '661=37!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '662=101!'
+sendln '662=87!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -195,7 +195,7 @@ sendln '664=20!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '665=101!'
+sendln '665=88!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -207,7 +207,7 @@ sendln '667=69!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '668=203!'
+sendln '668=201!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -235,15 +235,15 @@ sendln '678=177!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '679=62!'
+sendln '679=27!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '680=153!'
+sendln '680=55!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '681=141!'
+sendln '681=129!'
 waitln '[OK]'
 
 sendln 'wen=1'
