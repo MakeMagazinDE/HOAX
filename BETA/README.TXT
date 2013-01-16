@@ -3,13 +3,13 @@ HX3 Beta Firmware
 
 Siehe https://github.com/heise/HOAX/BETA
 
-Funktioniert, ist aber noch nicht offiziell freigegeben. Sie sollten wissen, was Sie tun! 
+Was in diesem Ordner liegt, funktioniert, ist aber noch nicht offiziell freigegeben. Sie sollten wissen, was Sie tun!
 
-Komplette Neuprogrammierung des ATmega644 mit FLASH und EEPROM 
-sowie Hochladen der beigefügten FPGA-Konfiguration erforderlich, 
+Komplette Neuprogrammierung des ATmega644 mit FLASH und EEPROM
+sowie Hochladen der beigefügten FPGA-Konfiguration erforderlich,
 ggf. auch Neueingabe der Lizenznummern.
 
-Varianten: 
+Varianten:
 HOAX_main.hex           Flash-Dastei zum Upload per AVRdude, Button Presets oder Preset16-Panel
 HOAX_main_latching.hex	Flash-Dastei zum Upload per AVRdude, Latching Presets (einrastende Tasten)
 HOAX_boot_main.hex      Flash-Dastei komplett mit Bootloader, für OEM-Programmierung über ISP-Programmer
@@ -29,11 +29,11 @@ English
 
 Not released yet, but working beta releases. You should know what you're doing!
 
-Needs complete programming of ATmega644 FLASH and EEPROM, 
+Needs complete programming of ATmega644 FLASH and EEPROM,
 also reload of FPGA configuration and re-entry of licence numbers.
 Please regard installation instructions on http://wiki.keyboardpartner.de!
 
-Variants: 
+Variants:
 HOAX_main.hex           Flash file for serial upload via AVRdude, button presets or Preset16
 HOAX_main_latching.hex	Flash file for serial upload via AVRdude, latching presets
 HOAX_boot_main.hex      Flash file complete with Bootloader, for OEM programming by ISP programmer

@@ -1,6 +1,6 @@
 ; HOAX Patch Macro for Teraterm by cm
 ; Created by HOAX_CREATEPATCH.vi
-; Date 20.12.2012 / 10:18
+; Date 16.01.2013 / 11:58
 
 testlink
 save_result=result
@@ -15,11 +15,11 @@ sendln '523=255!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '524=0!'
+sendln '524=255!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '525=73!'
+sendln '525=51!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -35,7 +35,7 @@ sendln '516=7!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '517=1!'
+sendln '517=2!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -135,7 +135,7 @@ sendln '705=44!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '706=141!'
+sendln '706=88!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -151,7 +151,7 @@ sendln '709=86!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '710=182!'
+sendln '710=141!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -167,7 +167,7 @@ sendln '713=154!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '714=143!'
+sendln '714=135!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -227,15 +227,15 @@ sendln '676=19!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '677=146!'
+sendln '677=28!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '678=177!'
+sendln '678=130!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '679=27!'
+sendln '679=103!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -243,83 +243,71 @@ sendln '680=55!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '681=129!'
+sendln '681=18!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '682=18!'
+sendln '682=69!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '683=23!'
+sendln '683=47!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '684=75!'
+sendln '684=0!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '685=192!'
+sendln '685=200!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '686=164!'
+sendln '686=137!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '687=188!'
+sendln '687=120!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '602=78!'
+sendln '602=114!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '603=89!'
+sendln '603=42!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '604=83!'
+sendln '604=60!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '605=120!'
+sendln '605=49!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '606=99!'
+sendln '606=220!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '607=101!'
+sendln '607=135!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '608=117!'
+sendln '608=250!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '609=0!'
+sendln '609=4!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '610=0!'
+sendln '618=99!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '611=0!'
-waitln '[OK]'
-
-sendln 'wen=1'
-sendln '612=0!'
-waitln '[OK]'
-
-sendln 'wen=1'
-sendln '618=112!'
-waitln '[OK]'
-
-sendln 'wen=1'
-sendln '619=62!'
+sendln '619=120!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -327,19 +315,19 @@ sendln '620=0!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '621=109!'
+sendln '621=97!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '622=141!'
+sendln '622=84!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '623=174!'
+sendln '623=77!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '624=26!'
+sendln '624=55!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -359,19 +347,19 @@ sendln '643=12!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '644=145!'
+sendln '644=138!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '645=133!'
+sendln '645=129!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '646=5!'
+sendln '646=4!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '647=15!'
+sendln '647=20!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -379,19 +367,19 @@ sendln '648=3!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '649=18!'
+sendln '649=25!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '650=2!'
+sendln '650=1!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '651=100!'
+sendln '651=70!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '652=1!'
+sendln '652=0!'
 waitln '[OK]'
 
 if save_result<>0 end
