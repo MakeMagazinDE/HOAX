@@ -1,6 +1,6 @@
 ; HOAX Patch Macro for Teraterm by cm
 ; Created by HOAX_CREATEPATCH.vi
-; Date 16.01.2013 / 11:58
+; Date 11.02.2013 / 22:02
 
 testlink
 save_result=result
@@ -15,11 +15,11 @@ sendln '523=255!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '524=255!'
+sendln '524=0!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '525=51!'
+sendln '525=73!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -35,7 +35,7 @@ sendln '516=7!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '517=2!'
+sendln '517=1!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -135,7 +135,7 @@ sendln '705=44!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '706=88!'
+sendln '706=70!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -151,7 +151,7 @@ sendln '709=86!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '710=141!'
+sendln '710=130!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -167,7 +167,7 @@ sendln '713=154!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '714=135!'
+sendln '714=133!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -247,11 +247,11 @@ sendln '681=18!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '682=69!'
+sendln '682=78!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '683=47!'
+sendln '683=70!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -271,39 +271,39 @@ sendln '687=120!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '602=114!'
+sendln '602=139!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '603=42!'
+sendln '603=65!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '604=60!'
+sendln '604=144!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '605=49!'
+sendln '605=47!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '606=220!'
+sendln '606=147!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '607=135!'
+sendln '607=101!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '608=250!'
+sendln '608=190!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '609=4!'
+sendln '609=5!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '618=99!'
+sendln '618=135!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -315,15 +315,15 @@ sendln '620=0!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '621=97!'
+sendln '621=113!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '622=84!'
+sendln '622=93!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '623=77!'
+sendln '623=88!'
 waitln '[OK]'
 
 sendln 'wen=1'
@@ -339,11 +339,11 @@ sendln '641=0!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '642=14!'
+sendln '642=16!'
 waitln '[OK]'
 
 sendln 'wen=1'
-sendln '643=12!'
+sendln '643=14!'
 waitln '[OK]'
 
 sendln 'wen=1'
