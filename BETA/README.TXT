@@ -16,13 +16,14 @@ HOAX_boot_main.hex      Flash-Dastei komplett mit Bootloader, für OEM-Programmie
 
 HOAX_main.eep           EEPROM-Datei zum Upload mit AVRdude oder Programmierung über ISP
 
-main_midi.bit           FPGA-Konfiguration 02012013, in Ordner FPGACORES zu kopieren für Upload mit Makro
+main_midi.bit           FPGA-Konfiguration 03042013, in Ordner FPGACORES zu kopieren für Upload mit Makro
 
 Erfahrungen und Fehlermeldungen bitte an <info@keyboardpartner.de>
 Bitte beachten Sie die ausführliche Anleitung auf http://wiki.keyboardpartner.de!
 
 Letztes Build
-Version AVR: #3.20   Version FPGA: 02012013	Reloadable FIR filter for Leslie horn emulation, better "throb"
+AVR:  #3.31       Event-basierte Bedienelementabfrage, kein MIDI-Lockout mehr
+FPGA: #03042013   Reloadable FIR filter for Leslie horn emulation, better "throb"
 
 English
 =======
@@ -44,6 +45,7 @@ main_midi.bit           FPGA configuration 02012013, to be copied in dierctory F
 
 
 Last Build
-Version AVR: #3.20   Version FPGA: 02012013	Reloadable FIR filter for Leslie horn emulation, better "throb"
+AVR:  #3.31       Event-based user interface, no more MIDI-Lockout
+FPGA: #03042013   Reloadable FIR filter for Leslie horn emulation, better "throb"
 
 AdaBoot by Adafruit, modified for ATmega644P(A)06/2012 by Carsten Meyer, cm@ct.de
