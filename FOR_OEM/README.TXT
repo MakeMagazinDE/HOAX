@@ -33,7 +33,7 @@ Nur falls noch nicht installiert - wird aber für die folgenden Aktionen gebrauch
 Flashen des Bootloaders und des Main-Programms:
 -----------------------------------------------
 
-Dieser Vorgang programmiert den Bootloader und Version 3.0 der Firmware als Basisversion
+Dieser Vorgang programmiert den Bootloader und Version 3.37 der Firmware als Basisversion
 gleichzeitig in den völlig neuen Controller
 
 - JP5 setzen, Platine mit Strom versorgen (5V/250mA)
