@@ -1,0 +1,33 @@
+; If MACRO is not linked to Tera Term,
+testlink
+save_result=result
+; execute the connect command, use TERATERM.INI params
+if save_result=0 connect ''
+
+myexec='E:\Dropbox\SPIN_ASM\hexout\hex2bin E:\Dropbox\SPIN_ASM\hexout\hoax3.hex'
+mypath='E:\Dropbox\SPIN_ASM\hexout\hoax3.bin'
+
+exec myexec	; hier: hex2bin SPINASM Hex-File hoax3.hex in hoax3.bin wandeln
+pause 1
+; DataFlash-Bereich loschen
+timeout=2
+sendln  'DFS=0!'
+waitln '[OK]'
+sendln  'DFE 1=10'
+
+; Core 10 = EEPROM-Inhalt f|r FV-1
+waitln '000]'
+sendln  'DFX 1=10'
+waitln '[START XMODEM]'
+xmodemsend mypath 1
+; EEPROM aus CoreBlock laden und abwarten, I2C-JUMPER SETZEN!
+sendln  'SFX=10'
+pause 3
+
+sendln  'DFS=1!'
+
+if save_result<>0 end
+disconnect
+closett
+
+end
