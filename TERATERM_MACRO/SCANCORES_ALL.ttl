@@ -72,8 +72,8 @@ waitln '[START XMODEM]'
 xmodemsend mypath 1
 waitln '000]'
 
-; Core 7 = OptoScan von Gerrit
-mypath='C:\HOAX\FPGACORES\HX_opto.dat'
+; Core 7 = XB2; OptoScan von Gerrit: HX_opto.dat
+mypath='C:\HOAX\FPGACORES\HX_xb2.dat'
 sendln  'DFX 1=7'
 waitln '[START XMODEM]'
 xmodemsend mypath 1
