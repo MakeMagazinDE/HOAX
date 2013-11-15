@@ -3,7 +3,7 @@ HOAX-Firmware-Installation
 
 Bitte beachten Sie die ausführliche Anleitung auf http://wiki.keyboardpartner.de!
 
-### Flash-Dateien:
+### Flash-Dateien
 
 HEX-Files zum Upload per AVRdude. Zu jedem HEX-File gehört eine EEPROM-Datei mit Endung .EEP!
 
@@ -14,11 +14,13 @@ HEX-Files zum Upload per AVRdude. Zu jedem HEX-File gehört eine EEPROM-Datei mit
 * <b>HOAX_main_xb2.hex</b>         Spezialversion für XB2-Einbausatz, nutzt vorhandene Bedienelemente und Display<br>
 * <b>HOAX_main_xb2_panel16.hex</b> Spezialversion für alten XB2-Einbausatz mit Panel16<br>
 
-### in FPGACORES:
+### im Verzeichnis FPGACORES
 
 * <b>main_midi.bit</b>             FPGA-Konfiguration zum Upload mit TeraTerm-Makro<br>
 * <b>*.dat</b>                     PicoBlaze Keyscan-Routinen, zum Upload mit TeraTerm-Makro<br>
 * <b>*.bin</b>                     SPIN-1 externe I2C Rerverb Programme, zum Upload mit TeraTerm-Makro<br>
+
+### Sonstige Dateien
 
 * <b>hoaxflash.bat</b>             Batch-Datei, ruft AVRdude mit allen Parametern zum Flashen des Controllers mit "HOAX_main.hex" auf. Parameter COM-Schnittstellennummer, z.B. "C:\HOAX>hoaxflash 14" for COM14 (für Windows)<br>
 * <b>hoaxflasheeprom.bat</b>       Batch-Datei, wie vor, programmier jedoch zusätzlich mit EEPROM-Datei "HOAX_main.eep" (für Windows)                          Batch-Dateien sind ggf. für das gewünschte Flash-File anzupassen!<br>
@@ -28,7 +30,7 @@ HEX-Files zum Upload per AVRdude. Zu jedem HEX-File gehört eine EEPROM-Datei mit
 * <b>ATmegaBOOT_xx8.c</b>          Nur für Neukompilierung des Bootloaders mit WinAVR nötig<br>
 * <b>Makefile</b>                  Nur für Neukompilierung des Bootloaders mit WinAVR nötig<br>
 
-### Verzeichnisse:
+### Verzeichnisse
 
 * <b>BETA</b>                      enthält allerletzte Firmware und FPGA-Konfiguration<br>
 * <b>DOCS_PDF</b>                  Syntax-Tabelle zur Kommunikation und weitere Unterlagen<br>
@@ -44,7 +46,7 @@ HOAX-Firmware-Installation (english)
 
 Please note installation instructions on http://wiki.keyboardpartner.de!
 
-### Flash files:
+### AVR flash files
 
 Flash files for serial upload via AVRdude. Please also program the appropiate EEPROM file (ending .EEP).
 
@@ -55,17 +57,22 @@ Flash files for serial upload via AVRdude. Please also program the appropiate EE
 * <b>HOAX_main_xb2.hex</b>         special version for XB2 retrofit kit, uses XB2's buttons and display<br>
 * <b>HOAX_main_xb2_panel16.hex</b> special version for XB2 retrofit kit, uses installed Panel16<br>
 
-### in FPGACORES:
+### in directory FPGACORES
 
 * <b>main_midi.bit</b>             FPGA configuration, to be uploaded by TeraTerm macro<br>
 * <b>*.dat</b>                     PicoBlaze Key scanning routines, to be uploaded by TeraTerm macro<br>
 * <b>*.bin</b>                     SPIN-1 external I2C Rerverb programs, to be uploaded by TeraTerm macro<br>
 
-* <b>hoaxflash.bat</b>             Batch file, invokes AVRdude with all parameters to flah controllers with "HOAX_main.hex"<br>
-                          Parameter COM interface number, for example "C:\HOAX>hoaxflash 14" for COM14<br>
-* <b>hoaxflasheeprom.bat</b>       Batch file, like above, but also with EEPROM-Datei "HOAX_main.eep"<br>
+### other files
 
-### Directories:
+* <b>hoaxflash.bat</b>             Batch file, invokes AVRdude with all parameters to flah controllers with "HOAX_main.hex". Parameter COM interface number, for example "C:\HOAX>hoaxflash 14" for COM14<br>
+* <b>hoaxflasheeprom.bat</b>       Batch file, like above, but also with EEPROM-Datei "HOAX_main.eep"<br>
+* <b>avrdude.exe</b>               AVRdude flash utility for firmware update by COM prt (eg. USB cable, for Windows)<br>
+* <b>libusb0.dll</b>               used by AVRdude<br>
+* <b>ATmegaBOOT_xx8.c</b>          only needed for re-compilation of bootloaders with WinAVR<br>
+* <b>Makefile</b>                  only needed for re-compilation of bootloaders with WinAVR<br>
+
+### directories
 
 * <b>BETA</b>                      last firmware revisions and FPGA configurations, testing only<br>
 * <b>DOCS_PDF</b>                  Syntax table for HX3 COM port, MIDI tables etc. <br>
