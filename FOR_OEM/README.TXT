@@ -33,12 +33,12 @@ Nur falls noch nicht installiert - wird aber für die folgenden Aktionen gebrauch
 Flashen des Bootloaders und des Main-Programms:
 -----------------------------------------------
 
-Dieser Vorgang programmiert den Bootloader und Version 3.37 der Firmware als Basisversion
-gleichzeitig in den völlig neuen Controller
+Dieser Vorgang programmiert den Bootloader und Version 3.40 der Firmware als Basisversion
+gleichzeitig in den völlig fabrikneuen Controller
 
 - JP5 setzen, Platine mit Strom versorgen (5V/250mA)
 - ATmega644P per ISP-Programmer an PL1 mit HEX-Files "HOAX_boot_main.hex"
-  und "HOAX_main.eep" programmieren,
+  und "HOAX_boot_main.eep" programmieren,
   Fuse Setting: SPIEN, EESAVE, BOOTSZ1, BOOTRST, CKSEL3, BODLEVEL0, BODLEVEL1, BOOTLOCK11 (BLB11)
 
 
