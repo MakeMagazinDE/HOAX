@@ -6,7 +6,6 @@ Bitte beachten Sie die ausführliche Anleitung auf http://wiki.keyboardpartner.de
 Dateien:
 HOAX_main.hex           Flash-Dastei zum Upload per AVRdude, Button Presets oder Preset16-Panel
 HOAX_main_latching.hex	Flash-Dastei zum Upload per AVRdude, Latching Presets (einrastende Tasten)
-HOAX_boot_main.hex      Flash-Dastei komplett mit Bootloader, für OEM-Programmierung über ISP-Programmer
 HOAX_main.eep           EEPROM-Datei zum Upload mit AVRdude oder Programmierung über ISP
 
 in FPGACORES:
@@ -30,6 +29,11 @@ FPGACORES               FPGA-Konfiguration, Hallprogramme und Scan-Cores
 PLATINEN                Schaltpläne, Bestückungspläne und weitere Unterlagen
 TERATERM_MACRO          Update-Makros für Terminal-Programm TeraTerm
 giveio                  Wird benötigt, um AVRdude auszuführen
+FOR_OEM                 Alle dateien für AVR-Erstprogrammierung mit Boootloader
+
+
+HOAX-Firmware-Installation (english)
+====================================
 
 Please note installation instructions onhttp://wiki.keyboardpartner.de!
 
