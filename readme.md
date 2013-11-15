@@ -3,7 +3,6 @@ HOAX-Firmware-Installation
 
 Bitte beachten Sie die ausführliche Anleitung auf http://wiki.keyboardpartner.de!
 
-
 ### Flash-Dateien:
 
 HEX-Files zum Upload per AVRdude. Zu jedem HEX-File gehört eine EEPROM-Datei mit Endung .EEP!
@@ -21,10 +20,8 @@ HEX-Files zum Upload per AVRdude. Zu jedem HEX-File gehört eine EEPROM-Datei mit
 * <b>*.dat</b>                     PicoBlaze Keyscan-Routinen, zum Upload mit TeraTerm-Makro<br>
 * <b>*.bin</b>                     SPIN-1 externe I2C Rerverb Programme, zum Upload mit TeraTerm-Makro<br>
 
-* <b>hoaxflash.bat</b>             Batch-Datei, ruft AVRdude mit allen Parametern zum Flashen des Controllers mit "HOAX_main.hex" auf.<br>
-                          Parameter COM-Schnittstellennummer, z.B. "C:\HOAX>hoaxflash 14" for COM14 (für Windows)<br>
-* <b>hoaxflasheeprom.bat</b>       Batch-Datei, wie vor, programmier jedoch zusätzlich mit EEPROM-Datei "HOAX_main.eep" (für Windows)<br>
-                          Batch-Dateien sind ggf. für das gewünschte Flash-File anzupassen!<br>
+* <b>hoaxflash.bat</b>             Batch-Datei, ruft AVRdude mit allen Parametern zum Flashen des Controllers mit "HOAX_main.hex" auf. Parameter COM-Schnittstellennummer, z.B. "C:\HOAX>hoaxflash 14" for COM14 (für Windows)<br>
+* <b>hoaxflasheeprom.bat</b>       Batch-Datei, wie vor, programmier jedoch zusätzlich mit EEPROM-Datei "HOAX_main.eep" (für Windows)                          Batch-Dateien sind ggf. für das gewünschte Flash-File anzupassen!<br>
 
 * <b>avrdude.exe</b>               AVRdude-Programm zum Firmware-Update über serielle Schnittstelle (für Windows)<br>
 * <b>libusb0.dll</b>               Wird von manchen Windows-Systemen benötigt, um AVRdude auszuführen<br>
@@ -39,8 +36,7 @@ HEX-Files zum Upload per AVRdude. Zu jedem HEX-File gehört eine EEPROM-Datei mit
 * <b>PLATINEN</b>                  Schaltpläne, Bestückungspläne und weitere Unterlagen<br>
 * <b>TERATERM_MACRO</b>            Update-Makros für empfohlenes Terminal-Programm TeraTerm 4.7x (für Windows)<br>
 * <b>giveio</b>                    Wird benötigt, um AVRdude auszuführen<br>
-* <b>FOR_OEM</b>                   enthält alle dateien für AVR-Erstprogrammierung, wie oben, jedoch mit eingebautem Bootloader<br>
-                          (Arduino/AVRdude-kompatibel) für Programmierung eines fabrikneuen AVR-Controllers<br>
+* <b>FOR_OEM</b>                   enthält alle dateien für AVR-Erstprogrammierung, wie oben, jedoch mit eingebautem Bootloader (Arduino/AVRdude-kompatibel) für Programmierung eines fabrikneuen AVR-Controllers<br>
 
 
 HOAX-Firmware-Installation (english)
