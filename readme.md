@@ -1,6 +1,8 @@
 HOAX-Firmware-Installation
 ==========================
 
+Scroll to bottom for english descrition 
+
 Bitte beachten Sie die ausführliche Anleitung auf http://wiki.keyboardpartner.de!
 
 ### Flash-Dateien
