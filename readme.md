@@ -1,7 +1,7 @@
 HOAX-Firmware-Installation
 ==========================
 
-Scroll to bottom for english descrition 
+Scroll to bottom for english description 
 
 Bitte beachten Sie die ausführliche Anleitung auf http://wiki.keyboardpartner.de!
 
