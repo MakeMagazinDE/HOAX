@@ -7,7 +7,11 @@ Bitte beachten Sie die ausführliche Anleitung auf http://wiki.keyboardpartner.de
 
 ### Flash-Dateien
 
-HEX-Files zum Upload per AVRdude. Zu jedem HEX-File gehört eine EEPROM-Datei mit Endung .EEP!
+HEX-Files zum Upload per AVRdude. Zum Update HX3 in Hardware-Reset versetzen 
+durch Jumper auf PL1 "R" (Pin 5/6). Unmittelbar vor Aufruf von AVRdude bzw. 
+"hoaxflash.bat" Jumper ziehen. Achtung: Update erfordert Neueingabe der Lizenznummern, siehe 
+http://wiki.keyboardpartner.de/index.php?title=Lizenznummern_erwerben_und_eingeben 
+Zu jedem HEX-File gehört eine EEPROM-Datei mit Endung .EEP!
 
 * <b>HOAX_main.hex</b>             HX3 Standard, ggf. mit Preset24 oder 1 bis 2 Preset16-Panel<br>
 * <b>HOAX_main_latching.hex</b>	  Latching Presets (einrastende Tasten) mit alter Preset12 MPX Platine<br>
@@ -15,6 +19,7 @@ HEX-Files zum Upload per AVRdude. Zu jedem HEX-File gehört eine EEPROM-Datei mit
 * <b>HOAX_main_buttonvib.hex</b>   wie Standard, jedoch Vibrato-Einstellung über die vier Common-Preset-Taster von Panel16 statt Drehschalter<br>
 * <b>HOAX_main_xb2.hex</b>         Spezialversion für XB2-Einbausatz, nutzt vorhandene Bedienelemente und Display<br>
 * <b>HOAX_main_xb2_panel16.hex</b> Spezialversion für alten XB2-Einbausatz mit Panel16<br>
+* <b>HOAX_AVR_ALL.zip</b>           Enthält alle aufgeführten dateien, gepackt als ZIP
 
 ### im Verzeichnis FPGACORES
 
@@ -29,8 +34,6 @@ HEX-Files zum Upload per AVRdude. Zu jedem HEX-File gehört eine EEPROM-Datei mit
 
 * <b>avrdude.exe</b>               AVRdude-Programm zum Firmware-Update über serielle Schnittstelle (für Windows)<br>
 * <b>libusb0.dll</b>               Wird von manchen Windows-Systemen benötigt, um AVRdude auszuführen<br>
-* <b>ATmegaBOOT_xx8.c</b>          Nur für Neukompilierung des Bootloaders mit WinAVR nötig<br>
-* <b>Makefile</b>                  Nur für Neukompilierung des Bootloaders mit WinAVR nötig<br>
 
 ### Verzeichnisse
 
@@ -40,7 +43,9 @@ HEX-Files zum Upload per AVRdude. Zu jedem HEX-File gehört eine EEPROM-Datei mit
 * <b>PLATINEN</b>                  Schaltpläne, Bestückungspläne und weitere Unterlagen<br>
 * <b>TERATERM_MACRO</b>            Update-Makros für empfohlenes Terminal-Programm TeraTerm 4.7x (für Windows)<br>
 * <b>giveio</b>                    Wird benötigt, um AVRdude auszuführen<br>
-* <b>FOR_OEM</b>                   enthält alle dateien für AVR-Erstprogrammierung, wie oben, jedoch mit eingebautem Bootloader (Arduino/AVRdude-kompatibel) für Programmierung eines fabrikneuen AVR-Controllers<br>
+* <b>FOR_OEM</b>                   enthält alle dateien für AVR-Erstprogrammierung, wie oben, jedoch mit eingebautem Bootloader (Arduino/AVRdude-kompatibel) für Programmierung eines fabrikneuen AVR-Controllers. Außerdem:<br>
+* <b>ATmegaBOOT_xx8.c</b>          Nur für Neukompilierung des Bootloaders mit WinAVR nötig<br>
+* <b>Makefile</b>                  Nur für Neukompilierung des Bootloaders mit WinAVR nötig<br>
 
 
 HOAX-Firmware-Installation (english)
@@ -50,7 +55,12 @@ Please note installation instructions on http://wiki.keyboardpartner.de!
 
 ### AVR flash files
 
-Flash files for serial upload via AVRdude. Please also program the appropiate EEPROM file (ending .EEP).
+Flash files for serial upload via AVRdude. HX3 must be in hardware reset by 
+jumper on PL1 "R" (pin 5/6). Remove jumper immediately before running AVRdude or 
+"hoaxflash.bat". Usage: "hoaxflash <COMPORTNUMBER>", i.e. hoaxflash 3" for COM3. 
+Every .HEX file has a complimentary .EEP file. Note: Updating the firmware 
+requires re-entry of serial numbers, see 
+http://wiki.keyboardpartner.de/index.php?title=Lizenznummern_erwerben_und_eingeben for details.
 
 * <b>HOAX_main.hex</b>             standard version with rotary vibrato switch, optional Preset24 or Preset16-Panel<br>
 * <b>HOAX_main_latching.hex</b>	  version for latching preset keys with old Preset12 MPX board<br>
@@ -67,12 +77,9 @@ Flash files for serial upload via AVRdude. Please also program the appropiate EE
 
 ### other files
 
-* <b>hoaxflash.bat</b>             Batch file, invokes AVRdude with all parameters to flah controllers with "HOAX_main.hex". Parameter COM interface number, for example "C:\HOAX>hoaxflash 14" for COM14<br>
-* <b>hoaxflasheeprom.bat</b>       Batch file, like above, but also with EEPROM-Datei "HOAX_main.eep"<br>
+* <b>hoaxflash.bat</b>             Batch file, invokes AVRdude with all parameters to flah controllers with "HOAX_main.hex" and EEPROM file "HOAX_main.eep". May be edited to fit your required HEX end EEP files.<br>
 * <b>avrdude.exe</b>               AVRdude flash utility for firmware update by COM prt (eg. USB cable, for Windows)<br>
 * <b>libusb0.dll</b>               used by AVRdude<br>
-* <b>ATmegaBOOT_xx8.c</b>          only needed for re-compilation of bootloaders with WinAVR<br>
-* <b>Makefile</b>                  only needed for re-compilation of bootloaders with WinAVR<br>
 
 ### directories
 
@@ -82,7 +89,9 @@ Flash files for serial upload via AVRdude. Please also program the appropiate EE
 * <b>PLATINEN</b>                  schematics, mechanical drawings, board and componentlayouts<br>
 * <b>TERATERM_MACRO</b>            FPGA and scan core pdate macros for terminal emulator TeraTerm 4.7x (Windows)<br>
 * <b>giveio</b>                    used by AVRdude flash tool<br>
-* <b>FOR_OEM</b>                   contains all flash files as above, but with built-in bootloader (Arduino/AVRdude compatible)<br>
+* <b>FOR_OEM</b>                   contains all flash files as above, but with built-in bootloader (Arduino/AVRdude compatible). Contains also:<br>
+* <b>ATmegaBOOT_xx8.c</b>          only needed for re-compilation of bootloaders with WinAVR<br>
+* <b>Makefile</b>                  only needed for re-compilation of bootloaders with WinAVR<br>
 
 AdaBoot by Adafruit, modified for ATmega644P(A)06/2012 by Carsten Meyer, cm@ct.de
 
