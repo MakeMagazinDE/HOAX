@@ -1,7 +1,17 @@
-HOAX-Firmware-Installation
-==========================
+HX3 Hammond Clone
+=================
+
+HX3/HOAX steht kurz für Hammond On A Xilinx FPGA und ist ein völlig neuer Ansatz einer Tonewheel-Emulation als 
+eigenständiges Soundmodul auf einer Platine, erhältlich bei KeyboardPartner (http://shop.keyboardpartner.de). Hier 
+finden Sie alle Schaltpläne, Zeichnungen und Firmware-Updates.
+
+HX3 is a full-featured Hammond clone module with physical modelled tone generation from KeyboardPartner 
+(http://shop.keyboardpartner.de). Please find here all documentation, schematics, drawings and firmware/configuration updates.
 
 (Scroll to bottom for english description) 
+
+HX3-Firmware-Installation
+=========================
 
 Bitte beachten Sie die ausführliche Anleitung auf http://wiki.keyboardpartner.de! Wir empfehlen den Komplett-Download 
 des Repositories mit Button "Download ZIP" (rechte Spalte) und Entpacken in Verzeichnis "C:\HOAX\", da die Batches und 
@@ -51,8 +61,8 @@ gewünschte Flash-File anzupassen!<br>
 Controllers. Außerdem: <b>ATmegaBOOT_xx8.c</b> und <b>Makefile</b>, nur für Neukompilierung des Bootloaders mit WinAVR nötig<br>
 
 
-HOAX-Firmware-Installation (english)
-====================================
+HX3 Firmware Installation (english)
+===================================
 
 Please note installation instructions on http://wiki.keyboardpartner.de! We recommend downloading the whole repository 
 by button "Download ZIP" (right above) and unzipping to "C:\HOAX\" as the batch files and TeraTerm macros assume this 
