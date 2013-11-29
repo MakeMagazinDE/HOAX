@@ -1,17 +1,20 @@
 HOAX-Firmware-Installation
 ==========================
 
-Scroll to bottom for english description 
+(Scroll to bottom for english description) 
 
-Bitte beachten Sie die ausführliche Anleitung auf http://wiki.keyboardpartner.de!
+Bitte beachten Sie die ausführliche Anleitung auf http://wiki.keyboardpartner.de! Wir empfehlen den Komplett-Download 
+des Repositories mit Button "Download ZIP" (rechte Spalte) und Entpacken in Verzeichnis "C:\HOAX\", da die Batches und 
+TeraTerm-Makros diesen Pfad voraussetzen. Bitte vorher ggf. selbst geänderte Batches/Makros sichern!
 
 ### Flash-Dateien
 
 HEX-Files zum Upload per AVRdude. Zum Update HX3 in Hardware-Reset versetzen 
-durch Jumper auf PL1 "R" (Pin 5/6). Unmittelbar vor Aufruf von AVRdude bzw. 
-"hoaxflash.bat" Jumper ziehen. Achtung: Update erfordert Neueingabe der Lizenznummern, siehe 
-http://wiki.keyboardpartner.de/index.php?title=Lizenznummern_erwerben_und_eingeben 
-Zu jedem HEX-File gehört eine EEPROM-Datei mit Endung .EEP!
+durch Jumper auf PL1 "R" (Pin 5/6). Unmittelbar vor Aufruf von AVRdude über
+"hoaxflash.bat" (mit Angabe der COM-Port-Nummer, also z.B. "hoaxflash 3" für COM3) Jumper ziehen. 
+Achtung: Update erfordert Neueingabe der Lizenznummern, siehe 
+http://wiki.keyboardpartner.de/index.php?title=Lizenznummern_erwerben_und_eingeben für weitere Details. 
+Zu jedem HEX-File gehört eine EEPROM-Datei mit Endung .EEP
 
 * <b>HOAX_main.hex</b>             HX3 Standard, ggf. mit Preset24 oder 1 bis 2 Preset16-Panel<br>
 * <b>HOAX_main_latching.hex</b>	  Latching Presets (einrastende Tasten) mit alter Preset12 MPX Platine<br>
@@ -29,9 +32,9 @@ Zu jedem HEX-File gehört eine EEPROM-Datei mit Endung .EEP!
 
 ### Sonstige Dateien
 
-* <b>hoaxflash.bat</b>             Batch-Datei, ruft AVRdude mit allen Parametern zum Flashen des Controllers mit "HOAX_main.hex" auf. Parameter COM-Schnittstellennummer, z.B. "C:\HOAX>hoaxflash 14" for COM14 (für Windows)<br>
-* <b>hoaxflasheeprom.bat</b>       Batch-Datei, wie vor, programmier jedoch zusätzlich mit EEPROM-Datei "HOAX_main.eep" (für Windows)                          Batch-Dateien sind ggf. für das gewünschte Flash-File anzupassen!<br>
-
+* <b>hoaxflash.bat</b>             Batch-Datei, ruft AVRdude mit allen Parametern zum Flashen des Controllers mit 
+"HOAX_main.hex" und EEPROM-Datei "HOAX_main.eep" auf (für Windows). Batch-Datei ist ggf. für das 
+gewünschte Flash-File anzupassen!<br>
 * <b>avrdude.exe</b>               AVRdude-Programm zum Firmware-Update über serielle Schnittstelle (für Windows)<br>
 * <b>libusb0.dll</b>               Wird von manchen Windows-Systemen benötigt, um AVRdude auszuführen<br>
 
@@ -51,7 +54,9 @@ Controllers. Außerdem: <b>ATmegaBOOT_xx8.c</b> und <b>Makefile</b>, nur für Neuk
 HOAX-Firmware-Installation (english)
 ====================================
 
-Please note installation instructions on http://wiki.keyboardpartner.de!
+Please note installation instructions on http://wiki.keyboardpartner.de! We recommend downloading the whole repository 
+by button "Download ZIP" (right above) and unzipping to "C:\HOAX\" as the batch files and TeraTerm macros assume this 
+path. Please backup your own batches/macros before!
 
 ### AVR flash files
 
