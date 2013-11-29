@@ -43,9 +43,9 @@ Zu jedem HEX-File gehört eine EEPROM-Datei mit Endung .EEP!
 * <b>PLATINEN</b>                  Schaltpläne, Bestückungspläne und weitere Unterlagen<br>
 * <b>TERATERM_MACRO</b>            Update-Makros für empfohlenes Terminal-Programm TeraTerm 4.7x (für Windows)<br>
 * <b>giveio</b>                    Wird benötigt, um AVRdude auszuführen<br>
-* <b>FOR_OEM</b>                   enthält alle dateien für AVR-Erstprogrammierung, wie oben, jedoch mit eingebautem Bootloader (Arduino/AVRdude-kompatibel) für Programmierung eines fabrikneuen AVR-Controllers. Außerdem:<br>
-* <b>ATmegaBOOT_xx8.c</b>          Nur für Neukompilierung des Bootloaders mit WinAVR nötig<br>
-* <b>Makefile</b>                  Nur für Neukompilierung des Bootloaders mit WinAVR nötig<br>
+* <b>FOR_OEM</b>                   enthält alle dateien für AVR-Erstprogrammierung, wie oben, jedoch mit eingebautem Bootloader 
+(Arduino/AVRdude-kompatibel) für Programmierung eines fabrikneuen AVR-
+Controllers. Außerdem: <b>ATmegaBOOT_xx8.c</b> und <b>Makefile</b>, nur für Neukompilierung des Bootloaders mit WinAVR nötig<br>
 
 
 HOAX-Firmware-Installation (english)
@@ -89,9 +89,8 @@ http://wiki.keyboardpartner.de/index.php?title=Lizenznummern_erwerben_und_eingeb
 * <b>PLATINEN</b>                  schematics, mechanical drawings, board and componentlayouts<br>
 * <b>TERATERM_MACRO</b>            FPGA and scan core pdate macros for terminal emulator TeraTerm 4.7x (Windows)<br>
 * <b>giveio</b>                    used by AVRdude flash tool<br>
-* <b>FOR_OEM</b>                   contains all flash files as above, but with built-in bootloader (Arduino/AVRdude compatible). Contains also:<br>
-* <b>ATmegaBOOT_xx8.c</b>          only needed for re-compilation of bootloaders with WinAVR<br>
-* <b>Makefile</b>                  only needed for re-compilation of bootloaders with WinAVR<br>
+* <b>FOR_OEM</b>                   contains all flash files as above, but with built-in bootloader (Arduino/AVRdude compatible). Contains also:
+<b>ATmegaBOOT_xx8.c</b> and <b>Makefile</b>, only needed for re-compilation of bootloaders with WinAVR<br>
 
 AdaBoot by Adafruit, modified for ATmega644P(A)06/2012 by Carsten Meyer, cm@ct.de
 
