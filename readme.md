@@ -27,12 +27,13 @@ http://wiki.keyboardpartner.de/index.php?title=Lizenznummern_erwerben_und_eingeb
 Zu jedem HEX-File gehört eine EEPROM-Datei mit Endung .EEP
 
 * <b>HOAX_main.hex</b>             HX3 Standard, ggf. mit Preset24 oder 1 bis 2 Preset16-Panel<br>
-* <b>HOAX_main_latching.hex</b>	  Latching Presets (einrastende Tasten) mit alter Preset12 MPX Platine<br>
+* <b>HOAX_main_latching.hex</b>	   Latching Presets (einrastende Tasten) mit alter Preset12 MPX Platine<br>
 * <b>HOAX_main_tabvib.hex</b>      wie Standard, jedoch drei Schalter (V1,V2,CH - V3=V1+V2) statt Drehschalter an PL5<br>
 * <b>HOAX_main_buttonvib.hex</b>   wie Standard, jedoch Vibrato-Einstellung über die vier Common-Preset-Taster von Panel16 statt Drehschalter<br>
 * <b>HOAX_main_xb2.hex</b>         Spezialversion für XB2-Einbausatz, nutzt vorhandene Bedienelemente und Display<br>
 * <b>HOAX_main_xb2_panel16.hex</b> Spezialversion für alten XB2-Einbausatz mit Panel16<br>
-* <b>HOAX_AVR_ALL.zip</b>           Enthält alle aufgeführten dateien, gepackt als ZIP
+* <b>Preset24.hex</b>              Firmware für ATmega8 auf Preset25-Platine<br>
+* <b>HOAX_AVR_ALL.zip</b>          Enthält alle aufgeführten dateien, gepackt als ZIP
 
 ### im Verzeichnis FPGACORES
 
