@@ -1,13 +1,11 @@
-Ref       Type      Value    Qty   Package   Desc      
+Ref       Type      Value    Qty   Package/Desc      
 -------------------------------------------------------
-U5        7908      7909     1     DSC       Voltage Regulator
--------------------------------------------------------
-PL8       10WP               2     Wanne
+PL8       10WP               2     Pin Header WSL10
 PL11
 -------------------------------------------------------
-PL7       2WP                1     AKL7      2 way Pin Header
+PL7       2WP                1     AKL171 RM7.5
 -------------------------------------------------------
-PL5       2WP                2     2_Hammond_AMP  2 way Pin Header
+PL5       2WP                2     2_Hammond_AMP  optional 2 way Pin Header
 PL15
 -------------------------------------------------------
 PL4       2WP                2     PS2       2 way Pin Header
@@ -18,64 +16,55 @@ PL2
 PL3
 PL10
 -------------------------------------------------------
-PL14      3WP                1     3_Hammond_AMP  3 way Pin Header
+PL14      3WP                      3_Hammond_AMP  optional 3 way Pin Header
 -------------------------------------------------------
-PL12      4WP                1     PS4       4 way Pin Header
+PL12      4WP                      PS4       4 way Pin Header
 -------------------------------------------------------
 PL6       5WP                4     PS5       5 way Pin Header
 PL9
 PL13
 PL16
 -------------------------------------------------------
-C5        C         220n     6     C02       Capacitor
-C6                  100n
+C5        C         220n     6     RM5       Film Capacitor
+C6                  100n                     Ceramic Capacitor
 C7                  100n
 C10                 100n
 C14                 100n
 C15                 100n
 -------------------------------------------------------
-U1        CA741              1     DIL       Op Amp
--------------------------------------------------------
-C1        CP1       220µ 16V  7     DSCV      Electrolytic Capacitor
+C1        CP1       220µ 16V       RM2.5 Electrolytic Capacitor 
 C2                  4µ7 63V
 C3                  4µ7 63V
 C4                  47µ 16V
 C8                  47µ 16V
-C9                  10µ
-C12                 10µ
+C9                  10µ 50V
+C12                 10µ 50V
 -------------------------------------------------------
-C11       CP4       1000µ 25V  3     DSCV      Electrolytic Capacitor
+C11       CP4       1000µ 25V      RM5 Electrolytic Capacitor 
 C13                 1000µ 16V
 C16                 470µ 25V
 -------------------------------------------------------
-D4        D         UF4004   1     DIOD04    Diode
+D4        D         UF4004         Fast Diode - DO NOT USE 1N400x!
 -------------------------------------------------------
-D1        D         1N4148   3     DSC       Diode
+D1        D         1N4148   3     Diode
 D2                  1N4148
 D3                  1N4148
 -------------------------------------------------------
-RB1       GL 1A rund           1     MISC
+RB1       B80C1000  rund           or 800mA round
 -------------------------------------------------------
-TP107     GND                1               Power
--------------------------------------------------------
-JP1       Jumper             3     DISC
+JP1       Jumper             3     Wire Jumper
 JP2
 JP3
 -------------------------------------------------------
-L1        L         330µH 0,8A  1     DSCV      Inductor
+L1        L         330µH 0.8A     Vertical Inductor
 -------------------------------------------------------
-LED1      LED                3     DSC       Light Em Di
+LED1      LED                3     LED green 3mm
 LED2
 LED3
 -------------------------------------------------------
-U7        LM2574             1     DIL
+PL18      Phoenix_2          1     RM5 Power Connector
 -------------------------------------------------------
-U3                  TS912    2     DIL       Dual Op Amp
-U4                  TS912
--------------------------------------------------------
-PL18      Phoenix_2           1     PHX_2
--------------------------------------------------------
-R1        R         1k       35    DSC       Resistor
+R1        R         1k             Discrete Resistor
 R2                  270R
 R3                  270R
 R4                  4k7
@@ -111,23 +100,28 @@ R39                 10R
 R40                 5k6
 R41                 1k8
 -------------------------------------------------------
-RN1       R4C       4x 2k2   1     DSC       Resistor 4-way SIL
+RN1       R4C       4x 2k2   1     Resistor Array 4-way SIL
 -------------------------------------------------------
-R20       R_PRE     2k2      5     Trimmer 5-10  Preset Potentiometer
+R20       R_PRE     2k2            Trimmer 5-10  Preset Potentiometer
 R21                 100k
 R22                 50k
 R23                 100k
 R42                 1k
 -------------------------------------------------------
-SW1       Relais 2pol           4     DIL16-Relais
+SW1       Relais 2pol        4     DIL16 Relais 2x um
 SW2
 SW3
 SW4
 -------------------------------------------------------
-TR1       Trafo flach           1     UI30-2W Block
+TR1       Transformer flat         UI30-2W 6VA 9Vx2 Block
 -------------------------------------------------------
-U2        ULN2003            1     DIL
+U1        CA741                    DIL       or OP07 Op Amp
+U2        ULN2003                  DIL
+U3        TS912              2     DIL       Dual Op Amp
+U4        TS912          
+U5        7909               1     TO220     Voltage Regulator
+U7        LM2574ADJ          1     DIL switching regulator adjustable
 -------------------------------------------------------
-ZD1       ZENER              2     DSC       Zener Diode
-ZD2
+ZD1       ZPD 3V9            2     Zener Diode 0.5W
+ZD2       ZPD 3V9
 -------------------------------------------------------
