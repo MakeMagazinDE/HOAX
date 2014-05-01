@@ -1,51 +1,51 @@
 HX3 Latest Firmware
 ===================
 
-Siehe https://github.com/heise/HOAX/LATEST
-
-Was in diesem Ordner liegt, funktioniert, ist aber noch nicht offiziell freigegeben. Sie sollten wissen, was Sie tun!
-
-Komplette Neuprogrammierung des ATmega644 mit FLASH und EEPROM sowie Hochladen der beigefügten FPGA-Konfiguration 
-und SCan Cores erforderlich, ggf. auch Neueingabe der Lizenznummern. Beigefügtes Makro lädt diese Dateien, Pfad sollte
-"C:\HOAX\LATEST\..." sein.
-
-### Varianten:
-<b>HOAX_main.hex</b>           Flash-Dastei zum Upload per AVRdude, Button Presets oder Preset16-Panel<br>
-<b>HOAX_expander.hex</b> 	    Flash-Dastei zum Upload per AVRdude, Expander-Version<br>
-
-<b>HOAX_main.eep</b>            EEPROM-Datei zum Upload mit AVRdude oder Programmierung über ISP<br>
-<b>HOAX_expander.eep</b>        EEPROM-Datei zum Upload mit AVRdude oder Programmierung über ISP<br>
-
-main_midi.bit           FPGA-Konfiguration 01052014, in Ordner FPGACORES zu kopieren für Upload mit Makro
-
-Erfahrungen und Fehlermeldungen bitte an <info@keyboardpartner.de>
-Bitte beachten Sie die ausführliche Anleitung auf http://wiki.keyboardpartner.de!
-
-### Letztes Build
-
-AVR:  #3.51       Neu: Vibrato, Stereo-Leslie, erweiterte Menüs, konfiogurierbare Ausgänge
-FPGA: #01052014   Erforderlich für #3.51
-
-## English
-
-Not released yet, but working beta releases. You should know what you're doing!
+Not released yet, but working beta releases for evaluation. You should know what you're doing!
 
 Usually needs complete programming of ATmega644 FLASH and EEPROM, scan cores,
 also reload of FPGA configuration and re-entry of licence numbers.
-Please regard installation instructions on http://wiki.keyboardpartner.de!
 
-Variants:
-<b>HOAX_main.hex</b>           Flash file for serial upload via AVRdude, button presets or Preset16
-<b>HOAX_main_latching.hex</b>	Flash file for serial upload via AVRdude, latching presets
-<b>HOAX_boot_main.hex</b>      Flash file complete with Bootloader, for OEM programming by ISP programmer
+May be uploaded by provided TTMACRO_LATEST TeraTerm macro and hoaxflash_main.bat/hoaxflash_expander.bat batch files.
+Please copy AVRdude.exe, AVRdude.conf and giveio directory from HOAX to LATEST directory!
 
-<b>HOAX_main.eep</b>           EEPROM file for upload via AVRdude or ISP programming
+Files on https://github.com/heise/HOAX/LATEST, please download/extract to C:/HOAX/LATEST on your hard disk
 
-<b>main_midi.bit</b>           FPGA configuration 01052014
+### Last Build
 
+* AVR:  #3.51       .hex and .eep files, Latest Firmware for AVR controller
+* FPGA: #01052014   .bit file, Needed for #3.51
+* SCAN: #$0A        .dat files, Needed for #3.51; only FATAR and MIDI scan cores finished yet, others will follow 
 
-Last Build
-AVR:  #3.31       Event-based user interface, no more MIDI-Lockout
-FPGA: #03042013   Reloadable FIR filter for Leslie horn emulation, better "throb"
+### Changes on Last Build
+
+* Stereo Leslie simulation with improved modulation
+* New vibrato algorithm
+* Output jacks are mono on new board, but configurable by menu parameter, i.e. you may get organ, amp122 sim, pedal or leslie L/R on any jack. Separate jack extension board carries "missing" signals.
+* Lower octave foldback is configurable by menu parameter: Foldback with full level, foldback with muted level, no foldback ("all way down") with full level or muted level.
+* Reverb amount may be adjusted for each of three tab settings separately.
+* Bass and Treble tone control has wider range. 
+* Pedal is polyphonic now with "dry" original sound or "Trek II string bass". Last note played fades out.
+* Virtual key contacts have "mutual resistance" now which yields a more "decent" click response.
+* New remote parameters 400..481 directly access 81 menu selection params
+* Deleted obsolete remote parems 500..563
+
+### Files
+
+<b>HOAX_main.hex</b> Flash file for serial upload via AVRdude, button presets or Preset16<br>
+<b>HOAX_expander.hex</b> Flash file for serial upload via AVRdude, MIDI expander version<br>
+<b>HOAX_boot_main.hex</b> Flash file complete with Bootloader, for OEM programming by ISP programmer<br>
+<b>HOAX_boot_main.hex</b> Flash file complete with Bootloader, for OEM programming by ISP programmer<br>
+
+<b>HOAX_main.eep</b> EEPROM file for upload via AVRdude<br>
+<b>HOAX_expander.eep</b> EEPROM file for upload via AVRdude, expander version<br>
+<b>HOAX_boot_main.eep</b> EEPROM file for ISP programming<br>
+<b>HOAX_boot_expander.eep</b> EEPROM file for ISP programming, expander version<br>
+
+<b>HX_xxx.dat</b>  Scan cores for upload with TeraTerm macro<br>
+<b>main.midi.bit</b>  FPGA configuration for upload with TeraTerm macro<br>
+<b>hoax3rev.bin</b>  Reverb DSP program for upload with TeraTerm macro<br>
+
+Please also regard installation instructions on http://wiki.keyboardpartner.de!
 
 AdaBoot by Adafruit, modified for ATmega644P(A)06/2012 by Carsten Meyer, cm@ct.de

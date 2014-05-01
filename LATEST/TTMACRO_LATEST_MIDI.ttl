@@ -1,4 +1,6 @@
-; FPGA-Image und MIDI-PBCore in Folder LATEST auf DataFlash speichern
+; Upload FPGA image and scan core in Folder LATEST 
+; All files must be loceted in "C:\HOAX\LATEST\"
+
 connect ''
 
 sendln  'wen=1'
