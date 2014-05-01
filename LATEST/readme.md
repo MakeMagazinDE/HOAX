@@ -1,15 +1,18 @@
 HX3 Latest Firmware
 ===================
 
-Not released yet, but working beta releases for evaluation. You should know what you're doing!
+<b>Not released yet, but working beta releases for evaluation. You should know what you're doing!</b>
 
-Usually needs complete programming of ATmega644 FLASH and EEPROM, scan cores,
-also reload of FPGA configuration and re-entry of licence numbers.
+Usually needs complete programming of ATmega644 FLASH and EEPROM, scan cores, also reload of FPGA configuration and re-
+entry of licence numbers. Note: Firmware 3.50 and up require new licence numbers which may be obtained free from 
+"info@keyboardpartner.de" - regard "BETA TEST" and supply your <b>new serial number</b> issued by 3.5x firmware (you 
+will have to update your board with new firmware and FPGA configuration first).
 
-May be uploaded by provided TTMACRO_LATEST TeraTerm macro and hoaxflash_main.bat/hoaxflash_expander.bat batch files.
-Please copy AVRdude.exe, AVRdude.conf and giveio directory from HOAX to LATEST directory!
+FPGA configuration and scan cores may be uploaded by provided TTMACRO_LATEST_xxx.ttl TeraTerm macro and 
+hoaxflash_main.bat/hoaxflash_expander.bat batch files. Please copy <b>AVRdude.exe, AVRdude.conf</b> and <b>giveio 
+directory</b> from HOAX to LATEST directory!
 
-Files on https://github.com/heise/HOAX/LATEST, please download/extract to C:/HOAX/LATEST on your hard disk
+Files on https://github.com/heise/HOAX/LATEST, please download/extract to C:/HOAX/LATEST on your hard disk.
 
 ### Last Build
 
@@ -17,18 +20,18 @@ Files on https://github.com/heise/HOAX/LATEST, please download/extract to C:/HOA
 * FPGA: #01052014   .bit file, Needed for #3.51
 * SCAN: #$0A        .dat files, Needed for #3.51; only FATAR and MIDI scan cores finished yet, others will follow 
 
-### Changes on Last Build
+### Changelog
 
 * Stereo Leslie simulation with improved modulation
-* New vibrato algorithm
-* Output jacks are mono on new board, but configurable by menu parameter, i.e. you may get organ, amp122 sim, pedal or leslie L/R on any jack. Separate jack extension board carries "missing" signals.
+* New vibrato algorithm with delay line "aging" parameter
+* Pedal is fully polyphonic with "dry" original sound or "Trek II string bass". Last note played fades out.
+* Output jacks are mono on new board, but configurable by menu parameter, i.e. you may get organ, amp122 sim, pedal or leslie L/R on any jack. Separate jack extension board (or plug "rings" on HX3 mk2) carries "other" signals.
 * Lower octave foldback is configurable by menu parameter: Foldback with full level, foldback with muted level, no foldback ("all way down") with full level or muted level.
 * Reverb amount may be adjusted for each of three tab settings separately.
-* Bass and Treble tone control has wider range. 
-* Pedal is polyphonic now with "dry" original sound or "Trek II string bass". Last note played fades out.
+* Bass and Treble tone controls have wider range. 
 * Virtual key contacts have "mutual resistance" now which yields a more "decent" click response.
-* New remote parameters 400..481 directly access 81 menu selection params
-* Deleted obsolete remote parems 500..563
+* New remote parameters 400..481 directly access 81 params like menu selection by MenuPanel
+* Deleted obsolete remote params 500..563 despite some for compatibility (519..524)
 
 ### Files
 
