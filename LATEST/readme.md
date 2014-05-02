@@ -14,8 +14,8 @@ directory</b> from HOAX to LATEST directory!
 
 For update, AVRdude Flash batches and TeraTerm macros should be started directly from LATEST dir, not HOAX main dir. Connect FTDI cable to your board and make shure connection works in TeraTerm (HX3 should respond to ENTER key with "#0:255=0 [OK]"). Remember the COM port number it uses (may be randomly assigned by Windows system from COM 3 up). Exit TeraTerm. Insert RESET Jumper on HX3 PL1 (R position, pin 5 to 6). Open Windows command window (run "cmd.exe") and start AVRdude batch by typing
 
-* hoaxflash_main XX 
-or
+* hoaxflash_main XX<br> 
+or<br>
 * hoaxflash_expander XX 
 
 with XX = your COM port number. Remove RESET jumper in the very same moment (!). AVRdude will start and flash the AVR controller. Try again when "out of sync" message issued. When finished, HX3 should reboot.
@@ -34,12 +34,12 @@ Files on https://github.com/heise/HOAX/LATEST, please download/extract to C:/HOA
 
 * Stereo Leslie simulation with improved modulation
 * New vibrato algorithm with delay line "aging" parameter
-* Pedal is fully polyphonic with "dry" original sound or "Trek II string bass". Last note played fades out.
-* Output jacks are mono on new board, but configurable by menu parameter, i.e. you may get organ, amp122 sim, pedal or leslie L/R on any jack. Separate jack extension board (or plug "rings" on HX3 mk2) carries "other" signals.
-* Lower octave foldback is configurable by menu parameter: Foldback with full level, foldback with muted level, no foldback ("all way down") with full level or muted level.
-* Reverb amount may be adjusted for each of three tab settings separately.
-* Bass and Treble tone controls have wider range. 
-* Virtual key contacts have "mutual resistance" now which yields a more "decent" click response.
+* Pedal is fully polyphonic with "dry" original sound or "Trek II string bass". Last note played fades out
+* Output jacks are mono on new board, but configurable by menu parameter, i.e. you may get organ, amp122 sim, pedal or leslie L/R on any jack. Separate jack extension board (or plug "rings" on HX3 mk2) carries "other" signals
+* Lower octave foldback is configurable by menu parameter: Foldback with full level, foldback with muted level, no foldback ("all way down") with full level or muted level
+* Reverb amount may be adjusted for each of three tab settings separately
+* Bass and Treble tone controls have wider range 
+* Virtual key contacts have "mutual resistance" now which yields a more "decent" click response
 * New remote parameters 400..481 directly access 81 params like menu selection by MenuPanel
 * Deleted obsolete remote params 500..563 despite some for compatibility (519..524)
 
