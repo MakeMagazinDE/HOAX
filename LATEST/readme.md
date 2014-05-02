@@ -22,7 +22,7 @@ with XX = your COM port number. Remove RESET jumper in the very same moment (!).
 
 Start TeraTerm and "connect". Run macro TTMACRO_LATEST_MIDI or TTMACRO_LATEST_FATAR. depending of scan core required. Macro will update FPGA configuration and scan cores. New serial number will be issued while booting. Write down the serial number and send it to me to get a free update.
 
-Files on https://github.com/heise/HOAX/LATEST, please download/extract to C:/HOAX/LATEST on your hard disk.
+Many serial remote control parameters have been changed, see <b>HOAX3_mk3_Syntax.xls</b> for current values. Files on https://github.com/heise/HOAX/LATEST, please download/extract to C:/HOAX/LATEST on your hard disk or download whole repository as ZIP (use button in right column above).
 
 ### Last Build
 
@@ -58,6 +58,8 @@ Files on https://github.com/heise/HOAX/LATEST, please download/extract to C:/HOA
 <b>HX_xxx.dat</b>  Scan cores for upload with TeraTerm macro<br>
 <b>main.midi.bit</b>  FPGA configuration for upload with TeraTerm macro<br>
 <b>hoax3rev.bin</b>  Reverb DSP program for upload with TeraTerm macro<br>
+
+<b>HOAX3_mk3_Syntax.xls</b>  Excel Sheet with new remote syntax<br>
 
 Please also regard installation instructions on http://wiki.keyboardpartner.de!
 
