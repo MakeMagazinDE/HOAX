@@ -18,7 +18,7 @@ For update, AVRdude Flash batches and TeraTerm macros should be started directly
 or<br>
 * hoaxflash_expander XX 
 
-with XX = your COM port number. Remove RESET jumper in the very same moment (!). AVRdude will start and flash the AVR controller. Try again when "out of sync" message issued. When finished, HX3 should reboot.
+with XX = your COM port number, but don't press ENTER key. Remove RESET jumper in the very same moment you hit ENTER (!). AVRdude will start and flash the AVR controller. Try again when "out of sync" message issued. When finished, HX3 should reboot.
 
 Start TeraTerm and "connect". Run macro TTMACRO_LATEST_MIDI or TTMACRO_LATEST_FATAR. depending of scan core required. Macro will update FPGA configuration and scan cores. New serial number will be issued while booting. Write down the serial number and send it to me to get a free update.
 
