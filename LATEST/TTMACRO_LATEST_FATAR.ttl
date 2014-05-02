@@ -3,9 +3,6 @@
 
 connect ''
 
-sendln  'wen=1'
-sendln '519=1'
-
 mypath='C:\HOAX\LATEST\main_midi.bit'
 sendln  'DFS=0!'
 waitln '[OK]'
@@ -57,7 +54,7 @@ pause 2
 sendln  'wen=1'
 sendln '519=2'
 
-pause 1
+pause 6
 
 sendln  'DFS=1'
 beep

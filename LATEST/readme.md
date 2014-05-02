@@ -6,11 +6,21 @@ HX3 Latest Firmware
 Usually needs complete programming of ATmega644 FLASH and EEPROM, scan cores, also reload of FPGA configuration and re-
 entry of licence numbers. Note: Firmware 3.50 and up require new licence numbers which may be obtained free from 
 "info@keyboardpartner.de" - regard "BETA TEST" and supply your <b>new serial number</b> issued by 3.5x firmware (you 
-will have to update your board with new firmware and FPGA configuration first).
+will have to update your board with new firmware and FPGA configuration first!).
 
 FPGA configuration and scan cores may be uploaded by provided TTMACRO_LATEST_xxx.ttl TeraTerm macro and 
 hoaxflash_main.bat/hoaxflash_expander.bat batch files. Please copy <b>AVRdude.exe, AVRdude.conf</b> and <b>giveio 
 directory</b> from HOAX to LATEST directory!
+
+For update, AVRdude Flash batches and TeraTerm macros should be started directly from LATEST dir, not HOAX main dir. Connect FTDI cable to your board and make shure connection works in TeraTerm (HX3 should respond to ENTER key with "#0:255=0 [OK]"). Remember the COM port number it uses (may be randomly assigned by Windows system from COM 3 up). Exit TeraTerm. Insert RESET Jumper on HX3 PL1 (R position, pin 5 to 6). Open Windows command window (run "cmd.exe") and start AVRdude batch by typing
+
+* hoaxflash_main XX 
+or
+* hoaxflash_expander XX 
+
+with XX = your COM port number. Remove RESET jumper in the very same moment (!). AVRdude will start and flash the AVR controller. Try again when "out of sync" message issued. When finished, HX3 should reboot.
+
+Start TeraTerm and "connect". Run macro TTMACRO_LATEST_MIDI or TTMACRO_LATEST_FATAR. depending of scan core required. Macro will update FPGA configuration and scan cores. New serial number will be issued while booting. Write down the serial number and send it to me to get a free update.
 
 Files on https://github.com/heise/HOAX/LATEST, please download/extract to C:/HOAX/LATEST on your hard disk.
 
