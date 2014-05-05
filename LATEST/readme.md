@@ -24,6 +24,8 @@ Start TeraTerm and "connect". Run macro TTMACRO_LATEST_MIDI or TTMACRO_LATEST_FA
 
 Many serial remote control parameters have been changed, see <b>HOAX3_mk3_Syntax.xls</b> for current values. Files on https://github.com/heise/HOAX/LATEST, please download/extract to C:/HOAX/LATEST on your hard disk or download whole repository as ZIP (use button in right column above).
 
+For normal operation, set <b>jumper JP6 to STEREO position</b> (pointing towards edge of PCB) amd <b>remove I2C_REV jumpers JP7 and JP8</b>. Please note different operation of BASS To LESLIE tab/button (see http://wiki.keyboardpartner.de/index.php?title=HX3_MIDI_expander_module#Jack_Connections and http://wiki.keyboardpartner.de/index.php?title=HX3_MenuPanel#Menus_Lower for details). 
+
 ### Last Build
 
 * AVR:  #3.51       .hex and .eep files, Latest Firmware for AVR controller
