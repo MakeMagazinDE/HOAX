@@ -39,7 +39,7 @@ xmodemsend mypath 1
 waitln '000]'
 
 ; Core 10 = EEPROM-Inhalt für FV-1
-mypath='C:\HOAX\hoax3.bin'
+mypath='C:\HOAX\LATEST\hoax3rev.bin'
 sendln  'DFX 1=10'
 waitln '[START XMODEM]'
 xmodemsend mypath 1
@@ -50,8 +50,8 @@ sendln  'SFX=10'
 waitln '[OK]'
 pause 2
 
-; Default Scan Core MIDI INPUT
-sendln  'wen=1'
+; Default Scan Core FATAR
+sendln 'wen=1'
 sendln '519=2'
 
 pause 6

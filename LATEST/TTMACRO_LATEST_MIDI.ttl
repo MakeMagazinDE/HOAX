@@ -1,5 +1,5 @@
 ; Upload FPGA image and scan core in Folder LATEST 
-; All files must be loceted in "C:\HOAX\LATEST\"
+; All files must be located in "C:\HOAX\LATEST\"
 
 connect ''
 
@@ -39,7 +39,7 @@ xmodemsend mypath 1
 waitln '000]'
 
 ; Core 10 = EEPROM-Inhalt für FV-1
-mypath='C:\HOAX\hoax3.bin'
+mypath='C:\HOAX\LATEST\hoax3rev.bin'
 sendln  'DFX 1=10'
 waitln '[START XMODEM]'
 xmodemsend mypath 1
@@ -51,7 +51,7 @@ waitln '[OK]'
 pause 2
 
 ; Default Scan Core MIDI INPUT
-sendln  'wen=1'
+sendln 'wen=1'
 sendln '519=1'
 
 pause 6
