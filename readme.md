@@ -1,6 +1,8 @@
 HX3 Hammond Clone
 =================
 
+<b>LATEST NEWS:</b> New update program for Windows available - makes fiddling with AVRdude and TeraTerm obsolete! See directory LATEST.
+
 HX3/HOAX steht kurz für Hammond On A Xilinx FPGA und ist ein völlig neuer Ansatz einer Tonewheel-Emulation als 
 eigenständiges Soundmodul auf einer Platine, erhältlich bei KeyboardPartner (http://shop.keyboardpartner.de). Hier 
 finden Sie alle Schaltpläne, Zeichnungen und Firmware-Updates.
