@@ -67,6 +67,30 @@ Controllers. Außerdem: <b>ATmegaBOOT_xx8.c</b> und <b>Makefile</b>, nur für Neuk
 HX3 Firmware Installation (english)
 ===================================
 
+<b>LATEST NEWS:</b> New update program for Windows available - makes fiddling with AVRdude and TeraTerm obsolete! See directory LATEST.
+
+FPGA configuration and scan cores may be uploaded by provided .ttl TeraTerm 
+macro and .bat batch files. 
+
+For update, connect FTDI cable to your board and make shure connection works in 
+TeraTerm (HX3 should respond to ENTER key with "#0:255=0 [OK]"). Remember the 
+COM port number it uses (may be randomly assigned by Windows system from COM 3 
+up). Exit TeraTerm. Insert RESET Jumper on HX3 PL1 (R position, pin 5 to 6). 
+Open Windows command window (run "cmd.exe"), change to current HOAX directory and 
+start AVRdude batch by typing
+
+* hoaxflash_main XX<br> 
+or<br>
+* hoaxflash_expander XX 
+
+with XX = your COM port number, but don't press ENTER key. Remove RESET jumper 
+in the very same moment you hit ENTER (!). AVRdude will start and flash the AVR 
+controller. Try again when "out of sync" message issued. When finished, HX3 
+should reboot.
+
+Start TeraTerm and "connect". Run macro ttl file from TeraTerm, depending of 
+scan core required. Macro will update FPGA configuration and scan cores. 
+
 Please note installation instructions on http://wiki.keyboardpartner.de! We recommend downloading the whole repository 
 by button "Download ZIP" (right above) and unzipping to "C:\HOAX\" as the batch files and TeraTerm macros assume this 
 path. Please backup your own batches/macros before!
@@ -98,6 +122,7 @@ http://wiki.keyboardpartner.de/index.php?title=Lizenznummern_erwerben_und_eingeb
 * <b>hoaxflash.bat</b>             Batch file, invokes AVRdude with all parameters to flah controllers with "HOAX_main.hex" and EEPROM file "HOAX_main.eep". May be edited to fit your required HEX end EEP files.<br>
 * <b>avrdude.exe</b>               AVRdude flash utility for firmware update by COM prt (eg. USB cable, for Windows)<br>
 * <b>libusb0.dll</b>               used by AVRdude<br>
+* <b>HOAX3_mk3_Syntax.xls</b>      Excel Sheet with new remote syntax<br>
 
 ### directories
 
