@@ -3,32 +3,20 @@ HX3 Latest Firmware
 
 <b>Not released yet, but working beta releases for evaluation. You should know what you're doing!</b>
 
-Usually needs complete programming of ATmega644 FLASH and EEPROM, scan cores, also reload of FPGA configuration and re-
-entry of licence numbers. Note: Firmware 3.50 and up require new licence numbers which may be obtained free from 
-"info@keyboardpartner.de" - regard "BETA TEST" and supply your <b>new serial number</b> issued by 3.5x firmware (you 
-will have to update your board with new firmware and FPGA configuration first!).
+<b>LATEST NEWS:</b> New update program for Windows available - makes fiddling with AVRdude and TeraTerm obsolete!
 
-FPGA configuration and scan cores may be uploaded by provided TTMACRO_LATEST_xxx.ttl TeraTerm macro and 
-hoaxflash_main.bat/hoaxflash_expander.bat batch files. Please copy <b>AVRdude.exe, AVRdude.conf</b> and <b>giveio 
-directory</b> from HOAX to LATEST directory!
+### Using the new HX3 remote/update program
 
-For update, AVRdude Flash batches and TeraTerm macros should be started directly from LATEST dir, not HOAX main dir. Connect FTDI cable to your board and make shure connection works in TeraTerm (HX3 should respond to ENTER key with "#0:255=0 [OK]"). Remember the COM port number it uses (may be randomly assigned by Windows system from COM 3 up). Exit TeraTerm. Insert RESET Jumper on HX3 PL1 (R position, pin 5 to 6). Open Windows command window (run "cmd.exe") and start AVRdude batch by typing
+Copy whole contents of this directory to a new folder on your hard disk, for 
+example E:\LATEST\. See 
+http://wiki.keyboardpartner.de/index.php?title=HX3_Remote/Update_Application for 
+details.
 
-* hoaxflash_main XX<br> 
-or<br>
-* hoaxflash_expander XX 
 
-with XX = your COM port number, but don't press ENTER key. Remove RESET jumper in the very same moment you hit ENTER (!). AVRdude will start and flash the AVR controller. Try again when "out of sync" message issued. When finished, HX3 should reboot.
-
-Start TeraTerm and "connect". Run macro TTMACRO_LATEST_MIDI or TTMACRO_LATEST_FATAR. depending of scan core required. Macro will update FPGA configuration and scan cores. New serial number will be issued while booting. Write down the serial number and send it to me to get a free update.
-
-Many serial remote control parameters have been changed, see <b>HOAX3_mk3_Syntax.xls</b> for current values. Files on https://github.com/heise/HOAX/LATEST, please download/extract to C:/HOAX/LATEST on your hard disk or download whole repository as ZIP (use button in right column above).
-
-For normal operation, set <b>jumper JP6 to STEREO position</b> (pointing towards edge of PCB) amd <b>remove I2C_REV jumpers JP7 and JP8</b>. Please note different operation of BASS To LESLIE tab/button (see http://wiki.keyboardpartner.de/index.php?title=HX3_MIDI_expander_module#Jack_Connections and http://wiki.keyboardpartner.de/index.php?title=HX3_MenuPanel#Menus_Lower for details). 
 
 ### Last Build
 
-* AVR:  #3.51       .hex and .eep files, Latest Firmware for AVR controller
+* AVR:  #3.52       .hex and .eep files, Latest Firmware for AVR controller
 * FPGA: #01052014   .bit file, Needed for #3.51
 * SCAN: #$0A        .dat files, Needed for #3.51; only FATAR and MIDI scan cores finished yet, others will follow 
 
