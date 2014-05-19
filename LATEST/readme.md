@@ -16,11 +16,18 @@ details.
 
 ### Last Build
 
-* AVR:  #3.52       .hex and .eep files, Latest Firmware for AVR controller
-* FPGA: #01052014   .bit file, Needed for #3.51
+* AVR:  #3.53       .hex and .eep files, Latest Firmware for AVR controller
+* FPGA: #19052014   .bit file, Needed for #3.51
 * SCAN: #$0A        .dat files, Needed for #3.51; only FATAR and MIDI scan cores finished yet, others will follow 
 
 ### Changelog
+
+05/19/2014
+
+* Bugfix for sporadic crackling noise on right Leslie channel
+* Experimental custom MIDI CC set, editor added to HX3_remote
+
+05/01/2014
 
 * Stereo Leslie simulation with improved modulation
 * New vibrato algorithm with delay line "aging" parameter
