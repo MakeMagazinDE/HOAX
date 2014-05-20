@@ -16,12 +16,16 @@ details.
 
 ### Last Build
 
-* HX3 Remote: #1.02	.exe, for Windows XP and up
+* HX3 Remote: #1.06	.exe, for Windows XP and up
 * AVR:  #3.53       .hex and .eep files, Latest Firmware for AVR controller
 * FPGA: #19052014   .bit file, Needed for #3.51
 * SCAN: #$0A        .dat files, Needed for #3.51; only FATAR and MIDI scan cores finished yet, others will follow 
 
 ### Changelog
+
+05/20/2014
+
+* Bugfix on HX_remote.exe, organ param list, last parameter Amp122 Volume Enable was missing
 
 05/19/2014
 
