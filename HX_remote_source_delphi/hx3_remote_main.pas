@@ -352,7 +352,7 @@ var
 
 implementation
 
-uses about,deviceselect,hx3_uif;
+uses about,deviceselect;
 
 {$R *.dfm}
 

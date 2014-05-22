@@ -1897,6 +1897,7 @@ object Form1: TForm1
     AutoHint = True
     Panels = <>
     SimplePanel = True
+    SimpleText = 'Erzeugen'
   end
   object DeviceView: TEdit
     Left = 256
