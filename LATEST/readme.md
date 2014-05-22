@@ -10,7 +10,9 @@ HX3 Latest Firmware
 Copy whole contents of this directory to a new folder on your hard disk, for 
 example E:\LATEST\. See 
 http://wiki.keyboardpartner.de/index.php?title=HX3_Remote/Update_Application for 
-details.
+details. Note: For operation with firmware 3.5 and up, remove jumpers JP7 and 
+JP8 which may still sit on your board from factory programming. These jumpers 
+are only required for updateing the reverb DSP.
 
 
 
