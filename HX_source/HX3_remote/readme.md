@@ -9,4 +9,6 @@ http://www.swissdelphicenter.com/de/showcode.php?id=1100
 
 for details.
 
+HX3 Remote uses ftdiclass component from Michael "Zipplet" Nixon.
+
 (c) by Carsten Meyer, cm@ct.de and KeyboardPartner UG, 5/2014.
