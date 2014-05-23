@@ -1,7 +1,7 @@
 HX3 Reverb Sources
 ==================
 
-HX3 Reverb DSP sources and project to be assembled with SPIN IDE from Spin Semiconductor:
+HX3 Reverb DSP sources and project to be assembled with free SPIN IDE from Spin Semiconductor:
 
 http://www.spinsemi.com/products.html
 
