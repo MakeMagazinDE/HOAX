@@ -28,7 +28,7 @@ are only required for updateing the reverb DSP.
 05/28/2014
 
 * HX3 Remote had a small bug in "Write Basics" function that transmitted "1" instead of "255" value with Booleans (Enables etc.) of value "true".  Fixed with version 1.09 (online).
-* Fixed small bug in HX3 firmware that prevented saving of Leslie Volume Pot Enable by MenuPanel.
+* Fixed small bug in HX3 firmware that prevented saving of Amp122 resp. Leslie Volume Pot Enable by MenuPanel.
 
 05/20/2014
 
