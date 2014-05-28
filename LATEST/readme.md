@@ -18,12 +18,17 @@ are only required for updateing the reverb DSP.
 
 ### Last Build
 
-* HX3 Remote: #1.08	.exe, for Windows XP and up
-* AVR:  #3.53       .hex and .eep files, Latest Firmware for AVR controller
+* HX3 Remote: #1.09	.exe, for Windows XP and up
+* AVR:  #3.54       .hex and .eep files, Latest Firmware for AVR controller
 * FPGA: #19052014   .bit file, Needed for #3.51
 * SCAN: #$0C        .dat files, Needed for #3.51 and up; only FATAR and MIDI scan cores finished yet, others will follow 
 
 ### Changelog
+
+05/28/2014
+
+* HX3 Remote had a small bug in "Write Basics" function that transmitted "1" instead of "255" value with Booleans (Enables etc.) of value "true".  Fixed with version 1.09 (online).
+* Fixed small bug in HX3 firmware that prevented saving of Amp122 resp. Leslie Volume Pot Enable by MenuPanel.
 
 05/20/2014
 
