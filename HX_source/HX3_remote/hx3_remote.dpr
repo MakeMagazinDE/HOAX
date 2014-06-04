@@ -4,6 +4,9 @@ program hx3_remote;
 
 
 
+{%File 'hx3_remote_Icon.ico'}
+{%File 'hx3_tools.inc'}
+
 uses
   Forms,
   hx3_remote_main in 'hx3_remote_main.pas' {Form1},

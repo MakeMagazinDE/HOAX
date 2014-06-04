@@ -87,4 +87,8 @@ object deviceselectbox: Tdeviceselectbox
       IsControl = True
     end
   end
+  object XPManifest1: TXPManifest
+    Left = 368
+    Top = 8
+  end
 end

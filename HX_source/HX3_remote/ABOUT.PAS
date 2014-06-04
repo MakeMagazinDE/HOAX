@@ -3,7 +3,7 @@ unit ABOUT;
 interface
 
 uses Windows, Classes, Graphics, Forms, Controls, StdCtrls,
-  Buttons, ExtCtrls;
+  Buttons, ExtCtrls, XPMan;
 
 type
   TAboutBox = class(TForm)
@@ -14,6 +14,7 @@ type
     Version: TLabel;
     Copyright: TLabel;
     Memo1: TMemo;
+    XPManifest1: TXPManifest;
   private
     { Private-Deklarationen }
   public

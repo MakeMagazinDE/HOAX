@@ -4,8 +4,8 @@ object AboutBox: TAboutBox
   ActiveControl = OKButton
   BorderStyle = bsDialog
   Caption = 'About HX3 Remote'
-  ClientHeight = 271
-  ClientWidth = 283
+  ClientHeight = 279
+  ClientWidth = 330
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clBlack
@@ -19,8 +19,8 @@ object AboutBox: TAboutBox
   object Panel1: TPanel
     Left = 8
     Top = 8
-    Width = 265
-    Height = 209
+    Width = 305
+    Height = 217
     BevelOuter = bvLowered
     TabOrder = 0
     object ProgramIcon: TImage
@@ -536,8 +536,8 @@ object AboutBox: TAboutBox
     object Memo1: TMemo
       Left = 8
       Top = 80
-      Width = 249
-      Height = 113
+      Width = 297
+      Height = 129
       BevelEdges = []
       BevelInner = bvNone
       BevelOuter = bvNone
@@ -546,21 +546,22 @@ object AboutBox: TAboutBox
       Lines.Strings = (
         'Update/Remote Utility for HX3 Organ Module'
         ''
-        'Requires HX3 firmware 3.52 and up for edit mode'
-        'FPGA and AVR update also work on older versions'
+        'Requires HX3 firmware 3.52 and up for edit mode. FPGA and '
+        'AVR update also work on older versions. Please see '
+        'documentation on http://wiki.keyboardpartner.de '
+        'for details on installation and usage.'
         ''
-        'Please see documentation on '
-        'http://wiki.keyboardpartner.de '
-        'for details on installation and usage.')
+        'Q&D parts (c) Carsten Meyer 2014 '
+        'FTDI driver (c) Michael "Zipplet" Nixon 2009')
       ReadOnly = True
       TabOrder = 0
     end
   end
   object OKButton: TButton
-    Left = 112
-    Top = 226
+    Left = 136
+    Top = 240
     Width = 65
-    Height = 33
+    Height = 27
     Caption = 'OK'
     Default = True
     Font.Charset = DEFAULT_CHARSET
@@ -572,5 +573,9 @@ object AboutBox: TAboutBox
     ParentFont = False
     TabOrder = 1
     IsControl = True
+  end
+  object XPManifest1: TXPManifest
+    Left = 296
+    Top = 16
   end
 end

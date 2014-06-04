@@ -3,7 +3,7 @@ unit deviceselect;
 interface
 
 uses Windows, Classes, Graphics, Forms, Controls, StdCtrls,
-  Buttons, ExtCtrls, ComCtrls;
+  Buttons, ExtCtrls, ComCtrls, XPMan;
 
 type
   Tdeviceselectbox = class(TForm)
@@ -12,6 +12,7 @@ type
     ListView1: TListView;
     CancelButton: TButton;
     Label1: TLabel;
+    XPManifest1: TXPManifest;
     procedure OKButtonClick(Sender: TObject);
     procedure CancelButtonClick(Sender: TObject);
   private

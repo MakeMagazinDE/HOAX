@@ -40,7 +40,7 @@ MenuMaxArr: array[0..81] of byte = (
 100	,	// 28	Pedal Sustain
 1	,	// 29	Output Mode
 1	,	// 30	Split
-250	,	// 31	Leslie Sim und Amp 122 Volume
+255	,	// 31	Leslie Sim und Amp 122 Volume
 3	,	// 32	Reverb Tabs 0..3
 9	,	// 33	MIDI Channel
 3	,	// 34	MIDI Opt, MIDIoptSubArr 0..2=THRU/SEND/SEND-MERGE, 3=DisableControllers
@@ -57,7 +57,7 @@ MenuMaxArr: array[0..81] of byte = (
 200	,	// 45	Vib3 Dep  0..255!
 200	,	// 46	ChDryMix  Chorus Dry-Anteil wenn Chorus ON, 0..255!
 200	,	// 47	ChVibMix  Chorus Vibrato-Anteil wenn Chorus ON, 0..255!
-250	,	// 48	PercNLvl  Percussion NORMAl Level, 0..255!
+255	,	// 48	PercNLvl  Percussion NORMAl Level, 0..255!
 200	,	// 49	PercSLvl  Percussion SOFT Level, 0..255!
 50	,	// 50	PercLong  Percussion LONG Timer
 70	,	// 51	PercShrt  Percussion SHORT Timer
@@ -71,9 +71,9 @@ MenuMaxArr: array[0..81] of byte = (
 50	,	// 59	Distortion Preamp
 15	,	// 60	untere 4 Bits Noise-Frequenz
 15	,	// 61	obere 4 Bits Noise-Länge
-250	,	// 62	Amount Reverb 1
-250	,	// 63	Amount Reverb 2
-250	,	// 64	Amount Reverb 3
+255	,	// 62	Amount Reverb 1
+255	,	// 63	Amount Reverb 2
+255	,	// 64	Amount Reverb 3
 50	,	// 65	Horn Speed Slow
 50	,	// 66	Rotor Speed Slow
 150	,	// 67	Horn Speed Fast
@@ -82,13 +82,13 @@ MenuMaxArr: array[0..81] of byte = (
 25	,	// 70	Horn Anlauf
 50	,	// 71	Rotor Auslauf
 50	,	// 72	Rotor Anlauf
-250	,	// 73	Leslie Throb
+255	,	// 73	Leslie Throb
 100	,	// 74	Leslie Spread
 200	,	// 75	Leslie Balance
 7	,	// 76	Scan PB Core Select
-1	,	// 77	AnalogDisable
+1	,	// 77	ExpanderMode
 1	,	// 78	Volume Swell Enable, 255=ON
-250	,	// 79	fixed Volume Swell value if disabled
+255	,	// 79	fixed Volume Swell value if disabled
 1	,	// 80	Tone pot Enable, 0=OFF
 1		// 81	Leslie Volume Pot Enable
 	);
