@@ -16,9 +16,10 @@ c_pedaloffset     EQU   0                         ; addiert zu key_scanned wenn 
 c_splitpoint      EQU   24                        ; Bass-Split Untermanual, zählt ab key_scanned=0 (24 bei B200 oder 19 bis F#)
 c_midi_minofs     EQU   2                         ; MIDI-On-Dynamik-Offset (empirisch ermittelt), 7 für Opto, 2 für Fatar Mx
 c_corevers        EQU   $51                       ; $50=SR4014, $51=Fatar, $52=Opto, $53=MIDI RcvOnly
-c_corerevi        EQU   $0C                       ; Revisionsnummer
+c_corerevi        EQU   $0D                       ; Revisionsnummer
 
 ; Tastenzähler key_scanned läuft von 0 bis c_maxkeys
+; key_mpx ist tatsächlich erzeugte Note
 ; Tastenwerte werden in ein Block-RAM für den Multiplexer geschrieben
 ; mit getrennten Bits für NOISE und ENABLE.
 ; Alle Timer starten bei Schreiben eines Wertes ungleich 0 und stoppen bei Erreichen von 255.
@@ -453,7 +454,6 @@ port_init:
 
 shift_sr_empty: 
                   LOAD  key_scanned, 0
-                  STORE key_scanned, s_keycount_upper
                   CALL  auxport_sr_load
 shift_sr_empty_loop: 
                   CALL  auxport_clock
@@ -696,7 +696,7 @@ set_key_lower:
 set_key_common: 
                   COMP  manual_select, 0
                   CALL  Z, inc_keys_upper
-                  COMP  manual_select, 0
+                  COMP  manual_select, 1
                   CALL  Z, inc_keys_lower
                   COMP  manual_select, 2
                   JUMP  Z, set_key_pedal          ; keine Manual-Taste
