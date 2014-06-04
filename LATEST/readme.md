@@ -18,12 +18,18 @@ are only required for updateing the reverb DSP.
 
 ### Last Build
 
-* HX3 Remote: #1.09	.exe, for Windows XP and up
+* HX3 Remote: #1.10	hx3_remote.exe for Windows XP and up
 * AVR:  #3.54       .hex and .eep files, Latest Firmware for AVR controller
 * FPGA: #19052014   .bit file, Needed for #3.51
-* SCAN: #$0C        .dat files, Needed for #3.51 and up; only FATAR and MIDI scan cores finished yet, others will follow 
+* SCAN: #$0D        .dat files, Needed for #3.51 and up; only FATAR and MIDI scan cores finished yet, others will follow 
 
 ### Changelog
+
+06/04/2014 
+
+* Fixed small bug in ScanCores which would have shown up later
+* Added FIR Upload to HX Remote
+* Added ScanCore for Scan16 Strip 61 Keys
 
 05/28/2014
 
