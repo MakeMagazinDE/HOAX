@@ -12,18 +12,21 @@ example E:\LATEST\. See
 http://wiki.keyboardpartner.de/index.php?title=HX3_Remote/Update_Application for 
 details. Note: For operation with firmware 3.5 and up, remove jumpers JP7 and 
 JP8 which may still sit on your board from factory programming. These jumpers 
-are only required for updateing the reverb DSP.
-
-
+are only required for updating the reverb DSP.
 
 ### Last Build
 
-* HX3 Remote: #1.10	hx3_remote.exe for Windows XP and up
-* AVR:  #3.54       .hex and .eep files, Latest Firmware for AVR controller
-* FPGA: #19052014   .bit file, Needed for #3.51
+* HX3 Remote: #1.20	hx3_remote.exe for Windows XP and up
+* AVR:  #3.55       .hex and .eep files, Latest Firmware for AVR controller
+* FPGA: #28052014   .bit file for FPGA update
 * SCAN: #$0D        .dat files, Needed for #3.51 and up; only FATAR and MIDI scan cores finished yet, others will follow 
 
 ### Changelog
+
+06/13/2014
+
+* New HX3 Remote with improved MIDI CC assignment. In conjunction with firmware 3.55, it will display and select received MIDI CCs for easier assignment of custom MIDI CC sets.
+* Firmware 3.55 with MIDI Route-Thru to HX3 Remote. Small bug fixed in Voce MIDI CC setup, added controllers 87 (Treble Equ/Tone) and 88 (Bass Equ).
 
 06/04/2014 
 
@@ -33,6 +36,7 @@ are only required for updateing the reverb DSP.
 
 05/28/2014
 
+* Added FPGA #28052014 with better treble response on Leslie sim
 * HX3 Remote had a small bug in "Write Basics" function that transmitted "1" instead of "255" value with Booleans (Enables etc.) of value "true".  Fixed with version 1.09 (online).
 * Fixed small bug in HX3 firmware that prevented saving of Amp122 resp. Leslie Volume Pot Enable by MenuPanel.
 
