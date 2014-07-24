@@ -7,6 +7,7 @@ unit hx3_remote_main;
 //    Q&D RAD mit Delphi 2005 Personal Edition
 //    (c) 5/2014 by Carsten Meyer, engineering@keyboardpartner.de
 //
+//    #1.20 Umbau auf Import-Dateien
 //    #1.07 leicht geändertes XModem-Timing
 //    #1.06 MIDI-CC und Preset-Editor eingebaut
 //    #0.97 erste freigegebene Version, noch ohne MIDI-CC
@@ -19,7 +20,7 @@ interface
 
 uses SysUtils, StrUtils, Windows, Classes, Graphics, Forms, Controls, Menus,
   Dialogs, StdCtrls, Buttons, ColorButton, ExtCtrls, ComCtrls, ImgList, StdActns,
-  ActnList, ToolWin, Spin, FileCtrl, Grids, Registry, ShellApi, XPMan;
+  ActnList, ToolWin, Spin, FileCtrl, Grids, Registry, ShellApi, XPMan, Gauges;
 
 type
 
@@ -31,14 +32,6 @@ type
   TForm1 = class(TForm)
     OpenDialog: TOpenDialog;
     SaveParamDialog: TSaveDialog;
-    ToolBar1: TToolBar;
-    ToolButton9: TToolButton;
-    ToolButton1: TToolButton;
-    ToolButton2: TToolButton;
-    ToolButton3: TToolButton;
-    ToolButton4: TToolButton;
-    ToolButton5: TToolButton;
-    ToolButton6: TToolButton;
     ActionList1: TActionList;
     FileNew1: TAction;
     FileOpen1: TAction;
@@ -53,7 +46,6 @@ type
     ImageList1: TImageList;
     MainMenu1: TMainMenu;
     File1: TMenuItem;
-    FileNewItem: TMenuItem;
     FileOpenItem: TMenuItem;
     FileSaveItem: TMenuItem;
     FileSaveAsItem: TMenuItem;
@@ -72,14 +64,9 @@ type
     BtnRescan: TButton;
     StringGrid1: TStringGrid;
     Image1: TImage;
-    ToolButton8: TToolButton;
     DeviceView: TEdit;
     ReadAll: TBitBtn;
-    TrackBar1: TTrackBar;
-    OptionTextMenu: TComboBox;
-    EditHint: TLabel;
-    EditValue: TEdit;
-    sendWEN: TCheckBox;
+    ComboBox1: TComboBox;
     UpdateFPGA: TBitBtn;
     UpdateAVR: TBitBtn;
     EditSerialNumber: TEdit;
@@ -89,7 +76,6 @@ type
     Label4: TLabel;
     Label5: TLabel;
     Bevel1: TBevel;
-    Bevel3: TBevel;
     Memo1: TMemo;
     BtnSetLicence: TBitBtn;
     FPGAversion: TEdit;
@@ -103,7 +89,6 @@ type
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     TabSheet3: TTabSheet;
-    Bevel5: TBevel;
     BtnCancel: TSpeedButton;
     EditUserName: TEdit;
     Label2: TLabel;
@@ -132,8 +117,6 @@ type
     N6: TMenuItem;
     TabSheet4: TTabSheet;
     TabSheet5: TTabSheet;
-    StringGrid2: TStringGrid;
-    StringGrid3: TStringGrid;
     SendAll: TBitBtn;
     Label11: TLabel;
     Label12: TLabel;
@@ -182,23 +165,15 @@ type
     TrackBarB3: TTrackBar;
     Label36: TLabel;
     Label37: TLabel;
-    Bevel7: TBevel;
     ComboBoxVibKnob: TComboBox;
     CheckBox4: TCheckBox;
     CheckBox3: TCheckBox;
     CheckBox2: TCheckBox;
     CheckBox1: TCheckBox;
     CheckBox0: TCheckBox;
-    Bevel8: TBevel;
-    CheckBox11: TCheckBox;
-    CheckBox10: TCheckBox;
     CheckBox5: TCheckBox;
-    Bevel9: TBevel;
-    CheckBox8: TCheckBox;
-    CheckBox9: TCheckBox;
     CheckBox6: TCheckBox;
     CheckBox7: TCheckBox;
-    Bevel10: TBevel;
     ComboBoxLowerPreset: TComboBox;
     ComboBoxUpperPreset: TComboBox;
     ComboBoxScancore: TComboBox;
@@ -217,10 +192,87 @@ type
     Label39: TLabel;
     LedOrganOk: TPanel;
     LedLeslieOk: TPanel;
-    OnOffBtn1:TColorButton;
     XPManifest1: TXPManifest;
     LEDbusy: TPanel;
     BtnUpdateFIR: TBitBtn;
+    Panel1: TPanel;
+    TrackBar1: TTrackBar;
+    Bevel3: TBevel;
+    StringGrid3: TStringGrid;
+    StringGrid2: TStringGrid;
+    MIDIccHint: TLabel;
+    Label40: TLabel;
+    EditMidiRec: TEdit;
+    MidiCCListBox: TListBox;
+    CheckboxEEwrite: TCheckBox;
+    N10: TMenuItem;
+    ImportOrganData1: TMenuItem;
+    ImportLeslieData1: TMenuItem;
+    ImportMIDICCData1: TMenuItem;
+    N7: TMenuItem;
+    ExportOrganData1: TMenuItem;
+    ExportLeslieData1: TMenuItem;
+    ExportMIDICCData1: TMenuItem;
+    ImportUpperPresets1: TMenuItem;
+    ImportLowerPresets1: TMenuItem;
+    ExportUpperPresets1: TMenuItem;
+    ExportLowerPresets1: TMenuItem;
+    TabSheet6: TTabSheet;
+    EditOrganDefaultsFile: TEdit;
+    ImportOrgan: TCheckBox;
+    ImportLeslie: TCheckBox;
+    ImportMidiCC: TCheckBox;
+    ImportUpper: TCheckBox;
+    ImportLower: TCheckBox;
+    EditLeslieDefaultsFile: TEdit;
+    EditMidiCCFile: TEdit;
+    EditUpperPresetsFile: TEdit;
+    EditLowerPresetsFile: TEdit;
+    New1: TMenuItem;
+    Label41: TLabel;
+    Panel4: TPanel;
+    Panel5: TPanel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
+    SpeedButton5: TSpeedButton;
+    Label42: TLabel;
+    Label43: TLabel;
+    CheckBox8: TCheckBox;
+    CheckBox9: TCheckBox;
+    CheckBox10: TCheckBox;
+    CheckBox11: TCheckBox;
+    GaugeMIDIdata: TGauge;
+    procedure ImportUpperPresets1Click(Sender: TObject);
+    procedure ImportLowerPresets1Click(Sender: TObject);
+    procedure ExportLowerPresets1Click(Sender: TObject);
+    procedure New1Click(Sender: TObject);
+    procedure EditLowerPresetsFileChange(Sender: TObject);
+    procedure EditUpperPresetsFileChange(Sender: TObject);
+    procedure EditMidiCCFileChange(Sender: TObject);
+    procedure EditLeslieDefaultsFileChange(Sender: TObject);
+    procedure EditOrganDefaultsFileChange(Sender: TObject);
+    procedure ExportUpperPresets1Click(Sender: TObject);
+    procedure StringGrid1Click(Sender: TObject);
+    procedure ImportOrganData1Click(Sender: TObject);
+    procedure ImportLeslieData1Click(Sender: TObject);
+    procedure ExportOrganData1Click(Sender: TObject);
+    procedure ExportLeslieData1Click(Sender: TObject);
+    procedure ImportMIDICCData1Click(Sender: TObject);
+    procedure ExportMIDICCData1Click(Sender: TObject);
+    procedure MidiCCListBoxClick(Sender: TObject);
+    procedure MidiCCListBoxDrawItem(Control: TWinControl; Index: Integer;
+      Rect: TRect; State: TOwnerDrawState);
+    procedure StringGrid3SetEditText(Sender: TObject; ACol, ARow: Integer;
+      const Value: string);
+    procedure StringGrid3Click(Sender: TObject);
+    procedure StringGrid2TopLeftChanged(Sender: TObject);
+
+    procedure Panel1Click(Sender: TObject);
+    procedure StringGrid1TopLeftChanged(Sender: TObject);
+
+
     procedure BtnFIRClick(Sender: TObject);
     procedure BasicExpanderModeClick(Sender: TObject);
     procedure BtnWriteBasicsClick(Sender: TObject);
@@ -250,11 +302,8 @@ type
     procedure TrackBarU1Change(Sender: TObject);
     procedure TrackBarL0Change(Sender: TObject);
     procedure TrackBarU0Change(Sender: TObject);
-    procedure StringGrid3DrawCell(Sender: TObject; ACol, ARow: Integer;
+    procedure StringGrid123DrawCell(Sender: TObject; ACol, ARow: Integer;
       Rect: TRect; State: TGridDrawState);
-    procedure StringGrid3SetEditText(Sender: TObject; ACol, ARow: Integer;
-      const Value: string);
-    procedure StringGrid3Click(Sender: TObject);
     procedure CheckBox11Click(Sender: TObject);
     procedure CheckBox10Click(Sender: TObject);
     procedure CheckBox9Click(Sender: TObject);
@@ -270,18 +319,9 @@ type
     procedure UpdateScanCoresonly1Click(Sender: TObject);
     procedure BtnResetClick(Sender: TObject);
     procedure BtnLicenceGenClick(Sender: TObject);
-    procedure StringGrid1DrawCell(Sender: TObject; ACol, ARow: Integer;
-      Rect: TRect; State: TGridDrawState);
-    procedure StringGrid2DrawCell(Sender: TObject; ACol, ARow: Integer;
-      Rect: TRect; State: TGridDrawState);
     procedure BtnScanCoreClick(Sender: TObject);
-    procedure OptionTextMenuChange(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
     procedure BtnRefreshInfoClick(Sender: TObject);
-    procedure StringGrid2Click(Sender: TObject);
-    procedure StringGrid2SetEditText(Sender: TObject; ACol, ARow: Integer;
-      const Value: string);
-    procedure StringGrid1SetEditText(Sender: TObject; ACol, ARow: Integer;
-      const Value: string);
     procedure EditLeslieLicenceChange(Sender: TObject);
     procedure EditOrganLicenceChange(Sender: TObject);
     procedure EditUserNameChange(Sender: TObject);
@@ -293,10 +333,8 @@ type
     procedure UpdateAVRClick(Sender: TObject);
     procedure UpdateFPGAClick(Sender: TObject);
     procedure TrackBar1Change(Sender: TObject);
-    procedure OnOffBtn1Click(Sender: TObject);
     procedure FileSaveExecute(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure StringGrid1Click(Sender: TObject);
     procedure BtnRescanClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure ReadAllClick(Sender: TObject);
@@ -317,9 +355,7 @@ type
 
 type
   THX3Record = record
-    OrganValues: array [0..127] of LongInt;
-    LeslieValues: array [0..63] of LongInt;
-    MIDIccValues: array [0..127] of LongInt;
+    OrganBasicSettings: array [0..127] of LongInt;
     Device: Integer;
     FirmwareVersion: Real;
     FPGAversion: String[10];
@@ -327,19 +363,24 @@ type
     OrganLicence: LongInt;
     LeslieLicence: LongInt;
     Owner: String[63];
-    UpperPresets: array [0..255] of LongInt;
-    LowerPresets: array [0..255] of LongInt;
+    OrganParamFile: String[255];
+    LeslieParamFile: String[255];
+    MidiCCFile: String[255];
+    UpperPresetFile: String[255];
+    LowerPresetFile: String[255];
+    ImportOrgan: Boolean;
+    ImportLeslie: Boolean;
+    ImportMidiCC: Boolean;
+    ImportUpper: Boolean;
+    ImportLower: Boolean;
   end;
 
 const
 //### Länge des Parameter-EEPROMs
-  VersionInfo='Version 1.10';
+  VersionInfo='Version 1.30';
   FroschDefaultDesc='FT232R USB UART';
   FroschDefDriveName='HOAX';
   FroschRegKeyName='HX3remote';
-  c_num_of_organparams = 81;
-  c_num_of_leslieparams = 63;
-  c_num_of_midiparams = 127;
 
 var
   HX3settingsPath: String; // Pfad zur Settings-Datei
@@ -352,55 +393,26 @@ var
   HasBootLoaderJump: Boolean;
   CancelProc: boolean;
   ComPortUsed: Integer;
+  LastMidiCC, LastMidiVal: LongInt;
+  ButtonDescList: TstringList;
+  MidiCCList: TstringList;
+  DropDownList: TstringList;
+
+  UpperPresets: array [0..255] of LongInt;
+  LowerPresets: array [0..255] of LongInt;
 
 implementation
 
-uses about, deviceselect, hx3_com, hx3_MenuItems;
+uses about, deviceselect, hx3_com, hx3_MenuItems, FTDIchip;
 
 {$R *.dfm}
 
 //##############################################################################
-//##############################################################################
-//##############################################################################
-
 
 {$I hx3_tools.inc}
-
-//##############################################################################
-
-
-
-//##############################################################################
-
-procedure TForm1.HelpAbout1Execute(Sender: TObject);
-begin
-  AboutBox.Version.Caption:= VersionInfo;
-  AboutBox.ShowModal;
-end;
-
-procedure TForm1.FileNew1Execute(Sender: TObject);
-//Form löschen
-begin
-  NewHX3record;
-end;
-
-
-procedure TForm1.FileOpen1Execute(Sender: TObject);
-var my_ReadFile: File of THX3record;
-begin
-if OpenParamDialog.Execute then
-  begin
-    HX3settingsPath := OpenParamDialog.Filename;
-    FileMode := fmOpenRead;
-    AssignFile(my_ReadFile, OpenParamDialog.Filename);
-    Reset(my_ReadFile);
-    Read(my_ReadFile,HX3record);
-    CloseFile(my_ReadFile);
-    HX3record2Form;
-    Form1.Caption:= 'HX3 Remote  ['+ HX3settingsPath+']';
-    Form1.Memo1.lines.Add('#--- Using parameter file: '+ ExtractFilename(HX3settingsPath));
-  end;
-end;
+{$I hx3_files.inc}
+{$I hx3_stringgrids.inc}
+{$I hx3_presets.inc}
 
 //##############################################################################
 
@@ -426,7 +438,6 @@ begin
   Form1.Memo1.lines.Add(HX3_SendStr('9990="'+trim(EditUserName.Text)+'"!',200));
   HX3_info;
 end;
-
 
 procedure TForm1.UpdateFPGAClick(Sender: TObject);
 begin
@@ -459,7 +470,6 @@ begin
   HX3_info;
 end;
 
-
 procedure TForm1.BtnScanCoreClick(Sender: TObject);
 begin
   OpenDialog.DefaultExt:='*.dat';
@@ -472,6 +482,7 @@ begin
     Memo1.lines.Add('#--- Reading all scan cores...');
     Application.ProcessMessages;
     CoreLoadAll(ExtractFilePath(OpenDialog.Filename));
+    Memo1.lines.Add(HX3_SendStr('DFS=1!', 100));
   end else begin
     OpenDialog.Title:= 'Open HX3 Scan Core (DAT):';
     if not OpenDialog.Execute then exit;
@@ -479,12 +490,11 @@ begin
     CoreLoad(OpenDialog.Filename, ComboBoxScancore.ItemIndex);
     Form1.TransferProgress.Position:= 0;
     delay(200);
+    Memo1.lines.Add(HX3_SendStr('DFS=1!', 100));
+    HX3_send(476,ComboBoxScanCore.ItemIndex,true);
   end;
-  Memo1.lines.Add(HX3_SendStr('DFS=1!', 100));
-  Memo1.lines.Add(HX3_SendStr('9998', 1000));
-  delay(1000);
+  Form1.Memo1.lines.Add(HX3_QueryStr(9900));   // Scan Core reload/info
 end;
-
 
 procedure TForm1.BtnDSPClick(Sender: TObject);
 begin
@@ -566,55 +576,18 @@ begin
 end;
 
 //##############################################################################
-//##############################################################################
-
-procedure TForm1.FileSaveAs1Execute(Sender: TObject);
-var mySaveFile: File of THX3record;
-begin
-  if SaveParamDialog.Execute then begin
-    Form2HX3record;
-    HX3settingsPath := SaveParamDialog.Filename;
-    AssignFile(mySaveFile, HX3settingsPath);
-    ReWrite(mySaveFile);
-    Write(mySaveFile,HX3record);
-    CloseFile(mySaveFile);
-    Form1.Caption:= 'HX3 Remote  ['+ HX3settingsPath+']';
-    Form1.Memo1.lines.Add('#--- Using parameter file: '+ ExtractFilename(HX3settingsPath));
-  end;
-end;
-
-procedure TForm1.FileSaveExecute(Sender: TObject);
-var mySaveFile: File of THX3record;
-begin
-  if FileExists(HX3settingsPath) then begin
-    Form2HX3record;
-    AssignFile(mySaveFile, HX3settingsPath);
-    ReWrite(mySaveFile);
-    Write(mySaveFile,HX3record);
-    CloseFile(mySaveFile);
-  end else
-    Form1.FileSaveAs1Execute(nil);
-end;
-
-procedure TForm1.FileExit1Execute(Sender: TObject);
-begin
-  Close;
-end;
-
-//##############################################################################
 
 procedure TForm1.SendAllClick(Sender: TObject);
 var i, my_val:integer;
 begin
   CancelProc:= false;
-  Form2HX3record;
   case PageControl1.TabIndex of
     0: begin
-      TransferProgress.Max:=  c_num_of_organparams;
-      for i:= 0 to  c_num_of_organparams do begin
+      TransferProgress.Max:= StringGrid1.RowCount-1;
+      for i:= 0 to TransferProgress.Max do begin
         LEDflash;
-        my_val:= HX3record.OrganValues[i];
-        HX3_send(400+i, my_val, sendWEN.Checked);
+        my_val:= IntFromStringGrid1(2,i+1);
+        HX3_send(IntFromStringGrid1(0,i+1), my_val, true);
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
@@ -624,11 +597,11 @@ begin
       end;
     end;
     1: begin
-      TransferProgress.Max:= c_num_of_leslieparams;
-      for i:= 0 to c_num_of_leslieparams do begin
+      TransferProgress.Max:= StringGrid2.RowCount-1;
+      for i:= 0 to TransferProgress.Max do begin
         LEDflash;
-        my_val:= HX3record.LeslieValues[i];
-        HX3_send(600+i, my_val, sendWEN.Checked);
+        my_val:= IntFromStringGrid2(2,i+1);
+        HX3_send(IntFromStringGrid2(0,i+1), my_val, true);
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
@@ -638,11 +611,11 @@ begin
       end;
     end;
     2: begin
-      TransferProgress.Max:= c_num_of_midiparams;
-      for i:= 0 to c_num_of_midiparams do begin
+      TransferProgress.Max:= StringGrid3.RowCount-1;;
+      for i:= 0 to TransferProgress.Max do begin
         LEDflash;
-        my_val:= HX3record.MidiCCValues[i];
-        HX3_send(3000+i, my_val, sendWEN.Checked);
+        my_val:= IntFromStringGrid3(2,i+1);
+        HX3_send(IntFromStringGrid3(0,i+1), my_val, true);
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
@@ -652,10 +625,11 @@ begin
       end;
     end;
     3: begin
+      Form2HX3record;
       for i:= 0 to 255 do begin
         LEDflash;
-        my_val:= HX3record.UpperPresets[i];
-        HX3_send(1000+i, my_val, sendWEN.Checked);
+        my_val:= UpperPresets[i];
+        HX3_send(1000+i, my_val, true);
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
@@ -665,10 +639,11 @@ begin
       end;
     end;
     4: begin
+      Form2HX3record;
       for i:= 0 to 255 do begin
         LEDflash;
-        my_val:= HX3record.LowerPresets[i];
-        HX3_send(1256+i, my_val, sendWEN.Checked);
+        my_val:= LowerPresets[i];
+        HX3_send(1256+i, my_val, true);
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
@@ -688,11 +663,11 @@ begin
   CancelProc:= false;
   case PageControl1.TabIndex of
     0: begin
-      TransferProgress.Max:=  c_num_of_organparams;
-      for i:= 0 to  c_num_of_organparams do begin
+      TransferProgress.Max:= StringGrid1.RowCount-1;
+      for i:= 0 to TransferProgress.Max do begin
         LEDflash;
-        my_val:= HX3_query(i+400);
-        HX3record.OrganValues[i]:= my_val;
+        my_val:= HX3_query(IntFromStringGrid1(0,i+1));
+        StringGrid1.Cells[2,i+1]:= IntToStr(my_val);
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
@@ -703,11 +678,11 @@ begin
     end;
     1: begin
     if PageControl1.TabIndex = 1 then
-      TransferProgress.Max:= c_num_of_leslieparams;
-      for i:= 0 to c_num_of_leslieparams do begin
+      TransferProgress.Max:= StringGrid2.RowCount-1;
+      for i:= 0 to TransferProgress.Max do begin
         LEDflash;
-        my_val:= HX3_query(i+600);
-        HX3record.LeslieValues[i]:= my_val;
+        my_val:= HX3_query(IntFromStringGrid2(0,i+1));
+        StringGrid2.Cells[2,i+1]:= IntToStr(my_val);
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
@@ -717,11 +692,11 @@ begin
       end;
     end;
     2: begin
-      TransferProgress.Max:= c_num_of_midiparams;
-      for i:= 0 to c_num_of_midiparams do begin
+      TransferProgress.Max:= StringGrid3.RowCount-1;
+      for i:= 0 to TransferProgress.Max do begin
         LEDflash;
-        my_val:= HX3_query(i+3000);
-        HX3record.MIDIccValues[i]:= my_val;
+        my_val:= HX3_query(IntFromStringGrid3(0,i+1));
+        StringGrid3.Cells[2,i+1]:= IntToStr(my_val);
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
@@ -737,7 +712,7 @@ begin
       for i:= 0 to 255 do begin
         LEDflash;
         my_val:= HX3_query(1000+i);
-        HX3record.UpperPresets[i]:= my_val;
+        UpperPresets[i]:= my_val;
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
@@ -745,6 +720,7 @@ begin
           exit;
         end;
       end;
+      HX3record2Form;
     end;
     4: begin
       TransferProgress.Max:= 255;
@@ -753,7 +729,7 @@ begin
       for i:= 0 to 255 do begin
         LEDflash;
         my_val:= HX3_query(1256+i);
-        HX3record.LowerPresets[i]:= my_val;
+        LowerPresets[i]:= my_val;
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
@@ -761,10 +737,10 @@ begin
           exit;
         end;
       end;
+      HX3record2Form;
     end;
   end;
   TransferProgress.Position :=0;
-  HX3record2Form;
 end;
 
 //##############################################################################
@@ -808,6 +784,7 @@ begin
     InitFTDI(ftdi_selected_device);
     if ftdi_isopen then begin
       EnableButtons;
+      Form1.Memo1.lines.clear;
       HX3_info;
       DeviceView.Text:= ftdi_sernum_arr[ftdi_selected_device]
       + ' - ' + ftdi_desc_arr[ftdi_selected_device];
@@ -823,7 +800,6 @@ begin
       end;
     end;
   end;
-
 end;
 
 procedure TForm1.BtnCloseClick(Sender: TObject);
@@ -835,6 +811,19 @@ begin
   DeviceView.Text:= '(not selected)';
 end;
 
+
+//##############################################################################
+//########################### Formular Main  ###################################
+//##############################################################################
+
+procedure TForm1.HelpAbout1Execute(Sender: TObject);
+begin
+  AboutBox.Version.Caption:= VersionInfo;
+  AboutBox.ShowModal;
+end;
+
+//##############################################################################
+
 procedure TForm1.Timer1Timer(Sender: TObject);
 // alle 10 ms aufgerufen: Schnittstelle abfragen und bei Telegramm-Ende
 begin
@@ -843,9 +832,11 @@ begin
   else
     dec(LEDtimer);
 
-  if TimeOutValue = 0 then
-    TimeOut:= true
-  else begin
+  if TimeOutValue = 0 then begin
+    TimeOut:= true;
+    TimeOutValue:= 10;
+    MidiCheck;
+  end else begin
     TimeOut:= false;
     dec(TimeOutValue);
   end;
@@ -860,6 +851,11 @@ begin
     FroschIni.WriteInteger('Form','Left',Left);
     FroschIni.WriteString('Settings','Path',HX3settingsPath);
     FroschIni.WriteInteger('Settings','Device', ftdi_selected_device);
+    FroschIni.WriteBool('Settings','ImportOrgan', ImportOrgan.Checked);
+    FroschIni.WriteBool('Settings','ImportLeslie', ImportLeslie.Checked);
+    FroschIni.WriteBool('Settings','ImportMidiCC', ImportMidiCC.Checked);
+    FroschIni.WriteBool('Settings','ImportUpper', ImportUpper.Checked);
+    FroschIni.WriteBool('Settings','ImportLower', ImportLower.Checked);
   finally
     FroschIni.Free;
   end;
@@ -871,11 +867,7 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 var
   FroschIni:TRegistryIniFile;
-
 begin
-  Form1.StringGrid1.RowCount:=  c_num_of_organparams+2;
-  Form1.StringGrid2.RowCount:= c_num_of_leslieparams+2;
-  Form1.StringGrid3.RowCount:= 129;
   ComPortUsed:=0;
   Form1.Memo1.lines.Clear;
   Form1.Memo1.lines.Add('#--- Welcome to HX3 Remote!');
@@ -886,310 +878,126 @@ begin
   TimeOutValue:=10;
   DisableButtons;
   FroschIni:=TRegistryIniFile.Create(FroschRegKeyName);
-  HX3settingsPath:=ExtractFilePath(Application.ExeName)+'HX3_factory_defaults.hx3';
+  HX3settingsPath:=ExtractFilePath(Application.ExeName)+'HX3_default_setup.hx3';
   try
     Top:=FroschIni.ReadInteger('Form','Top',150);
     Left:= FroschIni.ReadInteger('Form','Left',150);
-    HX3settingsPath :=FroschIni.ReadString('Settings','Path','');
-    ftdi_selected_device :=FroschIni.ReadInteger('Settings','Device',0);
+    HX3settingsPath:= FroschIni.ReadString('Settings','Path','');
+    ftdi_selected_device:= FroschIni.ReadInteger('Settings','Device',0);
   finally
     FroschIni.Free;
   end;
-  NewHX3record;
-  Stringgrid1.Row:=32;
-  Stringgrid1.TopRow:=32;
+  if FileExists(ExtractFilePath(Application.ExeName)+'decrypt56.exe') then
+    BtnLicenceGen.Enabled:= true;
+
+  ButtonDescList:= TStringList.Create;
+  MidiCCList:= TStringList.Create;
+  DropDownList:= TStringList.Create;
+  InitHX3record;
+  PageControl1Change(Sender);
+  StringGrid3Click(Sender);
 end;
-
-//##############################################################################
-//##############################################################################
-//##############################################################################
-
-procedure TForm1.StringGrid1Click(Sender: TObject);
-// Organ-Parameter
-var
-  i, my_row, my_hint, my_count, my_val: Integer;
-
-begin
-  SetTimeOut(10);
-  my_row:= StringGrid1.Row-1;
-  my_hint:= -1;
-  my_count:= 0;
-  EditValue.Text:= StringGrid1.Rows[my_row+1].Strings[2];
-  if MenuHeaderArr[my_row][1]='(' then begin
-    Trackbar1.Visible:= false;
-    OnOffBtn1.Visible:= false;
-    OptionTextMenu.Visible:= false;
-    EditHint.Caption:= 'Non-Edit/Temp value';
-    exit;
-  end;
-  EditHint.Caption:= StringGrid1.Rows[my_row+1].Strings[1];
-
-  my_val:= TryStrToInt(StringGrid1.Rows[my_row+1].Strings[2]);
-  if MenuMaxArr[my_row] > 1 then begin // enable Slider
-    Trackbar1.Max:= MenuMaxArr[my_row];
-    Trackbar1.Position:= my_val;
-    Trackbar1.Visible:= true;
-    OnOffBtn1.Visible:= false;
-  end else begin
-    Trackbar1.Visible:= false;
-    OnOffBtn1.Visible:= true;
-    if my_val > 0 then begin
-      OnOffBtn1.Color:= clred;
-      OnOffBtn1.Caption:= 'ON';
-    end else begin
-      OnOffBtn1.Color:= clMaroon;
-      OnOffBtn1.Caption:= 'OFF';
-    end;
-  end;
-  case my_row of
-    10:
-      begin
-        my_hint:=35; // Vibknob
-        my_count:=5;
-      end;
-    34:
-      begin
-        my_hint:=21; // MIDI option
-        my_count:=3;
-      end;
-    35:
-      begin
-        my_hint:=0; // MIDI CC set
-        my_count:=5;
-      end;
-    36:
-      begin
-        my_hint:=6; // MIDI CC set
-        my_count:=2;
-      end;
-    38, 39:
-      begin
-        my_hint:=27; // Jack Config
-        my_count:=3;
-      end;
-    53:
-      begin
-        my_hint:=17; // Leakage
-        my_count:=3;
-      end;
-    56:
-      begin
-        my_hint:=31; // Foldback Mode
-        my_count:=3;
-      end;
-    76:
-      begin
-        my_hint:=9; // Scan Core
-        my_count:=7;
-      end;
-  end;
-  // Wenn my_hint positiv, Drop-Down-Menü mit Einträgen aus MenuParamStrArr aktivieren
-  if my_hint >= 0 then begin
-    OptionTextMenu.Clear;
-    for i:= 0 to my_count do begin
-      OptionTextMenu.Items.Add(MenuParamStrArr[i+my_hint]);
-    end;
-    OptionTextMenu.Visible:= true;
-    OptionTextMenu.ItemIndex:= HX3record.OrganValues[my_row];
-    Trackbar1.Visible:= false;
-    OnOffBtn1.Visible:= false;
-  end else
-    OptionTextMenu.Visible:= false;
-
-  if ftdi_isopen then
-    HX3_send(400+my_row, my_val, false);
-
-end;
-
-procedure TForm1.StringGrid2Click(Sender: TObject);
-  // Leslie-Parameter
-var
-  my_row, my_val: Integer;
-
-begin
-  SetTimeOut(10);
-  my_row:= StringGrid2.Row-1;
-  my_val:= TryStrToInt(StringGrid2.Rows[my_row+1].Strings[2]);
-  Trackbar1.Max:= 255;
-  Trackbar1.Position:= my_val;
-  Trackbar1.Visible:= true;
-  OnOffBtn1.Visible:= false;
-  EditHint.Caption:= StringGrid2.Rows[my_row+1].Strings[1];
-  EditValue.Text:= StringGrid2.Rows[my_row+1].Strings[2];
-  if ftdi_isopen then
-    HX3_send(600+my_row, my_val, false);
-end;
-
-procedure TForm1.StringGrid3Click(Sender: TObject);
-var
-  my_row, my_val: Integer;
-begin
-  Trackbar1.Visible:= false;
-  OnOffBtn1.Visible:= false;
-  my_row:= StringGrid3.Row;
-  my_val:= TryStrToInt(StringGrid3.Rows[my_row].Strings[2]);
-  EditHint.Caption:= GetCCdesc(my_Val);
-  EditValue.Text:= '';
-  if ftdi_isopen then
-    HX3_send(3000-1+my_row, my_val, false);
-end;
-
-
-
-procedure TForm1.StringGrid1SetEditText(Sender: TObject; ACol, ARow: Integer;
-  const Value: string);
-var
-  my_val: Integer;
-  my_str: String;
-begin
-  if StringGrid1.EditorMode then exit;
-  my_str:= trim(Value);
-  my_val:= TryStrToInt(my_str);
-  HX3record.OrganValues[ARow-1]:= my_val;
-  EditValue.Text:= my_str;
-  Trackbar1.Position:= my_val;
-end;
-
-procedure TForm1.StringGrid2SetEditText(Sender: TObject; ACol, ARow: Integer;
-  const Value: string);
-var
-  my_val: Integer;
-  my_str: String;
-begin
-  if StringGrid2.EditorMode then exit;
-  my_str:= trim(Value);
-  my_val:= TryStrToInt(my_str);
-  HX3record.LeslieValues[ARow-1]:= my_val;
-  EditValue.Text:= my_str;
-  Trackbar1.Position:= my_val;
-end;
-
-procedure TForm1.StringGrid3SetEditText(Sender: TObject; ACol, ARow: Integer;
-  const Value: string);
-var
-  my_val: Integer;
-  my_str: String;
-begin
-  if StringGrid3.EditorMode then begin
-    if length(Value) > 2 then begin
-      my_str:= trim(Value);
-      my_val:= TryStrToInt(my_str);
-      EditHint.Caption:=  GetCCdesc(my_val);
-      EditValue.Text:= '';
-    end;
-  end else begin
-    my_str:= trim(Value);
-    my_val:= TryStrToInt(my_str);
-    HX3record.MIDIccValues[ARow-1]:= my_val;
-  end;
-end;
-
-procedure TForm1.ComboBoxUpperPresetChange(Sender: TObject);
-begin
-  if ftdi_isopen then
-    HX3_send(413,ComboboxUpperPreset.ItemIndex,false);
-  HX3record2Form;
-  EditHint.Caption:= 'Upper Drawbars';
-end;
-
-procedure TForm1.ComboBoxLowerPresetChange(Sender: TObject);
-begin
-  if ftdi_isopen then
-    HX3_send(414,Form1.ComboboxLowerPreset.ItemIndex,false);
-  HX3record2Form;
-  EditHint.Caption:= 'Lower Drawbars';
-end;
-
-
-//##############################################################################
-//##############################################################################
-//##############################################################################
-
-procedure TForm1.OptionTextMenuChange(Sender: TObject);
-var
-  my_row: Integer;
-begin
-  my_row:= StringGrid1.Row-1;
-  if PageControl1.TabIndex = 0 then
-    Form1.StringGrid1.Rows[my_row+1].Strings[2]:=IntToStr(OptionTextMenu.ItemIndex);
-  EditValue.Text:= IntToStr(OptionTextMenu.ItemIndex);
-  if ftdi_isopen then
-    HX3_send(400+my_row, OptionTextMenu.ItemIndex, false);
-end;
-
-procedure TForm1.TrackBar1Change(Sender: TObject);
-var
-  my_row: Integer;
-begin
-  case PageControl1.TabIndex of
-    0: begin // Organ Params
-      my_row:= StringGrid1.Row-1;
-      StringGrid1.Rows[my_row+1].Strings[2]:= IntToStr(Trackbar1.Position);
-      HX3record.OrganValues[my_row]:= Trackbar1.Position;
-      if ftdi_isopen then
-        HX3_send(400+my_row, HX3record.OrganValues[my_row], false);
-    end;
-    1: begin // Leslie Params
-      my_row:= StringGrid2.Row-1;
-      StringGrid2.Rows[my_row+1].Strings[2]:= IntToStr(Trackbar1.Position);
-      HX3record.LeslieValues[my_row]:= Trackbar1.Position;
-      if ftdi_isopen then
-        HX3_send(600+my_row, HX3record.LeslieValues[my_row], false);
-    end;
-  end;
-  EditValue.Text:= IntToStr(Trackbar1.Position);
-end;
-
-procedure TForm1.OnOffBtn1Click(Sender: TObject);
-var
-  my_row: Integer;
-begin
-  if PageControl1.TabIndex = 0 then begin
-    my_row:= StringGrid1.Row-1;
-    if StringGrid1.Rows[my_row+1].Strings[2]= '0' then begin
-      EditValue.Text:= '255';
-      StringGrid1.Rows[my_row+1].Strings[2]:= '255';
-      OnOffBtn1.Caption:= 'ON';
-      OnOffBtn1.Color:= clRed;
-      HX3record.OrganValues[my_row]:= 255;
-    end else begin
-      EditValue.Text:= '0';
-      StringGrid1.Rows[my_row+1].Strings[2]:= '0';
-      OnOffBtn1.Caption:= 'OFF';
-      OnOffBtn1.Color:= clMaroon;
-      HX3record.OrganValues[my_row]:= 0;
-    end;
-    if ftdi_isopen then
-      HX3_send(400+my_row, HX3record.OrganValues[my_row], false);
-  end;
-end;
-
 
 procedure TForm1.PageControl1Change(Sender: TObject);
 begin
 //  PageControl1.Pages[PageControl1.TabIndex].Highlighted:= false;
   Trackbar1.Visible:= false;
-  OnOffBtn1.Visible:= false;
-  OptionTextMenu.Visible:= false;
-  if PageControl1.TabIndex=3 then begin
-    EditHint.Caption:= 'Drawbar change';
+  Panel1.Visible:= false;
+  ComboBox1.Visible:= false;
+  CheckboxEEwrite.enabled:= true;
+  Checkbox6.enabled:= true;
+  Checkbox7.enabled:= true;
+  Sendall.enabled:= ftdi_isopen;
+  Readall.enabled:= ftdi_isopen;
+  case PageControl1.TabIndex of
+  0: with StringGrid1 do begin
+      Col:= 2;
+      Row:= 1;
+      TopRow:= 1;
+      Trackbar1.Max:= IntFromStringGrid1(4,1);
+      Trackbar1.Position:= IntFromStringGrid1(2,1);
+      TrackBarInStringGrid(CellRect(Col,Row));
+    end;
+  1: with StringGrid2 do begin
+      Col:= 2;
+      Row:= 1;
+      TopRow:= 1;
+      Trackbar1.Max:= 255;
+      Trackbar1.Position:= IntFromStringGrid2(2,1);
+      TrackBarInStringGrid(CellRect(Col,Row));
+    end;
+  3: begin
     if ftdi_isopen then
       HX3_send(413,ComboboxUpperPreset.ItemIndex,false);
-  end;
-  if PageControl1.TabIndex=4 then begin
-    EditHint.Caption:= 'Drawbar change';
+    end;
+  4:begin
     if ftdi_isopen then
       HX3_send(414,ComboboxUpperPreset.ItemIndex,false);
+    end;
+  5: begin
+      Sendall.enabled:= false;
+      Readall.enabled:= false;
+      CheckboxEEwrite.enabled:= false;
+      Checkbox6.enabled:= false;
+      Checkbox7.enabled:= false;
+    end;
   end;
   HX3record2Form;
 end;
 
+procedure TForm1.Panel1Click(Sender: TObject);
+// Button für Organ, StrinGrid1
+begin
+  Panel1.Tag:= (not Panel1.Tag) and 255;
+  with StringGrid1 do begin
+    Cells[Col, Row] := IntToStr(Panel1.Tag);
+    PanelInStringGrid(Panel1.BoundsRect);
+  end;
+  if ftdi_isopen then
+    HX3_send(IntFromStringGrid1(0,StringGrid1.Row), Panel1.Tag, CheckboxEEwrite.checked);
+end;
+
+procedure TForm1.ComboBox1Change(Sender: TObject);
+// Auswahl-Box für Organ, StrinGrid1
+begin
+// Comboboxinhalt wird in Zelle übertragen:
+  with StringGrid1 do begin
+    Cells[Col, Row] := IntToStr(ComboBox1.ItemIndex);
+  end;
+  if ftdi_isopen then
+    HX3_send(IntFromStringGrid1(0,StringGrid1.Row),ComboBox1.ItemIndex, CheckboxEEwrite.checked);
+end;
+
+procedure TForm1.TrackBar1Change(Sender: TObject);
+// Trackbar für Organ und Leslie
+begin
+  case PageControl1.TabIndex of
+    0: begin // Organ Params
+      with StringGrid1 do
+        Cells[Col, Row] := IntToStr(TrackBar1.Position);
+      if ftdi_isopen then
+        HX3_send(IntFromStringGrid1(0,StringGrid1.Row), TrackBar1.Position, CheckboxEEwrite.checked);
+    end;
+    1: begin // Leslie Params
+      with StringGrid2 do
+        Cells[Col, Row] := IntToStr(TrackBar1.Position);
+      if ftdi_isopen then
+        HX3_send(IntFromStringGrid2(0,StringGrid2.Row), TrackBar1.Position, CheckboxEEwrite.checked);
+    end;
+  end;
+end;
 
 //##############################################################################
-//##############################################################################
+//####################### Programming/Update Buttons ###########################
 //##############################################################################
 
-
+procedure TForm1.BtnResetClick(Sender: TObject);
+begin
+  Form1.Memo1.Lines.Clear;
+  ResetCheckboxes;
+  HX3_reset;
+  HX3_info;
+end;
 
 procedure TForm1.BtnCancelClick(Sender: TObject);
 begin
@@ -1204,49 +1012,12 @@ end;
 
 procedure TForm1.EditOrganLicenceChange(Sender: TObject);
 begin
-  HX3record.OrganLicence:= TryStrToInt(EditOrganLicence.Text);
+  HX3record.OrganLicence:= StrToIntDef(EditOrganLicence.Text,0);
 end;
 
 procedure TForm1.EditLeslieLicenceChange(Sender: TObject);
 begin
-  HX3record.LeslieLicence:= TryStrToInt(EditLeslieLicence.Text);
-end;
-
-
-procedure TForm1.StringGrid1DrawCell(Sender: TObject; ACol, ARow: Integer;
-  Rect: TRect; State: TGridDrawState);
-// Tabelle erste Zeile fett und rot
-begin
-  if ARow = 0 then
-    with StringGrid1, Canvas do begin
-      Font.Style := [fsBold];
-      Font.Color:= clred;
-      TextRect(Rect, Rect.Left + 2, Rect.Top + 2, Cells[ACol, ARow]);
-    end;
-end;
-
-procedure TForm1.StringGrid2DrawCell(Sender: TObject; ACol, ARow: Integer;
-  Rect: TRect; State: TGridDrawState);
-// Tabelle erste Zeile fett und rot
-begin
-  if ARow = 0 then
-    with StringGrid2, Canvas do begin
-      Font.Style := [fsBold];
-      Font.Color:= clred;
-      TextRect(Rect, Rect.Left + 2, Rect.Top + 2, Cells[ACol, ARow]);
-    end;
-end;
-
-procedure TForm1.StringGrid3DrawCell(Sender: TObject; ACol, ARow: Integer;
-  Rect: TRect; State: TGridDrawState);
-// Tabelle erste Zeile fett und rot
-begin
-  if ARow = 0 then
-    with StringGrid3, Canvas do begin
-      Font.Style := [fsBold];
-      Font.Color:= clred;
-      TextRect(Rect, Rect.Left + 2, Rect.Top + 2, Cells[ACol, ARow]);
-    end;
+  HX3record.LeslieLicence:= StrToIntDef(EditLeslieLicence.Text,0);
 end;
 
 procedure TForm1.BtnLicenceGenClick(Sender: TObject);
@@ -1281,7 +1052,7 @@ begin
     Append(my_File);
     Write(my_File, HX3record.SerialNumber,#9,HX3record.OrganLicence,#9,
       HX3record.LeslieLicence,#9,HX3record.FPGAversion,#9,
-      FloatToStr(HX3record.FirmwareVersion),#9,MenuParamStrArr[HX3record.OrganValues[76]+9],#9,DateToStr(now),#9);
+      FloatToStr(HX3record.FirmwareVersion),#9,HX3record.OrganBasicSettings[76],#9,DateToStr(now),#9);
     WriteLn(my_File,HX3record.Owner);
     CloseFile(my_File);
   end else
@@ -1292,7 +1063,6 @@ procedure TForm1.UpdateAVRClick(Sender: TObject);
 var
   my_hexfile, my_eepromfile: String;
 begin
-
   CancelProc:= false;
   if not ftdi_isopen then exit;
   if IsFPGAcorrupted then FPGAcorruptedMsg;
@@ -1344,306 +1114,32 @@ begin
   end;
 end;
 
-procedure TForm1.BtnResetClick(Sender: TObject);
-begin
-  Form1.Memo1.Lines.Clear;
-  ResetCheckboxes;
-  HX3_reset;
-  HX3_info;
-end;
-
-procedure TForm1.CheckBox0Click(Sender: TObject);
-begin
-  HX3_Send(900,byte(CheckBox0.Checked),false);
-  Form2HX3record;
-end;
-
-procedure TForm1.CheckBox1Click(Sender: TObject);
-begin
-  HX3_Send(901,byte(CheckBox1.Checked),false);
-  Form2HX3record;
-end;
-
-procedure TForm1.CheckBox2Click(Sender: TObject);
-begin
-  HX3_Send(902,byte(CheckBox2.Checked),false);
-  Form2HX3record;
-end;
-
-procedure TForm1.CheckBox3Click(Sender: TObject);
-begin
-  HX3_Send(903,byte(CheckBox3.Checked),false);
-  Form2HX3record;
-end;
-
-procedure TForm1.CheckBox4Click(Sender: TObject);
-begin
-  HX3_Send(904,byte(CheckBox4.Checked),false);
-  Form2HX3record;
-end;
-
-procedure TForm1.CheckBox5Click(Sender: TObject);
-begin
-  HX3_Send(905,byte(CheckBox5.Checked),false);;
-  Form2HX3record;
-end;
-
-procedure TForm1.CheckBox6Click(Sender: TObject);
-begin
-  HX3_Send(906,byte(CheckBox6.Checked),false);
-  Form2HX3record;
-end;
-
-procedure TForm1.CheckBox7Click(Sender: TObject);
-begin
-  HX3_Send(907,byte(CheckBox7.Checked),false);
-  Form2HX3record;
-end;
-
-procedure TForm1.CheckBox8Click(Sender: TObject);
-var my_int: Integer;
-begin
-  HX3_Send(914,byte(CheckBox8.Checked),false);
-  if Form1.CheckBox8.Checked then
-    my_int:= 1 else my_int:= 0;
-  if Form1.CheckBox9.Checked then
-    my_int:= my_int or 2;
-  Stringgrid1.Cells[2,32+1]:= IntToSTr(my_int);
-  Form2HX3record;
-end;
-
-procedure TForm1.CheckBox9Click(Sender: TObject);
-var my_int: Integer;
-begin
-  HX3_Send(915,byte(CheckBox9.Checked),false);
-  if Form1.CheckBox8.Checked then
-    my_int:= 1 else my_int:= 0;
-  if Form1.CheckBox9.Checked then
-    my_int:= my_int or 2;
-  Stringgrid1.Cells[2,32+1]:= IntToSTr(my_int);
-  Form2HX3record;
-end;
-
-procedure TForm1.CheckBox10Click(Sender: TObject);
-begin
-  HX3_Send(916,byte(CheckBox10.Checked),false);
-  Form2HX3record;
-end;
-
-procedure TForm1.CheckBox11Click(Sender: TObject);
-begin
-  HX3_Send(917,byte(CheckBox11.Checked),false);
-  Form2HX3record;
-end;
-
-procedure TForm1.TrackBarU0Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackBarU0.Position);
-  HX3record.UpperPresets[0+16*Form1.ComboboxUpperPreset.ItemIndex]:= Form1.TrackBarU0.Position;
-  if ftdi_isopen then
-    HX3_send(401,Form1.TrackBarU0.Position,false);
-end;
-
-procedure TForm1.TrackBarU1Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackBarU1.Position);
-  HX3record.UpperPresets[1+16*Form1.ComboboxUpperPreset.ItemIndex]:= Form1.TrackBarU1.Position;
-  if ftdi_isopen then
-    HX3_send(402,Form1.TrackBarU1.Position,false);
-end;
-
-procedure TForm1.TrackBarU2Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackBarU2.Position);
-  HX3record.UpperPresets[2+16*Form1.ComboboxUpperPreset.ItemIndex]:= Form1.TrackBarU2.Position;
-  if ftdi_isopen then
-    HX3_send(403,Form1.TrackBarU2.Position,false);
-end;
-
-procedure TForm1.TrackBarU3Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackBarU3.Position);
-  HX3record.UpperPresets[3+16*Form1.ComboboxUpperPreset.ItemIndex]:= Form1.TrackBarU3.Position;
-  if ftdi_isopen then
-    HX3_send(404,Form1.TrackBarU3.Position,false);
-end;
-
-procedure TForm1.TrackBarU4Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackBarU4.Position);
-  HX3record.UpperPresets[4+16*Form1.ComboboxUpperPreset.ItemIndex]:= Form1.TrackBarU4.Position;
-  if ftdi_isopen then
-    HX3_send(405,Form1.TrackBarU4.Position,false);
-end;
-
-procedure TForm1.TrackBarU5Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackBarU5.Position);
-  HX3record.UpperPresets[5+16*Form1.ComboboxUpperPreset.ItemIndex]:= Form1.TrackBarU5.Position;
-  if ftdi_isopen then
-    HX3_send(406,Form1.TrackBarU5.Position,false);
-end;
-
-procedure TForm1.TrackBarU6Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackBarU5.Position);
-  HX3record.UpperPresets[6+16*Form1.ComboboxUpperPreset.ItemIndex]:= Form1.TrackBarU6.Position;
-  if ftdi_isopen then
-    HX3_send(407,Form1.TrackBarU6.Position,false);
-end;
-
-procedure TForm1.TrackBarU7Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackBarU7.Position);
-  HX3record.UpperPresets[7+16*Form1.ComboboxUpperPreset.ItemIndex]:= Form1.TrackBarU7.Position;
-  if ftdi_isopen then
-    HX3_send(408,Form1.TrackBarU7.Position,false);
-end;
-
-procedure TForm1.TrackBarU8Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackBarU8.Position);
-  HX3record.UpperPresets[8+16*Form1.ComboboxUpperPreset.ItemIndex]:= Form1.TrackBarU8.Position;
-  if ftdi_isopen then
-    HX3_send(409,Form1.TrackBarU8.Position,false);
-end;
-
-procedure TForm1.TrackbarL0Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackbarL0.Position);
-  HX3record.LowerPresets[0+16*Form1.ComboboxLowerPreset.ItemIndex]:= Form1.TrackbarL0.Position;
-  if ftdi_isopen then
-    HX3_send(416,Form1.TrackbarL0.Position,false);
-end;
-
-procedure TForm1.TrackbarL1Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackbarL1.Position);
-  HX3record.LowerPresets[1+16*Form1.ComboboxLowerPreset.ItemIndex]:= Form1.TrackbarL1.Position;
-  if ftdi_isopen then
-    HX3_send(417,Form1.TrackbarL1.Position,false);
-end;
-
-procedure TForm1.TrackbarL2Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackbarL2.Position);
-  HX3record.LowerPresets[2+16*Form1.ComboboxLowerPreset.ItemIndex]:= Form1.TrackbarL2.Position;
-  if ftdi_isopen then
-    HX3_send(418,Form1.TrackbarL2.Position,false);
-end;
-
-procedure TForm1.TrackbarL3Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackbarL3.Position);
-  HX3record.LowerPresets[3+16*Form1.ComboboxLowerPreset.ItemIndex]:= Form1.TrackbarL3.Position;
-  if ftdi_isopen then
-    HX3_send(419,Form1.TrackbarL3.Position,false);
-end;
-
-procedure TForm1.TrackbarL4Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackbarL4.Position);
-  HX3record.LowerPresets[4+16*Form1.ComboboxLowerPreset.ItemIndex]:= Form1.TrackbarL4.Position;
-  if ftdi_isopen then
-    HX3_send(420,Form1.TrackbarL4.Position,false);
-end;
-
-procedure TForm1.TrackbarL5Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackbarL5.Position);
-  HX3record.LowerPresets[5+16*Form1.ComboboxLowerPreset.ItemIndex]:= Form1.TrackbarL5.Position;
-  if ftdi_isopen then
-    HX3_send(421,Form1.TrackbarL5.Position,false);
-end;
-
-procedure TForm1.TrackbarL6Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackbarL5.Position);
-  HX3record.LowerPresets[6+16*Form1.ComboboxLowerPreset.ItemIndex]:= Form1.TrackbarL6.Position;
-  if ftdi_isopen then
-    HX3_send(422,Form1.TrackbarL6.Position,false);
-end;
-
-procedure TForm1.TrackbarL7Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackbarL7.Position);
-  HX3record.LowerPresets[7+16*Form1.ComboboxLowerPreset.ItemIndex]:= Form1.TrackbarL7.Position;
-  if ftdi_isopen then
-    HX3_send(423,Form1.TrackbarL7.Position,false);
-end;
-
-procedure TForm1.TrackbarL8Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackbarL8.Position);
-  HX3record.LowerPresets[8+16*Form1.ComboboxLowerPreset.ItemIndex]:= Form1.TrackbarL8.Position;
-  if ftdi_isopen then
-    HX3_send(424,Form1.TrackbarL8.Position,false);
-end;
-
-procedure TForm1.TrackBarB0Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackbarB0.Position);
-  HX3record.LowerPresets[9+16*Form1.ComboboxLowerPreset.ItemIndex]:= Form1.TrackbarB0.Position;
-  if ftdi_isopen then
-    HX3_send(425,Form1.TrackbarB0.Position,false);
-end;
-
-procedure TForm1.TrackBarB1Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackbarB1.Position);
-  HX3record.LowerPresets[10+16*Form1.ComboboxLowerPreset.ItemIndex]:= Form1.TrackbarB1.Position;
-  if ftdi_isopen then
-    HX3_send(426,Form1.TrackbarB1.Position,false);
-end;
-
-procedure TForm1.TrackBarB2Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackbarB2.Position);
-  HX3record.LowerPresets[11+16*Form1.ComboboxLowerPreset.ItemIndex]:= Form1.TrackbarB2.Position;
-  if ftdi_isopen then
-    HX3_send(427,Form1.TrackbarB2.Position,false);
-end;
-
-procedure TForm1.TrackBarB3Change(Sender: TObject);
-begin
-  EditValue.Text:= IntToStr(TrackbarB3.Position);
-  HX3record.LowerPresets[12+16*Form1.ComboboxLowerPreset.ItemIndex]:= Form1.TrackbarB3.Position;
-  if ftdi_isopen then
-    HX3_send(428,Form1.TrackbarB3.Position,false);
-end;
-
-procedure TForm1.ComboBoxVibKnobChange(Sender: TObject);
-// Vibrato Knob
-begin
-  EditHint.Caption:= 'VibKnob Change';
-  EditValue.Text:= IntToStr(Form1.ComboBoxVibKnob.ItemIndex);
-  if ftdi_isopen then
-    HX3_send(410,Form1.ComboBoxVibKnob.ItemIndex,false);
-  HX3record.UpperPresets[9+16*Form1.ComboboxUpperPreset.ItemIndex]:= Form1.ComboBoxVibKnob.ItemIndex;
-end;
+//##############################################################################
+//####################### Basic Configuration Buttons ##########################
+//##############################################################################
 
 
 procedure TForm1.BtnWriteBasicsClick(Sender: TObject);
 begin
-  HX3record.OrganValues[76]:= BasicScanMode.ItemIndex;
-  HX3record.OrganValues[77]:= bool_byte(BasicExpanderMode.Checked);
-  HX3record.OrganValues[38]:= BasicJackA.ItemIndex;
-  HX3record.OrganValues[39]:= BasicJackB.ItemIndex;
-  HX3record.OrganValues[80]:= bool_byte(BasicToneEna.Checked);
-  HX3record.OrganValues[81]:= bool_byte(not BasicExpanderMode.Checked);
+  HX3record.OrganBasicSettings[76]:= BasicScanMode.ItemIndex;
+  HX3record.OrganBasicSettings[77]:= BoolToByte(BasicExpanderMode.Checked);
+  HX3record.OrganBasicSettings[38]:= BasicJackA.ItemIndex;
+  HX3record.OrganBasicSettings[39]:= BasicJackB.ItemIndex;
+  HX3record.OrganBasicSettings[80]:= BoolToByte(BasicToneEna.Checked);
+  HX3record.OrganBasicSettings[81]:= BoolToByte(not BasicExpanderMode.Checked);
   if ftdi_isopen then begin
     Form1.Memo1.Lines.Clear;
-    HX3_info;
-    BtnLicenceGenClick(Sender);
+//    HX3_info;
+//    BtnLicenceGenClick(Sender);
     LEDflash;
-    HX3_send(438,HX3record.OrganValues[38],true);
-    HX3_send(439,HX3record.OrganValues[39],true);
-    HX3_send(476,HX3record.OrganValues[76],true);
-    HX3_send(477,HX3record.OrganValues[77],true);
-    HX3_send(480,HX3record.OrganValues[80],true); // Tone Pot Ena
-    HX3_send(481,HX3record.OrganValues[81],true); // Amp122 Volume Pot Ena
+    HX3_send(438,HX3record.OrganBasicSettings[38],true);
+    HX3_send(439,HX3record.OrganBasicSettings[39],true);
+    HX3_send(476,HX3record.OrganBasicSettings[76],true);
+    HX3_send(477,HX3record.OrganBasicSettings[77],true);
+    HX3_send(480,HX3record.OrganBasicSettings[80],true); // Tone Pot Ena
+    HX3_send(481,HX3record.OrganBasicSettings[81],true); // Amp122 Volume Pot Ena
     LEDflash;
-    BtnSetLicenceClick(Sender);
+//    BtnSetLicenceClick(Sender);
     Memo1.lines.Add('#--- HX3 set to current Basic Setting controls');
   end;
   HX3record2Form;
@@ -1657,5 +1153,5 @@ begin
   end;
 end;
 
-
 end.
+

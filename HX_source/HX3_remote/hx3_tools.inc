@@ -1,5 +1,14 @@
 // Include-Datei mit Hilfsroutinen für HX3 Remote
 
+
+function BoolToByte(my_bool: Boolean): byte;
+begin
+  if my_bool then
+    result:= 255
+  else
+    result:= 0;
+end;
+
 procedure Delay(msecs: Longint);
 var
   targettime: cardinal;
@@ -7,15 +16,6 @@ begin
   targettime := GetTickCount + msecs;
   while targettime > GetTickCount do
     Application.ProcessMessages;
-end;
-
-function TryStrToInt(my_str:String): LongInt;
-begin
-  result:= 0;
-  if Length(my_str)>0 then try
-    result:= StrToInt(trim(my_str));
-  except Form1.Memo1.lines.Add('##### Error: Number format not valid');
-  end;
 end;
 
 procedure CancelMsg;
@@ -40,43 +40,41 @@ begin
   Application.ProcessMessages;
 end;
 
-procedure SetTimeOut(my_val: Integer);
-// alle 10 ms aufgerufen: Schnittstelle abfragen und bei Telegramm-Ende
-begin
-  TimeOutValue:= my_val;
-  TimeOut:= false;
-end;
-
 procedure Form2HX3record;
-var i, my_preset: Integer;  my_byte: byte;
+var my_preset: Integer;  my_byte: byte;
 begin
-  for i := 0 to  c_num_of_organparams do
-    HX3record.OrganValues[i]:=TrySTrToInt(Form1.StringGrid1.Rows[i+1].Strings[2]);
-  for i := 0 to c_num_of_leslieparams do
-    HX3record.LeslieValues[i]:=TrySTrToInt(Form1.StringGrid2.Rows[i+1].Strings[2]);
-  for i := 0 to c_num_of_midiparams do
-    HX3record.MIDIccValues[i]:=TrySTrToInt(Form1.StringGrid3.Rows[i+1].Strings[2]);
-  // Reverb
-  my_byte:= 0;
-  if Form1.CheckBox8.Checked then
-    my_byte:= 1;
-  if Form1.CheckBox9.Checked then
-    my_byte:= my_byte or 2;
-  HX3record.OrganValues[32]:= my_byte;
+  HX3record.ImportOrgan  :=  Form1.ImportOrgan.Checked;
+  HX3record.ImportLeslie :=  Form1.ImportLeslie.Checked;
+  HX3record.ImportMidiCC :=  Form1.ImportMidiCC.Checked;
+  HX3record.ImportUpper  :=  Form1.ImportUpper.Checked;
+  HX3record.ImportLower  :=  Form1.ImportLower.Checked;
+
+  HX3record.OrganParamFile := Form1.EditOrganDefaultsFile.Text;
+  HX3record.LeslieParamFile:= Form1.EditLeslieDefaultsFile.Text;
+  HX3record.MidiCCfile     := Form1.EditMidiCCFile.Text;
+  HX3record.UpperPresetFile:= Form1.EditUpperPresetsFile.Text;
+  HX3record.LowerPresetFile:= Form1.EditLowerPresetsFile.Text;
+
+  HX3Record.Owner:= Form1.EditUserName.Text;
+  HX3record.FPGAVersion:= Form1.FPGAversion.Text;
+  HX3record.OrganLicence:= StrToIntDef(Form1.EditOrganLicence.Text,0);
+  HX3record.LeslieLicence:= StrToIntDef(Form1.EditLeslieLicence.Text,0);
+  HX3record.SerialNumber:= StrToIntDef(Form1.EditSerialNumber.Text,0);
+
 
   my_preset:= Form1.ComboboxUpperPreset.ItemIndex;
-  HX3record.UpperPresets[0+16*my_preset]:= Form1.TrackBarU0.Position;
-  HX3record.UpperPresets[1+16*my_preset]:= Form1.TrackBarU1.Position;
-  HX3record.UpperPresets[2+16*my_preset]:= Form1.TrackBarU2.Position;
-  HX3record.UpperPresets[3+16*my_preset]:= Form1.TrackBarU3.Position;
-  HX3record.UpperPresets[4+16*my_preset]:= Form1.TrackBarU4.Position;
-  HX3record.UpperPresets[5+16*my_preset]:= Form1.TrackBarU5.Position;
-  HX3record.UpperPresets[6+16*my_preset]:= Form1.TrackBarU6.Position;
-  HX3record.UpperPresets[7+16*my_preset]:= Form1.TrackBarU7.Position;
-  HX3record.UpperPresets[8+16*my_preset]:= Form1.TrackBarU8.Position;
+  UpperPresets[0+16*my_preset]:= Form1.TrackBarU0.Position;
+  UpperPresets[1+16*my_preset]:= Form1.TrackBarU1.Position;
+  UpperPresets[2+16*my_preset]:= Form1.TrackBarU2.Position;
+  UpperPresets[3+16*my_preset]:= Form1.TrackBarU3.Position;
+  UpperPresets[4+16*my_preset]:= Form1.TrackBarU4.Position;
+  UpperPresets[5+16*my_preset]:= Form1.TrackBarU5.Position;
+  UpperPresets[6+16*my_preset]:= Form1.TrackBarU6.Position;
+  UpperPresets[7+16*my_preset]:= Form1.TrackBarU7.Position;
+  UpperPresets[8+16*my_preset]:= Form1.TrackBarU8.Position;
 
   // Vibrato Upper Knob
-  HX3record.UpperPresets[9+16*my_preset]:= Form1.ComboBoxVibKnob.ItemIndex;
+  UpperPresets[9+16*my_preset]:= Form1.ComboBoxVibKnob.ItemIndex;
 
   // Percussion Upper
   my_byte:=0;
@@ -91,29 +89,29 @@ begin
   // Vibrato Upper
   if Form1.CheckBox4.Checked then
     my_byte:= my_byte or 16;
-  HX3record.UpperPresets[10+16*my_preset]:= my_byte;
+  UpperPresets[10+16*my_preset]:= my_byte;
 
   my_preset:= Form1.ComboboxLowerPreset.ItemIndex;
-  HX3record.LowerPresets[0+16*my_preset]:= Form1.TrackbarL0.Position;
-  HX3record.LowerPresets[1+16*my_preset]:= Form1.TrackbarL1.Position;
-  HX3record.LowerPresets[2+16*my_preset]:= Form1.TrackbarL2.Position;
-  HX3record.LowerPresets[3+16*my_preset]:= Form1.TrackbarL3.Position;
-  HX3record.LowerPresets[4+16*my_preset]:= Form1.TrackbarL4.Position;
-  HX3record.LowerPresets[5+16*my_preset]:= Form1.TrackbarL5.Position;
-  HX3record.LowerPresets[6+16*my_preset]:= Form1.TrackbarL6.Position;
-  HX3record.LowerPresets[7+16*my_preset]:= Form1.TrackbarL7.Position;
-  HX3record.LowerPresets[8+16*my_preset]:= Form1.TrackbarL8.Position;
+  LowerPresets[0+16*my_preset]:= Form1.TrackbarL0.Position;
+  LowerPresets[1+16*my_preset]:= Form1.TrackbarL1.Position;
+  LowerPresets[2+16*my_preset]:= Form1.TrackbarL2.Position;
+  LowerPresets[3+16*my_preset]:= Form1.TrackbarL3.Position;
+  LowerPresets[4+16*my_preset]:= Form1.TrackbarL4.Position;
+  LowerPresets[5+16*my_preset]:= Form1.TrackbarL5.Position;
+  LowerPresets[6+16*my_preset]:= Form1.TrackbarL6.Position;
+  LowerPresets[7+16*my_preset]:= Form1.TrackbarL7.Position;
+  LowerPresets[8+16*my_preset]:= Form1.TrackbarL8.Position;
 
-  HX3record.LowerPresets[9+16*my_preset]:= Form1.TrackbarB0.Position;
-  HX3record.LowerPresets[10+16*my_preset]:= Form1.TrackbarB1.Position;
-  HX3record.LowerPresets[11+16*my_preset]:= Form1.TrackbarB2.Position;
-  HX3record.LowerPresets[12+16*my_preset]:= Form1.TrackbarB3.Position;
+  LowerPresets[ 9+16*my_preset]:= Form1.TrackbarB0.Position;
+  LowerPresets[10+16*my_preset]:= Form1.TrackbarB1.Position;
+  LowerPresets[11+16*my_preset]:= Form1.TrackbarB2.Position;
+  LowerPresets[12+16*my_preset]:= Form1.TrackbarB3.Position;
 
   // Vibrato Lower
   my_byte:=0;
   if Form1.CheckBox5.Checked then
     my_byte:= 32;
-  HX3record.LowerPresets[13+16*my_preset]:= my_byte;
+  LowerPresets[13+16*my_preset]:= my_byte;
 
   // Reverb, Split, Jacks
   my_byte:=0;
@@ -121,55 +119,47 @@ begin
     my_byte:= 1;
   if Form1.CheckBox9.Checked then
     my_byte:= my_byte or 2;
-  HX3record.OrganValues[32]:= my_byte;
+  HX3record.OrganBasicSettings[32]:= my_byte;
 
   my_byte:=0;
   if Form1.CheckBox10.Checked then
     my_byte:= 64;
   if Form1.CheckBox11.Checked then
     my_byte:= my_byte or 128;
-  HX3record.LowerPresets[14+16*my_preset]:= my_byte;
-  HX3Record.Owner:= Form1.EditUserName.Text;
-  HX3record.FPGAVersion:= Form1.FPGAversion.Text;
-  HX3record.OrganLicence:= TryStrToInt(Form1.EditOrganLicence.Text);
-  HX3record.LeslieLicence:= TryStrToInt(Form1.EditLeslieLicence.Text);
-  HX3record.SerialNumber:= TryStrToInt(Form1.EditSerialNumber.Text);
+  LowerPresets[14+16*my_preset]:= my_byte;
 end;
 
 procedure HX3record2Form;
-var i, my_preset: Integer; my_byte: Byte;
+var
+  my_preset: Integer; my_byte: Byte;
 begin
-  for i := 0 to  c_num_of_organparams do begin
-    Form1.StringGrid1.Rows[i+1].Strings[0]:= IntToStr(i+400);
-    Form1.StringGrid1.Rows[i+1].Strings[1]:= MenuHeaderArr[i];
-    Form1.StringGrid1.Rows[i+1].Strings[2]:= IntToStr(HX3record.OrganValues[i]);
-  end;
-  for i := 0 to c_num_of_leslieparams do begin
-    Form1.StringGrid2.Rows[i+1].Strings[0]:= IntToStr(i+600);
-    Form1.StringGrid2.Rows[i+1].Strings[1]:= LeslieDescArr[i];
-    Form1.StringGrid2.Rows[i+1].Strings[2]:= IntToStr(HX3record.LeslieValues[i]);
-  end;
-  for i := 0 to c_num_of_midiparams do begin
-    Form1.StringGrid3.Rows[i+1].Strings[0]:= IntToStr(i+3000);
-    Form1.StringGrid3.Rows[i+1].Strings[1]:= MIDIdescArr[i];
-    Form1.StringGrid3.Rows[i+1].Strings[2]:= IntToStr(HX3record.MIDIccValues[i]);
-  end;
+  Form1.ImportOrgan.Checked := HX3record.ImportOrgan;
+  Form1.ImportLeslie.Checked:= HX3record.ImportLeslie;
+  Form1.ImportMidiCC.Checked:= HX3record.ImportMidiCC;
+  Form1.ImportUpper.Checked := HX3record.ImportUpper;
+  Form1.ImportLower.Checked := HX3record.ImportLower;
+
+  Form1.EditOrganDefaultsFile.Text := HX3record.OrganParamFile;
+  Form1.EditLeslieDefaultsFile.Text:= HX3record.LeslieParamFile;
+  Form1.EditMidiCCFile.Text        := HX3record.MidiCCfile;
+  Form1.EditUpperPresetsFile.Text  := HX3record.UpperPresetFile;
+  Form1.EditLowerPresetsFile.Text  := HX3record.LowerPresetFile;
 
   my_preset:= Form1.ComboboxUpperPreset.ItemIndex;
-  Form1.TrackBarU0.Position:= HX3record.UpperPresets[0+16*my_preset];
-  Form1.TrackBarU1.Position:= HX3record.UpperPresets[1+16*my_preset];
-  Form1.TrackBarU2.Position:= HX3record.UpperPresets[2+16*my_preset];
-  Form1.TrackBarU3.Position:= HX3record.UpperPresets[3+16*my_preset];
-  Form1.TrackBarU4.Position:= HX3record.UpperPresets[4+16*my_preset];
-  Form1.TrackBarU5.Position:= HX3record.UpperPresets[5+16*my_preset];
-  Form1.TrackBarU6.Position:= HX3record.UpperPresets[6+16*my_preset];
-  Form1.TrackBarU7.Position:= HX3record.UpperPresets[7+16*my_preset];
-  Form1.TrackBarU8.Position:= HX3record.UpperPresets[8+16*my_preset];
+  Form1.TrackBarU0.Position:= UpperPresets[0+16*my_preset];
+  Form1.TrackBarU1.Position:= UpperPresets[1+16*my_preset];
+  Form1.TrackBarU2.Position:= UpperPresets[2+16*my_preset];
+  Form1.TrackBarU3.Position:= UpperPresets[3+16*my_preset];
+  Form1.TrackBarU4.Position:= UpperPresets[4+16*my_preset];
+  Form1.TrackBarU5.Position:= UpperPresets[5+16*my_preset];
+  Form1.TrackBarU6.Position:= UpperPresets[6+16*my_preset];
+  Form1.TrackBarU7.Position:= UpperPresets[7+16*my_preset];
+  Form1.TrackBarU8.Position:= UpperPresets[8+16*my_preset];
   // Vibrato Upper Knob
-  Form1.ComboBoxVibKnob.ItemIndex:= HX3record.UpperPresets[9+16*my_preset];
+  Form1.ComboBoxVibKnob.ItemIndex:= UpperPresets[9+16*my_preset];
 
   // Percussion Upper
-  my_byte:= HX3record.UpperPresets[10+16*my_preset];
+  my_byte:= UpperPresets[10+16*my_preset];
   Form1.CheckBox0.Checked:= (my_byte and 1) <> 0;
   Form1.CheckBox1.Checked:= (my_byte and 2) <> 0;
   Form1.CheckBox2.Checked:= (my_byte and 4) <> 0;
@@ -179,61 +169,181 @@ begin
   Form1.CheckBox4.Checked:= (my_byte and 16) <> 0;
 
   my_preset:= Form1.ComboboxLowerPreset.ItemIndex;
-  Form1.TrackbarL0.Position:= HX3record.LowerPresets[0+16*my_preset];
-  Form1.TrackbarL1.Position:= HX3record.LowerPresets[1+16*my_preset];
-  Form1.TrackbarL2.Position:= HX3record.LowerPresets[2+16*my_preset];
-  Form1.TrackbarL3.Position:= HX3record.LowerPresets[3+16*my_preset];
-  Form1.TrackbarL4.Position:= HX3record.LowerPresets[4+16*my_preset];
-  Form1.TrackbarL5.Position:= HX3record.LowerPresets[5+16*my_preset];
-  Form1.TrackbarL6.Position:= HX3record.LowerPresets[6+16*my_preset];
-  Form1.TrackbarL7.Position:= HX3record.LowerPresets[7+16*my_preset];
-  Form1.TrackbarL8.Position:= HX3record.LowerPresets[8+16*my_preset];
+  Form1.TrackbarL0.Position:= LowerPresets[0+16*my_preset];
+  Form1.TrackbarL1.Position:= LowerPresets[1+16*my_preset];
+  Form1.TrackbarL2.Position:= LowerPresets[2+16*my_preset];
+  Form1.TrackbarL3.Position:= LowerPresets[3+16*my_preset];
+  Form1.TrackbarL4.Position:= LowerPresets[4+16*my_preset];
+  Form1.TrackbarL5.Position:= LowerPresets[5+16*my_preset];
+  Form1.TrackbarL6.Position:= LowerPresets[6+16*my_preset];
+  Form1.TrackbarL7.Position:= LowerPresets[7+16*my_preset];
+  Form1.TrackbarL8.Position:= LowerPresets[8+16*my_preset];
 
 
-  Form1.TrackbarB0.Position:= HX3record.LowerPresets[9+16*my_preset];
-  Form1.TrackbarB1.Position:= HX3record.LowerPresets[10+16*my_preset];
-  Form1.TrackbarB2.Position:= HX3record.LowerPresets[11+16*my_preset];
-  Form1.TrackbarB3.Position:= HX3record.LowerPresets[12+16*my_preset];
+  Form1.TrackbarB0.Position:= LowerPresets[9+16*my_preset];
+  Form1.TrackbarB1.Position:= LowerPresets[10+16*my_preset];
+  Form1.TrackbarB2.Position:= LowerPresets[11+16*my_preset];
+  Form1.TrackbarB3.Position:= LowerPresets[12+16*my_preset];
 
   // Vibrato Lower
-  my_byte:= HX3record.UpperPresets[13+16*my_preset];
+  my_byte:= UpperPresets[13+16*my_preset];
   Form1.CheckBox0.Checked:= (my_byte and 32) <> 0;
 
   // Reverb, Split, Jacks; Reverb aus HX3record.OrganValues
-  my_byte:= HX3record.OrganValues[32];
+
+  my_byte:= HX3record.OrganBasicSettings[32];
   Form1.CheckBox8.Checked:= (my_byte and 1) <> 0;
   Form1.CheckBox9.Checked:= (my_byte and 2) <> 0;
 
-  my_byte:= HX3record.LowerPresets[14+16*my_preset];
+  my_byte:= LowerPresets[14+16*my_preset];
   Form1.CheckBox10.Checked:= (my_byte and 64) <> 0;
   Form1.CheckBox11.Checked:= (my_byte and 128) <> 0;
 
   Form1.EditUserName.Text:= HX3Record.Owner;
   Form1.FPGAversion.Text:= HX3record.FPGAVersion;
   DecimalSeparator:= '.';
-  Form1.EditFirmwareVersion.Text:= FloatToStr(HX3record.FirmwareVersion);
-  Form1.EditOrganLicence.Text:= IntToStr(HX3record.OrganLicence);
-  Form1.EditLeslieLicence.Text:= IntToStr(HX3record.LeslieLicence);
-  Form1.EditSerialNumber.Text:= IntToStr(HX3record.SerialNumber);
+  Form1.EditFirmwareVersion.Text  := FloatToStr(HX3record.FirmwareVersion);
+  Form1.EditOrganLicence.Text     := IntToStr(HX3record.OrganLicence);
+  Form1.EditLeslieLicence.Text    := IntToStr(HX3record.LeslieLicence);
+  Form1.EditSerialNumber.Text     := IntToStr(HX3record.SerialNumber);
+
+  Form1.BasicJackA.ItemIndex      := HX3record.OrganBasicSettings[38];
+  Form1.BasicJackB.ItemIndex      := HX3record.OrganBasicSettings[39];
+  Form1.BasicScanMode.ItemIndex   := HX3record.OrganBasicSettings[76];
+  Form1.BasicExpanderMode.Checked := boolean(HX3record.OrganBasicSettings[77]);
+  Form1.BasicToneEna.Checked      := boolean(HX3record.OrganBasicSettings[80]);
 end;
 
-procedure NewHX3record;
+procedure FileErrorMemo(my_name: String);
+begin
+    Form1.Memo1.lines.Add('##### Êrror: Missing file ' + my_name);
+end;
+
+//##############################################################################
+//##############################################################################
+
+
+function CountCharsInString(const my_char: char; my_text: string): integer;
+var
+  offset: integer;
+begin
+  result := 0;
+  offset := Pos(my_char, my_text);
+  while offset <> 0 do begin
+    inc(result);
+    offset := PosEx(my_char, my_text, offset + 1);
+  end;
+end;
+
+procedure ImportStringGrid1(filename: String);
+var
+  F: TStringList;
+  i: Integer;
+begin
+    F := TStringList.Create;
+    try
+      F.LoadFromFile(filename);
+      Form1.StringGrid1.RowCount := F.Count;
+      Form1.StringGrid1.ColCount := CountCharsInString(',',F[0])+1;
+      for i := 0 to (Form1.StringGrid1.RowCount -1) do
+        Form1.StringGrid1.Rows[i].CommaText := F[i];
+    finally
+      F.Free;
+    end;
+end;
+
+procedure ImportStringGrid2(filename: String);
+var
+  F: TStringList;
+  i: Integer;
+begin
+    F := TStringList.Create;
+    try
+      F.LoadFromFile(filename);
+      Form1.StringGrid2.RowCount := F.Count;
+      Form1.StringGrid2.ColCount := CountCharsInString(',',F[0])+1;
+      for i := 0 to (Form1.StringGrid2.RowCount -1) do
+        Form1.StringGrid2.Rows[i].CommaText := F[i];
+    finally
+      F.Free;
+    end;
+end;
+
+procedure ImportStringGrid3(filename: String);
+var
+  F: TStringList;
+  i: Integer;
+begin
+    F := TStringList.Create;
+    try
+      F.LoadFromFile(filename);
+      Form1.StringGrid3.RowCount := F.Count;
+      Form1.StringGrid3.ColCount := CountCharsInString(',',F[0])+1;
+      for i := 0 to (Form1.StringGrid3.RowCount -1) do
+        Form1.StringGrid3.Rows[i].CommaText := F[i];
+    finally
+      F.Free;
+    end;
+end;
+
+procedure ImportUpperPresets(filename: String);
+var
+  F: TStringList;
+  i, n: Integer;
+begin
+  F:= TStringList.Create;
+  try
+    F.LoadFromFile(filename);
+    n := F.Count;
+    for i := 0 to 255 do
+      if i > n then
+        break
+      else
+        UpperPresets[i] := StrToIntDef(F.ValueFromIndex[i],0);
+  finally
+    F.Free;
+  end;
+  HX3record2Form;
+end;
+
+procedure ImportLowerPresets(filename: String);
+var
+  F: TStringList;
+  i, n: Integer;
+begin
+  F:= TStringList.Create;
+  try
+    F.LoadFromFile(filename);
+    n := F.Count;
+    for i := 0 to 255 do
+      if i > n then
+        break
+      else
+        LowerPresets[i] := StrToIntDef(F.ValueFromIndex[i],0);
+  finally
+    F.Free;
+  end;
+  HX3record2Form;
+end;
+
+//##############################################################################
+
+procedure InitHX3record;
 var
   my_ReadFile: File of THX3record;
+  i, my_idx: integer;
+  my_str, my_filename: String;
 
 begin
-  Form1.StringGrid1.Rows[0].Strings[0]:= '#';
-  Form1.StringGrid1.Rows[0].Strings[1]:= 'Description';
-  Form1.StringGrid1.Rows[0].Strings[2]:= 'Value';
-  Form1.StringGrid2.Rows[0].Strings[0]:= '#';
-  Form1.StringGrid2.Rows[0].Strings[1]:= 'Description';
-  Form1.StringGrid2.Rows[0].Strings[2]:= 'Value';
-  Form1.StringGrid3.Rows[0].Strings[0]:= '#';
-  Form1.StringGrid3.Rows[0].Strings[1]:= 'MIDI-CC translated to';
-  Form1.StringGrid3.Rows[0].Strings[2]:= 'HX3';
+  Form1.StringGrid1.ColWidths[1] := 200;
+  Form1.StringGrid1.ColWidths[2] := 162;
+  Form1.StringGrid2.ColWidths[1] := 200;
+  Form1.StringGrid2.ColWidths[2] := 162;
+//  StringGrid3.ColWidths[1] := 200;
+//  StringGrid3.ColWidths[2] := 50;
 
   if not fileexists(HX3settingsPath) then
-    HX3settingsPath:=ExtractFilePath(Application.ExeName)+'HX3_factory_defaults.hx3';
+    HX3settingsPath:=ExtractFilePath(Application.ExeName)+'HX3_default_setup.hx3';
 
   if FileExists(HX3settingsPath) then begin
     FileMode := fmOpenRead;
@@ -242,13 +352,14 @@ begin
     try
       Read(my_ReadFile,HX3record);
     except
-      Form1.Memo1.lines.Add('##### Warning: Parameter file invalid/corrupted - Save to repair');
+      Form1.Memo1.lines.Add('##### Warning: Setup file invalid/corrupted - Save to repair');
     end;
     CloseFile(my_ReadFile);
     Form1.Caption:= 'HX3 Remote  ['+ HX3settingsPath+']';
-    Form1.Memo1.lines.Add('#--- Using parameter file: '+ ExtractFilename(HX3settingsPath));
+    Form1.Memo1.lines.Add('#--- Using HX3 Remote Setup file '+ ExtractFilename(HX3settingsPath));
   end else
-    Form1.Memo1.lines.Add('##### Warning: Missing default parameter file HX3_factory_defaults.hx3');
+    FileErrorMemo(ExtractFileName(HX3settingsPath));
+
   HX3record.Firmwareversion:=0;
   HX3record.LeslieLicence:=0;
   HX3record.OrganLicence:=0;
@@ -257,7 +368,93 @@ begin
   HX3record.FPGAversion:='00000000';
   HX3record2Form;
   Form1.PageControl1.TabIndex := 0;
+
+// Organ Defaults einlesen
+  if Form1.ImportOrgan.Checked and FileExists(HX3record.OrganParamFile) then
+    ImportStringGrid1(HX3record.OrganParamFile)
+  else begin
+    HX3record.OrganParamFile:= ExtractFilePath(Application.ExeName)+'hx3_organ_defaults.csv';
+    if fileExists(HX3record.OrganParamFile) then
+      ImportStringGrid1(HX3record.OrganParamFile)
+    else
+      FileErrorMemo('hx3_organ_defaults.csv');
+  end;
+  Form1.Memo1.lines.Add('#--- Using Organ Param file '+ ExtractFilename(HX3record.OrganParamFile));
+
+ // Leslie Defaults einlesen
+ if Form1.ImportLeslie.Checked and FileExists(HX3record.LeslieParamFile) then
+    ImportStringGrid2(HX3record.LeslieParamFile)
+  else begin
+    HX3record.LeslieParamFile:= ExtractFilePath(Application.ExeName)+'hx3_leslie_defaults.csv';
+    if fileExists(HX3record.LeslieParamFile) then
+      ImportStringGrid2(HX3record.LeslieParamFile)
+    else
+      FileErrorMemo('hx3_leslie_defaults.csv');
+  end;
+  Form1.Memo1.lines.Add('#--- Using Leslie Param file '+ ExtractFilename(HX3record.LeslieParamFile));
+
+// MIDI-Custom-CC File einlesen
+  if Form1.ImportMidiCC.Checked and FileExists(HX3record.MidiCCFile) then
+    ImportStringGrid3(HX3record.MidiCCFile)
+  else begin
+    HX3record.MidiCCFile:= ExtractFilePath(Application.ExeName)+'hx3_midi_cc_defaults.csv';
+    if fileExists(HX3record.MidiCCFile) then
+      ImportStringGrid3(HX3record.MidiCCFile)
+    else
+      FileErrorMemo('hx3_midi_cc_defaults.csv');
+  end;
+  Form1.Memo1.lines.Add('#--- Using MIDI CC file '+ ExtractFilename(HX3record.MidiCCFile));
+
+// Upper Presets einlesen
+  if Form1.ImportUpper.Checked and FileExists(HX3record.UpperPresetFile) then begin
+    Form1.Memo1.lines.Add('#--- Using Upper Presets file '+ ExtractFilename(HX3record.UpperPresetFile));
+    ImportUpperPresets(HX3record.UpperPresetFile)
+  end;
+
+// Lower Presets einlesen
+  if Form1.ImportUpper.Checked and FileExists(HX3record.LowerPresetFile) then begin
+    Form1.Memo1.lines.Add('#--- Using Upper Presets file '+ ExtractFilename(HX3record.LowerPresetFile));
+    ImportLowerPresets(HX3record.LowerPresetFile)
+  end;
+
+// Listbox und Liste für MIDI-CC-Assignment erstellen
+  Form1.MidiCCListBox.Clear;
+  MidiCCList.Clear;
+  MidiCCList.Add('0=(not assigned)');
+  Form1.MidiCCListBox.Items.Add('(not assigned)');
+  for i := 1 to Form1.StringGrid1.RowCount-1 do begin
+    my_str:= Form1.StringGrid1.Cells[1,i];
+    Form1.MidiCCListBox.Items.Add(my_str);
+    my_str:= Form1.StringGrid1.Cells[0,i]+'='+my_str;
+    MidiCCList.Add(my_str);
+  end;
+  my_filename:= ExtractFilePath(Application.ExeName)+'hx3_buttons.csv';
+  if FileExists(my_filename) then begin
+    ButtonDescList.LoadFromFile(my_filename);
+    for i:= 0 to ButtonDescList.Count -1 do begin
+      Form1.MidiCCListBox.Items.Add(ButtonDescList.ValueFromIndex[i]);
+      MidiCCList.Add(ButtonDescList[i]);
+    end;
+  end else
+    FileErrorMemo('hx3_buttons.csv');
+
+// DropDown-Menüs einlesen
+  DropDownList.Clear;
+  my_filename:= ExtractFilePath(Application.ExeName)+'hx3_dropdown_menus.csv';
+  if FileExists(my_filename) then begin
+    DropDownList.LoadFromFile(my_filename);
+    my_idx:= DropDownList.IndexOfName('OutConfig');
+    for i:= 0 to 31 do begin
+      Form1.BasicJackA.Items.Add(DropDownList.ValueFromIndex[my_idx+i]);
+      Form1.BasicJackB.Items.Add(DropDownList.ValueFromIndex[my_idx+i]);
+    end;
+  end else
+    FileErrorMemo('hx3_dropdown_menus.csv');
+
+  Form2HX3record;
 end;
+
+//##############################################################################
 
 procedure HX3_resync;
 var
@@ -295,12 +492,14 @@ end;
 
 procedure FPGAcorruptedMsg;
 begin
-  showmessage('FPGA configuration is corrupted. Please insert CONF_DIS jumper before continuing!');
+  if HX3record.FirmwareVersion < 3.56 then
+    showmessage('FPGA configuration is corrupted. Please insert CONF_DIS jumper before continuing!');
 end;
 
 procedure RemoveConfDisJpMsg;
 begin
-  ShowMessage('Please remove CONF_DIS jumper and click OK when done!');
+  if HX3record.FirmwareVersion < 3.56 then
+    ShowMessage('Please remove CONF_DIS jumper and click OK when done!');
 end;
 
 procedure HX3_info;
@@ -312,7 +511,6 @@ begin
   HX3_resync;
   my_str:=HX3_QueryStr(254);
   Form1.Memo1.lines.Add(my_str);
-
   my_str:= HX3_QueryStr(244); // Aktive Freischaltungen
   my_val:= HX3_StrToInt(my_str);
   if my_val and 1 = 1 then
@@ -333,9 +531,12 @@ begin
   Form1.FPGAversion.Text:= my_str;
   HX3record.FPGAversion:= my_str;
 
-  my_str:=HX3_QueryStr(9900);  // Scan Core reload/info
+  my_str:=HX3_QueryStr(9910);  // FPGA Info
   Form1.Memo1.lines.Add(my_str);
-  Form1.ComboBoxScancore.ItemIndex:= HX3_StrToInt(my_str);
+  my_val:= HX3_StrToInt(my_str);
+  if my_val < 0 then
+    Form1.Memo1.lines.Add('##### Warning: FPGA version too old, does not match firmware');
+  HX3_resync;
 
   my_str:=HX3_QueryStr(9952);
   Form1.Memo1.lines.Add(my_str);
@@ -365,149 +566,26 @@ begin
   DecimalSeparator:= '.';
   my_str:= FloatToStr(HX3record.FirmwareVersion);
   Form1.EditFirmwareVersion.Text:= my_str;
-  if HX3record.FirmwareVersion < 3.52 then begin
+  if HX3record.FirmwareVersion < 3.56 then begin
     Form1.Memo1.lines.Add('##### Warning: Firmware version below #3.6x, some functions may not work');
     HasBootLoaderJump:= false;
   end else
     HasBootLoaderJump:= true;
   if IsFPGAcorrupted then begin
     Form1.Memo1.lines.Add('##### Warning: FPGA config seems to be corrupted');
-    Form1.Memo1.lines.Add('##### Warning: Update FPGA first and insert CONF_DIS JP when requested');
+    Form1.Memo1.lines.Add('##### Warning: Update FPGA first and insert CONF_DIS JP if requested');
     Form1.BtnScanCore.Enabled:=false;
     Form1.BtnDSP.Enabled:=false;
   end else begin
     Form1.BtnScanCore.Enabled:=true;
     Form1.BtnDSP.Enabled:=true;
   end;
-end;
 
 
-function GetCCdesc(my_val: Integer):String;
-begin
-  case my_val of
-    0:
-      result:= '(not assigned)';
-    400..(400+ c_num_of_organparams):
-      result:= 'MIDI CC tanslated to '+ MenuHeaderArr[my_val-400];
-    600..(600+ c_num_of_leslieparams):
-      result:= 'MIDI CC tanslated to '+ LeslieDescArr[my_val-600];
-    900..919:
-      result:= 'MIDI CC tanslated to '+ ButtonDescArr[my_val-900];
-  else
-    result:= '(invalid number)';
-  end;
-end;
+  my_str:=HX3_QueryStr(9900);  // Scan Core reload/info
+  Form1.Memo1.lines.Add(my_str);
+  Form1.ComboBoxScancore.ItemIndex:= HX3_StrToInt(my_str);
 
-function bool_byte(my_bool: Boolean): byte;
-begin
-  if my_bool then
-    result:= 255
-  else
-    result:= 0;
-end;
-
-//##############################################################################
-
-procedure ExecuteFile(const AFilename: String;
-                 AParameter, ACurrentDir: String; AWait: Boolean);
-var
-  si: TStartupInfo;
-  pi: TProcessInformation;
-
-begin
-  if Length(ACurrentDir) = 0 then
-    ACurrentDir := ExtractFilePath(AFilename)
-  else if AnsiLastChar(ACurrentDir) = '\' then
-    Delete(ACurrentDir, Length(ACurrentDir), 1);
-
-  FillChar(si, SizeOf(si), 0);
-  with si do begin
-    cb := SizeOf(si);
-    dwFlags := STARTF_USESHOWWINDOW;
-    wShowWindow := SW_NORMAL;
-  end;
-
-  FillChar(pi, SizeOf(pi), 0);
-  AParameter := Format('"%s" %s', [AFilename, TrimRight(AParameter)]);
-
-  if CreateProcess(Nil, PChar(AParameter), Nil, Nil, False,
-                   CREATE_DEFAULT_ERROR_MODE or CREATE_NEW_CONSOLE or
-                   NORMAL_PRIORITY_CLASS, Nil, PChar(ACurrentDir), si, pi) then
-  try
-    if AWait then
-      while WaitForSingleObject(pi.hProcess, 50) <> Wait_Object_0 do begin
-        Application.ProcessMessages;
-        LEDflash;
-      end;
-      TerminateProcess(pi.hProcess, Cardinal(-1));
-  finally
-    CloseHandle(pi.hProcess);
-    CloseHandle(pi.hThread);
-  end;
-end;
-
-function ExecuteAndResponse(DosApp:String):String;
-// Shell-Programm ausführen und Antwort aufzeichnen
-const
-  ReadBuffer = 5000;
-var
-  Security : TSecurityAttributes;
-  ReadPipe,WritePipe : THandle;
-  start : TStartUpInfo;
-  ProcessInfo : TProcessInformation;
-  Buffer : Pchar;
-  BytesRead : DWord;
-  Apprunning : DWord;
-  my_str: string;
-
-begin
-   my_str:='';
-   With Security do begin
-    nlength := SizeOf(TSecurityAttributes) ;
-    binherithandle := true;
-    lpsecuritydescriptor := nil;
-   end;
-   if Createpipe (ReadPipe, WritePipe,
-                  @Security, 0) then begin
-    Buffer := AllocMem(ReadBuffer + 1) ;
-    FillChar(Start,Sizeof(Start),#0) ;
-    start.cb := SizeOf(start) ;
-    start.hStdOutput := WritePipe;
-    start.hStdInput := ReadPipe;
-    start.dwFlags := STARTF_USESTDHANDLES + STARTF_USESHOWWINDOW;
-    start.wShowWindow := SW_HIDE;
-
-    if CreateProcess(nil,
-           PChar(DosApp),
-           @Security,
-           @Security,
-           true,
-           NORMAL_PRIORITY_CLASS,
-           nil,
-           nil,
-           start,
-           ProcessInfo)
-    then
-    begin
-     repeat
-      Apprunning := WaitForSingleObject(ProcessInfo.hProcess,100) ;
-      Application.ProcessMessages;
-     until (Apprunning <> WAIT_TIMEOUT) ;
-      Repeat
-        BytesRead := 0;
-        ReadFile(ReadPipe,Buffer[0], ReadBuffer,BytesRead,nil) ;
-        Buffer[BytesRead]:= #0;
-        OemToAnsi(Buffer,Buffer) ;
-        my_str := my_str+String(Buffer) ;
-      until (BytesRead < ReadBuffer) ;
-   end;
-   FreeMem(Buffer) ;
-   CloseHandle(ProcessInfo.hProcess) ;
-   CloseHandle(ProcessInfo.hThread) ;
-   CloseHandle(ReadPipe) ;
-   CloseHandle(WritePipe) ;
-  end;
-  result:= my_str;
 end;
 
 //##############################################################################
@@ -562,67 +640,7 @@ begin
   delay(500);
 end;
 
-function FileToBuffer(my_name:String):LongInt;
-// Liest File in FileBuffer und liefert Länge zurück
-var
-  my_ReadFile: File of byte;
-  i, my_len: LongInt;
-begin
-  FileMode := fmOpenRead;
-  AssignFile(my_ReadFile, my_name);
-  Reset(my_ReadFile);
-  my_len:= FileSize(my_ReadFile);
-  Form1.TransferProgress.Max:= my_len div 128;
-  i:=0;
-  while not Eof(my_ReadFile) do begin
-    Read(my_ReadFile,TxFileBuffer[i]);
-    if i mod 128 = 0 then begin
-      Form1.TransferProgress.Position:= i div 128;
-      LEDflash;
-    end;
-    inc(i);
-  end;
-  CloseFile(my_ReadFile);
-  result:= i;
-end;
 
-
-procedure CoreLoad(my_name:String; my_core:Integer);
-begin
-  if CancelProc then begin
-    exit;
-  end;
-  if FileExists(my_name) then begin
-    HX3_resync;
-    Form1.Memo1.lines.Add('#--- Transfer File '+my_name);
-    TxFileBufferSize:= FileToBuffer(my_name);
-    XModemSendBuffer(my_core,TxFileBufferSize);
-  end else
-    Form1.Memo1.lines.Add('##### Warning: File '+my_name+' not found');
-end;
-
-procedure CoreLoadAll(my_str: String);
-// Pfad ohne Dateiname in my_str
-begin
-  Form1.Memo1.lines.Add('#--- Reading all scan cores...');
-  Application.ProcessMessages;
-  CoreLoad(my_str+'hx_chain.dat', 0);
-  CoreLoad(my_str+'hx_midi.dat', 1);
-  CoreLoad(my_str+'hx_fatar.dat', 2);
-  CoreLoad(my_str+'hx_sr44.dat', 3);
-  CoreLoad(my_str+'hx_sr49.dat', 4);
-  CoreLoad(my_str+'hx_sr61.dat', 5);
-  CoreLoad(my_str+'hx_test.dat', 6);
-  CoreLoad(my_str+'hx_xb2.dat', 7);
-  CoreLoad(my_str+'hoax3rev.bin', 10);
-  if CancelProc then begin
-    CancelMsg;
-    CancelProc:= false;
-  end;
-  Form1.TransferProgress.Position:= 0;
-end;
-
-//##############################################################################
 //##############################################################################
 
 
@@ -697,8 +715,8 @@ begin
     BtnRescan.Enabled:= true;
 
     Trackbar1.Visible:= false;
-    OnOffBtn1.Visible:= false;
-    OptionTextMenu.Visible:= false;
+    Panel1.Visible:= false;
+    ComboBox1.Visible:= false;
   end;
   ResetCheckboxes;
 end;
