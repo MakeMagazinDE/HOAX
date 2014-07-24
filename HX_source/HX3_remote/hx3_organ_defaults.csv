@@ -1,0 +1,76 @@
+#,Description,Value,Type,Max
+401,"UpperDB 16   ",0,TrackBar,127
+402,"UpperDB 5 1/3",0,TrackBar,127
+403,"UpperDB 8    ",0,TrackBar,127
+404,"UpperDB 4    ",0,TrackBar,127
+405,"UpperDB 2 2/3",0,TrackBar,127
+406,"UpperDB 2    ",0,TrackBar,127
+407,"UpperDB 1 3/5",0,TrackBar,127
+408,"UpperDB 1 1/3",0,TrackBar,127
+409,"UpperDB 1    ",0,TrackBar,127
+410,"Vibrato Knob ",0,VibKnob,5
+413,"Upper Preset ",0,None,15
+414,"Lower Preset ",0,None,15
+416,"LowerDB 16   ",0,TrackBar,127
+417,"LowerDB 5 1/3",0,TrackBar,127
+418,"LowerDB 8    ",0,TrackBar,127
+419,"LowerDB 4    ",0,TrackBar,127
+420,"LowerDB 2 2/3",0,TrackBar,127
+421,"LowerDB 2    ",0,TrackBar,127
+422,"LowerDB 1 3/5",0,TrackBar,127
+423,"LowerDB 1 1/3",0,TrackBar,127
+424,"LowerDB 1    ",0,TrackBar,127
+425,"PedalDB 16   ",0,TrackBar,127
+426,"PedalDB 5 1/3",0,TrackBar,127
+427,"PedalDB 8    ",0,TrackBar,127
+428,"Pedal Sustain",0,TrackBar,100
+431,"Amp122 Volume",30,TrackBar,250
+433,"MIDI Channel ",0,TrackBar,9
+434,"MIDI Option  ",2,MidiOpt,3
+435,"MIDI CC Set  ",0,MidiCC,5
+436,"SplitOption  ",0,SplitOpt,2
+437,"Transpose    ",0,None,13
+438,"AudioJack Conf A",16,OutConfig,31
+439,"AudioJack Conf B",23,OutConfig,31
+440,"Vib1 LC Age  ",46,TrackBar,200
+441,"Vib1 FreqMod ",75,TrackBar,200
+442,"Vib2 LC Age  ",80,TrackBar,200
+443,"Vib2 FreqMod ",110,TrackBar,200
+444,"Vib3 LC Age  ",140,TrackBar,250
+445,"Vib3 FreqMod ",160,TrackBar,250
+446,"ChorDryMix   ",160,TrackBar,250
+447,"ChorVibMix   ",110,TrackBar,250
+448,"PercNormLvl  ",160,TrackBar,250
+449,"PercSoftLvl  ",85,TrackBar,200
+450,"PercLongTm   ",14,TrackBar,50
+451,"PercShortTm  ",30,TrackBar,70
+452,"TG Flutter   ",3,TrackBar,15
+453,"TG Leakage   ",2,2,Leakage
+454,"TG OldCaps   ",255,Button,1
+455,"No DB1 @Perc ",255,Button,1
+456,"Foldback 16  ",0,FoldbackMode,3
+457,"TrebleEqu    ",50,TrackBar,120
+458,"BassEqu      ",50,TrackBar,120
+459,"AO28 Tube k2 ",12,TrackBar,50
+460,ContSpringFlex,7,TrackBar,15
+461,ContSpringDamp,9,TrackBar,15
+462,"Reverb 1 Lvl ",90,TrackBar,250
+463,"Reverb 2 Lvl ",150,TrackBar,250
+464,"Reverb 3 Lvl ",160,TrackBar,250
+465,"HornSlowTm   ",16,TrackBar,50
+466,"RotorSlowTm  ",14,TrackBar,50
+467,"HornFastTm   ",140,TrackBar,150
+468,"RotorFastTm  ",130,TrackBar,150
+469,"HornRampUp   ",4,TrackBar,25
+470,"RotorRampUp  ",20,TrackBar,25
+471,"HornRampDown ",3,TrackBar,50
+472,RotorRampDown,30,TrackBar,50
+473,"Rotary Throb ",150,TrackBar,250
+474,"Rotary Spread",50,TrackBar,100
+475,"Rotary Balnce",100,TrackBar,200
+476,"Scan Board   ",2,ScanBoard,7
+477,"ExpanderMode ",0,Button,1
+478,"Switches PL7 ",0,None,255
+479,"Switches PL11",0,None,255
+480,"TonePotEna   ",255,Button,1
+481,"LesVolPotEna ",255,Button,1
