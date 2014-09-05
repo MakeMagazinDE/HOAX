@@ -337,6 +337,8 @@ var
 begin
   Form1.StringGrid1.ColWidths[1] := 200;
   Form1.StringGrid1.ColWidths[2] := 162;
+  Form1.StringGrid1.ColWidths[3] := 80;
+  Form1.StringGrid1.ColWidths[4] := 36;
   Form1.StringGrid2.ColWidths[1] := 200;
   Form1.StringGrid2.ColWidths[2] := 162;
 //  StringGrid3.ColWidths[1] := 200;
@@ -486,7 +488,7 @@ function IsFPGAcorrupted: boolean;
 begin
   if (HX3Record.FPGAversion='00000000')
   or (HX3Record.FPGAversion='FFFFFFFF')
-  or (HX3Record.SerialNumber < 1) then result:= true
+  or (HX3record.SerialNumber < 1) then result:= true
   else result:=false;
 end;
 
@@ -509,10 +511,14 @@ var
   my_val, my_pos1, my_pos2: Integer;
 begin
   HX3_resync;
+  HX3record.FirmwareVersion:= HX3_QueryFloat(254);
   my_str:=HX3_QueryStr(254);
+  HX3record.FirmwareVersion:= HX3_StrToFloat(my_str);
   Form1.Memo1.lines.Add(my_str);
   my_str:= HX3_QueryStr(244); // Aktive Freischaltungen
   my_val:= HX3_StrToInt(my_str);
+  if (my_val > 15) or (my_val < 0) then
+    my_val:= 0;
   if my_val and 1 = 1 then
     Form1.LedOrganOk.Color:=$0000F000
   else
@@ -562,7 +568,6 @@ begin
   HX3record.Owner:= my_str;
   Form1.EditUserName.Text:= my_str;
 
-  HX3record.FirmwareVersion:= HX3_QueryFloat(254);
   DecimalSeparator:= '.';
   my_str:= FloatToStr(HX3record.FirmwareVersion);
   Form1.EditFirmwareVersion.Text:= my_str;
@@ -579,12 +584,10 @@ begin
   end else begin
     Form1.BtnScanCore.Enabled:=true;
     Form1.BtnDSP.Enabled:=true;
+    my_str:=HX3_QueryStr(9900);  // Scan Core reload/info
+    Form1.Memo1.lines.Add(my_str);
+    Form1.ComboBoxScanDetected.ItemIndex:= HX3_StrToInt(my_str);
   end;
-
-
-  my_str:=HX3_QueryStr(9900);  // Scan Core reload/info
-  Form1.Memo1.lines.Add(my_str);
-  Form1.ComboBoxScancore.ItemIndex:= HX3_StrToInt(my_str);
 
 end;
 
@@ -714,7 +717,7 @@ begin
     BtnRescan.Visible:= true;
     BtnRescan.Enabled:= true;
 
-    Trackbar1.Visible:= false;
+    Scrollbar1.Visible:= false;
     Panel1.Visible:= false;
     ComboBox1.Visible:= false;
   end;

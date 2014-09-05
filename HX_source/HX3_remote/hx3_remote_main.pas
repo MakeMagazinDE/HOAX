@@ -196,7 +196,6 @@ type
     LEDbusy: TPanel;
     BtnUpdateFIR: TBitBtn;
     Panel1: TPanel;
-    TrackBar1: TTrackBar;
     Bevel3: TBevel;
     StringGrid3: TStringGrid;
     StringGrid2: TStringGrid;
@@ -230,8 +229,6 @@ type
     EditLowerPresetsFile: TEdit;
     New1: TMenuItem;
     Label41: TLabel;
-    Panel4: TPanel;
-    Panel5: TPanel;
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
@@ -244,6 +241,21 @@ type
     CheckBox10: TCheckBox;
     CheckBox11: TCheckBox;
     GaugeMIDIdata: TGauge;
+    CheckBit7: TCheckBox;
+    CheckBit6: TCheckBox;
+    CheckBit5: TCheckBox;
+    CheckBit4: TCheckBox;
+    CheckBit3: TCheckBox;
+    CheckBit2: TCheckBox;
+    CheckBit1: TCheckBox;
+    CheckBit0: TCheckBox;
+    ScrollBar1: TScrollBar;
+    ComboBoxScanDetected: TComboBox;
+    procedure StringGrid1SelectCell(Sender: TObject; ACol, ARow: Integer;
+      var CanSelect: Boolean);
+    procedure CheckBitClick(Sender: TObject);
+    procedure StringGrid1SetEditText(Sender: TObject; ACol, ARow: Integer;
+      const Value: string);
     procedure ImportUpperPresets1Click(Sender: TObject);
     procedure ImportLowerPresets1Click(Sender: TObject);
     procedure ExportLowerPresets1Click(Sender: TObject);
@@ -332,7 +344,7 @@ type
     procedure BtnSetLicenceClick(Sender: TObject);
     procedure UpdateAVRClick(Sender: TObject);
     procedure UpdateFPGAClick(Sender: TObject);
-    procedure TrackBar1Change(Sender: TObject);
+    procedure Scrollbar1Change(Sender: TObject);
     procedure FileSaveExecute(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure BtnRescanClick(Sender: TObject);
@@ -377,7 +389,7 @@ type
 
 const
 //### Länge des Parameter-EEPROMs
-  VersionInfo='Version 1.30';
+  VersionInfo='Version 1.42';
   FroschDefaultDesc='FT232R USB UART';
   FroschDefDriveName='HOAX';
   FroschRegKeyName='HX3remote';
@@ -397,7 +409,8 @@ var
   ButtonDescList: TstringList;
   MidiCCList: TstringList;
   DropDownList: TstringList;
-
+  LastControlName: String; // zuletzt verwendetes Control in StringGrids
+  ClickedOnCell: Boolean;
   UpperPresets: array [0..255] of LongInt;
   LowerPresets: array [0..255] of LongInt;
 
@@ -456,18 +469,16 @@ begin
       CancelProc:= false;
       exit;
     end;
-  end else exit;
-  if CancelProc then begin
-    CancelMsg;
-    CancelProc:= false;
-    exit;
+    HX3_resync;
+    Memo1.lines.Add(HX3_SendStr('DFS=1!', 100));
+    HX3_info;
+    Memo1.lines.Add('#--- Empty ScanCore and Reverb DSP Memory.');
+    Memo1.lines.Add('#--- Please update ScanCore(s) and DSP!');
+    if IsFPGAcorrupted then begin
+      RemoveConfDisJpMsg;
+      HX3_info;
+    end;
   end;
-  CoreLoadAll(ExtractFilePath(OpenDialog.Filename));
-  Memo1.lines.Add(HX3_SendStr('DFS=1!', 100));
-  if IsFPGAcorrupted then RemoveConfDisJpMsg;
-  Memo1.lines.Add(HX3_SendStr('9998', 1000));
-  delay(1000);
-  HX3_info;
 end;
 
 procedure TForm1.BtnScanCoreClick(Sender: TObject);
@@ -845,6 +856,8 @@ end;
 procedure TForm1.FormDestroy(Sender: TObject);
 var  FroschIni:TRegistryIniFile;
 begin
+  CancelProc:= true;
+  TransferProgress.Position:= 0;
   FroschIni:=TRegistryIniFile.Create(FroschRegKeyName);
   try
     FroschIni.WriteInteger('Form','Top',Top);
@@ -901,7 +914,7 @@ end;
 procedure TForm1.PageControl1Change(Sender: TObject);
 begin
 //  PageControl1.Pages[PageControl1.TabIndex].Highlighted:= false;
-  Trackbar1.Visible:= false;
+  Scrollbar1.Visible:= false;
   Panel1.Visible:= false;
   ComboBox1.Visible:= false;
   CheckboxEEwrite.enabled:= true;
@@ -914,16 +927,16 @@ begin
       Col:= 2;
       Row:= 1;
       TopRow:= 1;
-      Trackbar1.Max:= IntFromStringGrid1(4,1);
-      Trackbar1.Position:= IntFromStringGrid1(2,1);
+      Scrollbar1.Max:= IntFromStringGrid1(4,1);
+      Scrollbar1.Position:= IntFromStringGrid1(2,1);
       TrackBarInStringGrid(CellRect(Col,Row));
     end;
   1: with StringGrid2 do begin
       Col:= 2;
       Row:= 1;
       TopRow:= 1;
-      Trackbar1.Max:= 255;
-      Trackbar1.Position:= IntFromStringGrid2(2,1);
+      Scrollbar1.Max:= 255;
+      Scrollbar1.Position:= IntFromStringGrid2(2,1);
       TrackBarInStringGrid(CellRect(Col,Row));
     end;
   3: begin
@@ -968,23 +981,66 @@ begin
     HX3_send(IntFromStringGrid1(0,StringGrid1.Row),ComboBox1.ItemIndex, CheckboxEEwrite.checked);
 end;
 
-procedure TForm1.TrackBar1Change(Sender: TObject);
+procedure TForm1.Scrollbar1Change(Sender: TObject);
 // Trackbar für Organ und Leslie
 begin
   case PageControl1.TabIndex of
     0: begin // Organ Params
       with StringGrid1 do
-        Cells[Col, Row] := IntToStr(TrackBar1.Position);
+        Cells[Col, Row] := IntToStr(Scrollbar1.Position);
       if ftdi_isopen then
-        HX3_send(IntFromStringGrid1(0,StringGrid1.Row), TrackBar1.Position, CheckboxEEwrite.checked);
+        HX3_send(IntFromStringGrid1(0,StringGrid1.Row), Scrollbar1.Position, CheckboxEEwrite.checked);
     end;
     1: begin // Leslie Params
       with StringGrid2 do
-        Cells[Col, Row] := IntToStr(TrackBar1.Position);
+        Cells[Col, Row] := IntToStr(Scrollbar1.Position);
       if ftdi_isopen then
-        HX3_send(IntFromStringGrid2(0,StringGrid2.Row), TrackBar1.Position, CheckboxEEwrite.checked);
+        HX3_send(IntFromStringGrid2(0,StringGrid2.Row), Scrollbar1.Position, CheckboxEEwrite.checked);
     end;
   end;
+end;
+
+procedure TForm1.CheckBitClick(Sender: TObject);
+var my_val: Integer;
+begin
+  with StringGrid1 do begin
+    my_val:= IntFromStringGrid1(Col, Row);
+    if CheckBit0.Checked then
+      my_val:= my_val or 1
+    else
+      my_val:= my_val and (not 1);
+    if CheckBit1.Checked then
+      my_val:= my_val or 2
+    else
+      my_val:= my_val and (not 2);
+    if CheckBit2.Checked then
+      my_val:= my_val or 4
+    else
+      my_val:= my_val and (not 4);
+    if CheckBit3.Checked then
+      my_val:= my_val or 8
+    else
+      my_val:= my_val and (not 8);
+    if CheckBit4.Checked then
+      my_val:= my_val or 16
+    else
+      my_val:= my_val and (not 16);
+    if CheckBit5.Checked then
+      my_val:= my_val or 32
+    else
+      my_val:= my_val and (not 32);
+    if CheckBit6.Checked then
+      my_val:= my_val or 64
+    else
+      my_val:= my_val and (not 64);
+    if CheckBit7.Checked then
+      my_val:= my_val or 128
+    else
+      my_val:= my_val and (not 128);
+    Cells[Col, Row] := IntToStr(my_val);
+  end;
+  if ftdi_isopen then
+    HX3_send(IntFromStringGrid1(0,StringGrid1.Row), my_val, CheckboxEEwrite.checked);
 end;
 
 //##############################################################################
@@ -1152,6 +1208,8 @@ begin
     BasicScanMode.ItemIndex:= 1;
   end;
 end;
+
+
 
 end.
 

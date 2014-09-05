@@ -11,13 +11,13 @@ end;
 procedure TrackBarInStringGrid(rec: TRect);
 var r: TRect;
 begin
-  with Form1.TrackBar1 do begin
+  with Form1.Scrollbar1 do begin
     CopyRect(r, rec); // rec => r (Eck-Koordinaten an Hilfsrechteck übergeben)
     // Umrechnung der Eck-Koordinaten des Hilfsrechtecks:
     r.BottomRight := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.BottomRight));
     r.TopLeft := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.TopLeft));
     // Positionierung der Combobox (Left, Top, Width und Height werden zugewiesen):
-    SetBounds(r.Left+35, r.Top, r.Right-r.Left-36, r.Bottom-r.Top);
+    SetBounds(r.Left+35, r.Top, r.Right-r.Left-35, r.Bottom-r.Top);
     Visible:= true;
     BringToFront; // ScrollBar in Vordergrund bringen
   end;
@@ -66,25 +66,142 @@ begin
   end;
 end;
 
+// Positionierung von 8 Bit-Checkboxen
+procedure CheckBitsInStringGrid(rec: TRect; val: byte);
+var r: TRect;
+  my_offs_left, my_offs_top, my_height, my_width, my_spacing: Integer;
+begin
+  my_offs_left:= 36;
+  my_offs_top:= 3;
+  my_height:= 15;
+  my_width:= 15;
+  my_spacing:= 15;
+  with Form1.CheckBit7 do begin
+    Checked:= (val and 128) = 128;
+    CopyRect(r, rec); // rec => r (Eck-Koordinaten an Hilfsrechteck übergeben)
+    // Umrechnung der Eck-Koordinaten des Hilfsrechtecks:
+    r.BottomRight := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.BottomRight));
+    r.TopLeft := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.TopLeft));
+    // Positionierung der Combobox (Left, Top, Width und Height werden zugewiesen):
+    SetBounds(r.Left+my_offs_left, r.Top+my_offs_top, my_width, my_height);
+    Visible:= true;
+    BringToFront; // Combobox in Vordergrund bringen
+  end;
+  my_offs_left:= my_offs_left + my_spacing;
+  with Form1.CheckBit6 do begin
+    Checked:= (val and 64) = 64;
+    CopyRect(r, rec); // rec => r (Eck-Koordinaten an Hilfsrechteck übergeben)
+    // Umrechnung der Eck-Koordinaten des Hilfsrechtecks:
+    r.BottomRight := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.BottomRight));
+    r.TopLeft := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.TopLeft));
+    // Positionierung der Combobox (Left, Top, Width und Height werden zugewiesen):
+    SetBounds(r.Left+my_offs_left, r.Top+my_offs_top, my_width, my_height);
+    Visible:= true;
+    BringToFront; // Combobox in Vordergrund bringen
+  end;
+  my_offs_left:= my_offs_left + my_spacing;
+  with Form1.CheckBit5 do begin
+    Checked:= (val and 32) = 32;
+    CopyRect(r, rec); // rec => r (Eck-Koordinaten an Hilfsrechteck übergeben)
+    // Umrechnung der Eck-Koordinaten des Hilfsrechtecks:
+    r.BottomRight := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.BottomRight));
+    r.TopLeft := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.TopLeft));
+    // Positionierung der Combobox (Left, Top, Width und Height werden zugewiesen):
+    SetBounds(r.Left+my_offs_left, r.Top+my_offs_top, my_width, my_height);
+    Visible:= true;
+    BringToFront; // Combobox in Vordergrund bringen
+  end;
+  my_offs_left:= my_offs_left + my_spacing;
+  with Form1.CheckBit4 do begin
+    Checked:= (val and 16) = 16;
+    CopyRect(r, rec); // rec => r (Eck-Koordinaten an Hilfsrechteck übergeben)
+    // Umrechnung der Eck-Koordinaten des Hilfsrechtecks:
+    r.BottomRight := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.BottomRight));
+    r.TopLeft := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.TopLeft));
+    // Positionierung der Combobox (Left, Top, Width und Height werden zugewiesen):
+    SetBounds(r.Left+my_offs_left, r.Top+my_offs_top, my_width, my_height);
+    Visible:= true;
+    BringToFront; // Combobox in Vordergrund bringen
+  end;
+  my_offs_left:= my_offs_left + my_spacing;
+  with Form1.CheckBit3 do begin
+    Checked:= (val and 8) = 8;
+    CopyRect(r, rec); // rec => r (Eck-Koordinaten an Hilfsrechteck übergeben)
+    // Umrechnung der Eck-Koordinaten des Hilfsrechtecks:
+    r.BottomRight := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.BottomRight));
+    r.TopLeft := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.TopLeft));
+    // Positionierung der Combobox (Left, Top, Width und Height werden zugewiesen):
+    SetBounds(r.Left+my_offs_left, r.Top+my_offs_top, my_width, my_height);
+    Visible:= true;
+    BringToFront; // Combobox in Vordergrund bringen
+  end;
+  my_offs_left:= my_offs_left + my_spacing;
+  with Form1.CheckBit2 do begin
+    Checked:= (val and 4) = 4;
+    CopyRect(r, rec); // rec => r (Eck-Koordinaten an Hilfsrechteck übergeben)
+    // Umrechnung der Eck-Koordinaten des Hilfsrechtecks:
+    r.BottomRight := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.BottomRight));
+    r.TopLeft := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.TopLeft));
+    // Positionierung der Combobox (Left, Top, Width und Height werden zugewiesen):
+    SetBounds(r.Left+my_offs_left, r.Top+my_offs_top, my_width, my_height);
+    Visible:= true;
+    BringToFront; // Combobox in Vordergrund bringen
+  end;
+  my_offs_left:= my_offs_left + my_spacing;
+  with Form1.CheckBit1 do begin
+    Checked:= (val and 2) = 2;
+    CopyRect(r, rec); // rec => r (Eck-Koordinaten an Hilfsrechteck übergeben)
+    // Umrechnung der Eck-Koordinaten des Hilfsrechtecks:
+    r.BottomRight := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.BottomRight));
+    r.TopLeft := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.TopLeft));
+    // Positionierung der Combobox (Left, Top, Width und Height werden zugewiesen):
+    SetBounds(r.Left+my_offs_left, r.Top+my_offs_top, my_width, my_height);
+    Visible:= true;
+    BringToFront; // Combobox in Vordergrund bringen
+  end;
+  my_offs_left:= my_offs_left + my_spacing;
+  with Form1.CheckBit0 do begin
+    Checked:= (val and 1) = 1;
+    CopyRect(r, rec); // rec => r (Eck-Koordinaten an Hilfsrechteck übergeben)
+    // Umrechnung der Eck-Koordinaten des Hilfsrechtecks:
+    r.BottomRight := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.BottomRight));
+    r.TopLeft := Parent.ScreenToClient(Form1.StringGrid1.ClientToScreen(r.TopLeft));
+    // Positionierung der Combobox (Left, Top, Width und Height werden zugewiesen):
+    SetBounds(r.Left+my_offs_left, r.Top+my_offs_top, my_width, my_height);
+    Visible:= true;
+    BringToFront; // Combobox in Vordergrund bringen
+  end;
+end;
 
-// Der folgende Eventhandler versteckt auch die Bedienelemente,
+// Der folgende Eventhandler versteckt die Bedienelemente,
 // wenn sie aus dem StringGrid herausgescrollt werden:
 procedure TForm1.StringGrid1TopLeftChanged(Sender: TObject);
 var
   i, my_val, my_max, my_idx: Integer;
   my_type : String;
   my_rect: TRect;
-
+  my_finished: boolean;
 begin
+{
+  if not ClickedOnCell then begin
+    ComboBox1.Visible:=false;
+    Scrollbar1.Visible:=false;
+    Panel1.Visible:=false;
+    exit;
+  end;
+}
+  ClickedOnCell:= false;
   my_max:= 255;
   my_type:= 'None'; // Default: kein Control malen
   my_val:= 0;
+  my_finished:= false;
   case PageControl1.TabIndex of
     0: begin // Organ Params
       my_val:=  IntFromStringGrid1(2,StringGrid1.Row);
-      my_type:= StringGrid1.Cells[3,StringGrid1.Row];
       my_max:=  IntFromStringGrid1(4,StringGrid1.Row);
       my_rect:= StringGrid1.CellRect(2,StringGrid1.Row);
+      if StringGrid1.Col < 3 then
+        my_type:= StringGrid1.Cells[3,StringGrid1.Row];
     end;
     1: begin
       my_type:= 'TrackBar';
@@ -98,35 +215,50 @@ begin
 
   if my_type = 'TrackBar' then begin // Trackbar/Scrollbar
     ComboBox1.Visible:=false;
-    Panel1.Visible:=false;
-    TrackBar1.Max:= my_max;
-    TrackBar1.Position:= my_val;
+    Scrollbar1.Max:= my_max;
+    Scrollbar1.Position:= my_val;
     TrackBarInStringGrid(my_rect);
-    exit;
+    my_finished:= true;
   end else
-    TrackBar1.Visible:=false;
+    Scrollbar1.Visible:=false;
 
   if my_type = 'Button' then begin // LED-Button (Panel)
     ComboBox1.Visible:=false;
     Panel1.Tag:= my_val and 255;
     PanelInStringGrid(my_rect);
-    exit;
+    my_finished:= true;
   end else
     Panel1.Visible:=false;
 
-  if my_type = 'None' then begin // nur Zahlenwert
+  if my_type = 'CheckBits' then begin // 8 Checkboxen
     ComboBox1.Visible:=false;
-    Panel1.Visible:=false;
-    TrackBar1.Visible:=false;
+    CheckBitsInStringGrid(my_rect, my_val);
+    my_finished:= true;
+  end else begin
+    CheckBit7.Visible:=false;
+    CheckBit6.Visible:=false;
+    CheckBit5.Visible:=false;
+    CheckBit4.Visible:=false;
+    CheckBit3.Visible:=false;
+    CheckBit2.Visible:=false;
+    CheckBit1.Visible:=false;
+    CheckBit0.Visible:=false;
+  end;
+
+  if my_type = 'None' then begin// nur Zahlenwert
+    ComboBox1.Visible:=false;
     exit;
   end;
 
-  if PageControl1.TabIndex = 0 then begin
 // my_type ist Menü-Eintrag für Combo-Box
-    ComboBox1.Clear;
+  if (not my_finished) and (PageControl1.TabIndex = 0) then begin
     my_idx:= DropDownList.IndexOfName(my_type);
-    for i:= 0 to my_max do begin
-      ComboBox1.Items.Add(DropDownList.ValueFromIndex[my_idx+i]);
+    if LastControlName <> my_type then begin
+      LastControlName:= my_type;
+      ComboBox1.Clear;
+      for i:= 0 to my_max do begin
+        ComboBox1.Items.Add(DropDownList.ValueFromIndex[my_idx+i]);
+      end;
     end;
     ComboBox1.ItemIndex:= my_val;
     ComboBoxInStringGrid(my_rect);
@@ -168,7 +300,22 @@ end;
 
 procedure TForm1.StringGrid1Click(Sender: TObject);
 begin
-  StringGrid1TopLeftChanged(Sender);
+  ClickedOnCell:= true;
+end;
+
+
+procedure TForm1.StringGrid1SelectCell(Sender: TObject; ACol, ARow: Integer;
+  var CanSelect: Boolean);
+begin
+  ClickedOnCell:= true;
+end;
+
+procedure TForm1.StringGrid1SetEditText(Sender: TObject; ACol, ARow: Integer;
+  const Value: string);
+begin
+  ClickedOnCell:= true;
+  if ftdi_isopen and (StringGrid1.Cells[3,ARow]='None') then
+    HX3_send(IntFromStringGrid1(0,ARow), IntFromStringGrid1(2,ARow), CheckboxEEwrite.checked);
 end;
 
 //##############################################################################
@@ -183,7 +330,7 @@ end;
 procedure TForm1.StringGrid2TopLeftChanged(Sender: TObject);
 begin
   with StringGrid2 do begin
-    TrackBar1.Max:= 255;
+    Scrollbar1.Max:= 255;
     TrackBarInStringGrid(CellRect(Col,Row));
   end;
 end;

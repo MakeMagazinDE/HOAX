@@ -1,8 +1,8 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Width = 881
-  Height = 778
+  Width = 950
+  Height = 775
   Caption = 'HX3 Remote'
   Color = clBtnFace
   Constraints.MinHeight = 400
@@ -551,50 +551,43 @@ object Form1: TForm1
   OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 15
+  object Bevel3: TBevel
+    Left = 456
+    Top = 312
+    Width = 465
+    Height = 257
+    Style = bsRaised
+  end
   object Bevel11: TBevel
-    Left = 376
+    Left = 456
     Top = 584
     Width = 465
     Height = 105
     Style = bsRaised
   end
-  object Bevel10: TBevel
-    Left = 376
-    Top = 336
-    Width = 233
-    Height = 41
-    Style = bsRaised
-  end
   object Bevel2: TBevel
-    Left = 624
-    Top = 40
-    Width = 217
-    Height = 249
+    Left = 696
+    Top = 128
+    Width = 225
+    Height = 169
     Style = bsRaised
   end
   object Bevel1: TBevel
-    Left = 376
+    Left = 456
     Top = 40
     Width = 233
-    Height = 177
-    Style = bsRaised
-  end
-  object Bevel3: TBevel
-    Left = 376
-    Top = 224
-    Width = 233
-    Height = 105
+    Height = 257
     Style = bsRaised
   end
   object Bevel4: TBevel
-    Left = 624
-    Top = 296
-    Width = 217
-    Height = 81
+    Left = 696
+    Top = 40
+    Width = 225
+    Height = 73
     Style = bsRaised
   end
   object Image1: TImage
-    Left = 880
+    Left = 1016
     Top = 40
     Width = 41
     Height = 33
@@ -717,46 +710,30 @@ object Form1: TForm1
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
     Visible = False
   end
-  object EditHint: TLabel
-    Left = 392
-    Top = 241
-    Width = 130
-    Height = 40
-    Caption = 'Value'
-    Constraints.MinHeight = 40
-    Constraints.MinWidth = 130
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Arial'
-    Font.Style = []
-    ParentFont = False
-    WordWrap = True
-  end
   object Label3: TLabel
-    Left = 471
-    Top = 94
+    Left = 551
+    Top = 110
     Width = 42
     Height = 15
     Caption = 'Serial #'
   end
   object Label4: TLabel
-    Left = 472
-    Top = 125
+    Left = 552
+    Top = 141
     Width = 80
     Height = 15
     Caption = 'Licence Organ'
   end
   object Label5: TLabel
-    Left = 472
-    Top = 157
+    Left = 552
+    Top = 173
     Width = 80
     Height = 15
     Caption = 'Licence Leslie'
   end
   object Label1: TLabel
-    Left = 728
-    Top = 45
+    Left = 552
+    Top = 204
     Width = 40
     Height = 15
     Caption = 'FPGA #'
@@ -768,11 +745,11 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label6: TLabel
-    Left = 728
+    Left = 552
     Top = 237
-    Width = 64
+    Width = 90
     Height = 15
-    Caption = 'Firmware #'
+    Caption = 'AVR Firmware #'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -781,8 +758,8 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label7: TLabel
-    Left = 800
-    Top = 350
+    Left = 880
+    Top = 86
     Width = 28
     Height = 15
     Caption = 'Busy'
@@ -793,23 +770,16 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Bevel5: TBevel
-    Left = 8
-    Top = 40
-    Width = 217
-    Height = 65
-    Style = bsRaised
-  end
   object Label2: TLabel
-    Left = 528
-    Top = 53
+    Left = 608
+    Top = 77
     Width = 64
     Height = 15
     Caption = 'User Name'
   end
   object BtnCancel: TSpeedButton
-    Left = 640
-    Top = 344
+    Left = 712
+    Top = 80
     Width = 105
     Height = 25
     Hint = 'Cancel any running process'
@@ -823,8 +793,8 @@ object Form1: TForm1
     OnClick = BtnCancelClick
   end
   object Label8: TLabel
-    Left = 384
-    Top = 389
+    Left = 466
+    Top = 325
     Width = 145
     Height = 15
     Caption = 'HX3 Response/Messages'
@@ -836,8 +806,8 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label9: TLabel
-    Left = 727
-    Top = 96
+    Left = 831
+    Top = 208
     Width = 59
     Height = 15
     Caption = 'Scan Core'
@@ -862,7 +832,7 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label10: TLabel
-    Left = 696
+    Left = 776
     Top = 648
     Width = 108
     Height = 15
@@ -875,7 +845,7 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label13: TLabel
-    Left = 520
+    Left = 600
     Top = 592
     Width = 73
     Height = 15
@@ -888,7 +858,7 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label14: TLabel
-    Left = 520
+    Left = 600
     Top = 640
     Width = 75
     Height = 15
@@ -901,7 +871,7 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label38: TLabel
-    Left = 392
+    Left = 472
     Top = 592
     Width = 64
     Height = 15
@@ -914,7 +884,7 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label39: TLabel
-    Left = 672
+    Left = 752
     Top = 664
     Width = 159
     Height = 15
@@ -926,15 +896,41 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
   end
+  object Label42: TLabel
+    Left = 471
+    Top = 48
+    Width = 84
+    Height = 15
+    Caption = 'HX3 Board Info'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label43: TLabel
+    Left = 711
+    Top = 136
+    Width = 43
+    Height = 15
+    Caption = 'Actions'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object PageControl1: TPageControl
     Left = 8
-    Top = 112
-    Width = 361
-    Height = 577
+    Top = 40
+    Width = 441
+    Height = 649
     Hint = 
       'Read Params / Write Params will update only displayed page of pa' +
       'rameters'
-    ActivePage = TabSheet5
+    ActivePage = TabSheet6
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -942,35 +938,28 @@ object Form1: TForm1
     Font.Style = [fsBold]
     HotTrack = True
     ParentFont = False
-    TabOrder = 20
+    TabOrder = 16
+    OnChange = PageControl1Change
     object TabSheet1: TTabSheet
       Caption = 'Organ'
-      object Bevel9: TBevel
-        Left = 56
-        Top = 504
-        Width = 201
-        Height = 33
-        Hint = 'Saved to defaults'
-        Style = bsRaised
-      end
       object StringGrid1: TStringGrid
         Left = 8
-        Top = 6
-        Width = 337
-        Height = 483
+        Top = 54
+        Width = 417
+        Height = 555
         Hint = 'Organ default settings - Click on value to edit'
         TabStop = False
         BevelInner = bvNone
         BevelKind = bkFlat
         BevelOuter = bvNone
-        ColCount = 3
-        DefaultColWidth = 40
-        DefaultRowHeight = 18
+        ColCount = 6
+        DefaultColWidth = 32
+        DefaultRowHeight = 20
         FixedCols = 2
         RowCount = 129
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
-        Font.Height = -14
+        Font.Height = -15
         Font.Name = 'Arial'
         Font.Style = []
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goDrawFocusSelected, goEditing, goTabs, goThumbTracking]
@@ -978,174 +967,268 @@ object Form1: TForm1
         ScrollBars = ssVertical
         TabOrder = 0
         OnClick = StringGrid1Click
-        OnDrawCell = StringGrid1DrawCell
+        OnDrawCell = StringGrid123DrawCell
+        OnSelectCell = StringGrid1SelectCell
         OnSetEditText = StringGrid1SetEditText
-        ColWidths = (
-          40
-          218
-          55)
+        OnTopLeftChanged = StringGrid1TopLeftChanged
         RowHeights = (
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18)
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          19
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20)
       end
-      object CheckBox8: TCheckBox
-        Left = 72
-        Top = 512
-        Width = 81
-        Height = 17
-        Hint = 'Saved to defaults'
-        Caption = 'Reverb I'
+      object CheckBit7: TCheckBox
+        Left = 208
+        Top = 32
+        Width = 16
+        Height = 16
+        Hint = 'Pin 8 is a switch when checked, otherwise button'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'Arial'
-        Font.Style = []
+        Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 1
-        OnClick = CheckBox8Click
+        Visible = False
+        OnClick = CheckBitClick
       end
-      object CheckBox9: TCheckBox
-        Left = 168
-        Top = 512
-        Width = 73
-        Height = 17
-        Hint = 'Saved to defaults'
-        Caption = 'Reverb II'
+      object CheckBit6: TCheckBox
+        Left = 224
+        Top = 32
+        Width = 16
+        Height = 16
+        Hint = 'Pin 7 is a switch when checked, otherwise button'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'Arial'
-        Font.Style = []
+        Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 2
-        OnClick = CheckBox9Click
+        Visible = False
+        OnClick = CheckBitClick
+      end
+      object CheckBit5: TCheckBox
+        Left = 240
+        Top = 32
+        Width = 16
+        Height = 16
+        Hint = 'Pin 6 is a switch when checked, otherwise button'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 3
+        Visible = False
+        OnClick = CheckBitClick
+      end
+      object CheckBit4: TCheckBox
+        Left = 256
+        Top = 32
+        Width = 16
+        Height = 16
+        Hint = 'Pin 5 is a switch when checked, otherwise button'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 4
+        Visible = False
+        OnClick = CheckBitClick
+      end
+      object CheckBit3: TCheckBox
+        Left = 272
+        Top = 32
+        Width = 16
+        Height = 16
+        Hint = 'Pin 4 is a switch when checked, otherwise button'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 5
+        Visible = False
+        OnClick = CheckBitClick
+      end
+      object CheckBit2: TCheckBox
+        Left = 288
+        Top = 32
+        Width = 16
+        Height = 16
+        Hint = 'Pin 3 is a switch when checked, otherwise button'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 6
+        Visible = False
+        OnClick = CheckBitClick
+      end
+      object CheckBit1: TCheckBox
+        Left = 304
+        Top = 32
+        Width = 16
+        Height = 16
+        Hint = 'Pin 2 is a switch when checked, otherwise button'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 7
+        Visible = False
+        OnClick = CheckBitClick
+      end
+      object CheckBit0: TCheckBox
+        Left = 320
+        Top = 32
+        Width = 16
+        Height = 16
+        Hint = 'Pin 1 is a switch when checked, otherwise button'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 8
+        Visible = False
+        OnClick = CheckBitClick
       end
     end
     object TabSheet2: TTabSheet
@@ -1153,188 +1236,217 @@ object Form1: TForm1
       ImageIndex = 1
       object StringGrid2: TStringGrid
         Left = 8
-        Top = 6
-        Width = 337
-        Height = 539
-        Hint = 'Leslie default settings - Click on value to edit'
+        Top = 54
+        Width = 417
+        Height = 555
+        Hint = 'Organ default settings - Click on value to edit'
         TabStop = False
         BevelInner = bvNone
         BevelKind = bkFlat
         BevelOuter = bvNone
         ColCount = 3
-        DefaultColWidth = 40
-        DefaultRowHeight = 18
+        DefaultColWidth = 32
+        DefaultRowHeight = 20
         FixedCols = 2
         RowCount = 129
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
-        Font.Height = -14
+        Font.Height = -15
         Font.Name = 'Arial'
         Font.Style = []
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goDrawFocusSelected, goEditing, goTabs, goThumbTracking]
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 0
-        OnClick = StringGrid2Click
-        OnDrawCell = StringGrid2DrawCell
-        OnSetEditText = StringGrid2SetEditText
-        ColWidths = (
-          40
-          218
-          55)
+        OnClick = StringGrid1Click
+        OnDrawCell = StringGrid123DrawCell
+        OnTopLeftChanged = StringGrid2TopLeftChanged
         RowHeights = (
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18)
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20)
       end
     end
     object TabSheet3: TTabSheet
       Caption = 'MIDI Custom CC'
       ImageIndex = 2
+      object MIDIccHint: TLabel
+        Left = 8
+        Top = 570
+        Width = 300
+        Height = 15
+        Caption = 'Description'
+        Constraints.MinWidth = 300
+      end
+      object Label40: TLabel
+        Left = 304
+        Top = 596
+        Width = 104
+        Height = 15
+        Caption = 'MIDI data received'
+      end
+      object GaugeMIDIdata: TGauge
+        Left = 192
+        Top = 592
+        Width = 105
+        Height = 23
+        BackColor = clInfoBk
+        Enabled = False
+        ForeColor = clTeal
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clHighlight
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = []
+        MaxValue = 127
+        ParentFont = False
+        Progress = 20
+        ShowText = False
+      end
       object StringGrid3: TStringGrid
         Left = 8
-        Top = 6
-        Width = 337
-        Height = 539
+        Top = 54
+        Width = 289
+        Height = 507
         Hint = 'MIDI CC translation table - Enter HX3 parameter number'
         TabStop = False
         BevelInner = bvNone
         BevelKind = bkFlat
         BevelOuter = bvNone
-        ColCount = 3
+        ColCount = 4
         DefaultColWidth = 40
-        DefaultRowHeight = 18
+        DefaultRowHeight = 20
         FixedCols = 2
         RowCount = 129
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
-        Font.Height = -14
+        Font.Height = -15
         Font.Name = 'Arial'
         Font.Style = []
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goDrawFocusSelected, goEditing, goTabs, goThumbTracking]
@@ -1342,142 +1454,180 @@ object Form1: TForm1
         ScrollBars = ssVertical
         TabOrder = 0
         OnClick = StringGrid3Click
-        OnDrawCell = StringGrid3DrawCell
+        OnDrawCell = StringGrid123DrawCell
         OnSetEditText = StringGrid3SetEditText
         ColWidths = (
           40
-          218
-          55)
+          186
+          40
+          40)
         RowHeights = (
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18
-          18)
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          19
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20
+          20)
+      end
+      object EditMidiRec: TEdit
+        Left = 8
+        Top = 592
+        Width = 177
+        Height = 23
+        Hint = 'Last MIDI control change received'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 1
+        OnChange = EditLeslieLicenceChange
+      end
+      object MidiCCListBox: TListBox
+        Left = 304
+        Top = 54
+        Width = 121
+        Height = 507
+        Style = lbOwnerDrawFixed
+        AutoComplete = False
+        ExtendedSelect = False
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = []
+        ItemHeight = 18
+        Items.Strings = (
+          '(not assigned)')
+        ParentFont = False
+        TabOrder = 2
+        OnClick = MidiCCListBoxClick
+        OnDrawItem = MidiCCListBoxDrawItem
       end
     end
     object TabSheet4: TTabSheet
@@ -1486,7 +1636,7 @@ object Form1: TForm1
       ImageIndex = 3
       object Label11: TLabel
         Left = 134
-        Top = 21
+        Top = 69
         Width = 100
         Height = 19
         Caption = 'Upper Preset'
@@ -1499,7 +1649,7 @@ object Form1: TForm1
       end
       object Label24: TLabel
         Left = 232
-        Top = 64
+        Top = 112
         Width = 69
         Height = 15
         Caption = 'Drawbar 16'#39
@@ -1512,7 +1662,7 @@ object Form1: TForm1
       end
       object Label25: TLabel
         Left = 232
-        Top = 96
+        Top = 144
         Width = 82
         Height = 15
         Caption = 'Drawbar 5 1/3'#39
@@ -1525,7 +1675,7 @@ object Form1: TForm1
       end
       object Label26: TLabel
         Left = 232
-        Top = 128
+        Top = 176
         Width = 62
         Height = 15
         Caption = 'Drawbar 8'#39
@@ -1538,7 +1688,7 @@ object Form1: TForm1
       end
       object Label27: TLabel
         Left = 232
-        Top = 160
+        Top = 208
         Width = 62
         Height = 15
         Caption = 'Drawbar 4'#39
@@ -1551,7 +1701,7 @@ object Form1: TForm1
       end
       object Label28: TLabel
         Left = 232
-        Top = 192
+        Top = 240
         Width = 82
         Height = 15
         Caption = 'Drawbar 2 2/3'#39
@@ -1564,7 +1714,7 @@ object Form1: TForm1
       end
       object Label29: TLabel
         Left = 232
-        Top = 224
+        Top = 272
         Width = 62
         Height = 15
         Caption = 'Drawbar 2'#39
@@ -1577,7 +1727,7 @@ object Form1: TForm1
       end
       object Label30: TLabel
         Left = 232
-        Top = 256
+        Top = 304
         Width = 82
         Height = 15
         Caption = 'Drawbar 1 3/5'#39
@@ -1590,7 +1740,7 @@ object Form1: TForm1
       end
       object Label31: TLabel
         Left = 232
-        Top = 288
+        Top = 336
         Width = 82
         Height = 15
         Caption = 'Drawbar 1 1/3'#39
@@ -1603,7 +1753,7 @@ object Form1: TForm1
       end
       object Label32: TLabel
         Left = 232
-        Top = 320
+        Top = 368
         Width = 62
         Height = 15
         Caption = 'Drawbar 1'#39
@@ -1614,17 +1764,9 @@ object Form1: TForm1
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Bevel7: TBevel
-        Left = 32
-        Top = 432
-        Width = 249
-        Height = 105
-        Hint = 'Saved to upper preset'
-        Style = bsRaised
-      end
       object TrackBarU0: TTrackBar
         Left = 8
-        Top = 56
+        Top = 104
         Width = 217
         Height = 45
         Hint = 'Edit parameter for Upper'
@@ -1638,7 +1780,7 @@ object Form1: TForm1
       end
       object TrackBarU1: TTrackBar
         Left = 8
-        Top = 88
+        Top = 136
         Width = 217
         Height = 45
         Hint = 'Edit parameter'
@@ -1652,7 +1794,7 @@ object Form1: TForm1
       end
       object TrackBarU2: TTrackBar
         Left = 8
-        Top = 120
+        Top = 168
         Width = 217
         Height = 45
         Hint = 'Edit parameter'
@@ -1666,7 +1808,7 @@ object Form1: TForm1
       end
       object TrackBarU3: TTrackBar
         Left = 8
-        Top = 152
+        Top = 200
         Width = 217
         Height = 45
         Hint = 'Edit parameter'
@@ -1680,7 +1822,7 @@ object Form1: TForm1
       end
       object TrackBarU4: TTrackBar
         Left = 8
-        Top = 184
+        Top = 232
         Width = 217
         Height = 45
         Hint = 'Edit parameter'
@@ -1694,7 +1836,7 @@ object Form1: TForm1
       end
       object TrackBarU5: TTrackBar
         Left = 8
-        Top = 216
+        Top = 264
         Width = 217
         Height = 45
         Hint = 'Edit parameter'
@@ -1708,7 +1850,7 @@ object Form1: TForm1
       end
       object TrackBarU6: TTrackBar
         Left = 8
-        Top = 248
+        Top = 296
         Width = 217
         Height = 45
         Hint = 'Edit parameter'
@@ -1722,7 +1864,7 @@ object Form1: TForm1
       end
       object TrackBarU7: TTrackBar
         Left = 8
-        Top = 280
+        Top = 328
         Width = 217
         Height = 45
         Hint = 'Edit parameter'
@@ -1736,7 +1878,7 @@ object Form1: TForm1
       end
       object TrackBarU8: TTrackBar
         Left = 8
-        Top = 312
+        Top = 360
         Width = 217
         Height = 45
         Hint = 'Edit parameter'
@@ -1749,88 +1891,98 @@ object Form1: TForm1
         OnChange = TrackBarU8Change
       end
       object CheckBox4: TCheckBox
-        Left = 176
-        Top = 440
+        Left = 144
+        Top = 504
         Width = 97
         Height = 17
         Hint = 'Vibrato Upper ON/OFF, saved to Upper preset'
         Caption = 'Vib On Upper'
+        Color = clBtnFace
         Font.Charset = ANSI_CHARSET
         Font.Color = 16512
         Font.Height = -12
         Font.Name = 'Arial'
         Font.Style = []
+        ParentColor = False
         ParentFont = False
         TabOrder = 10
         OnClick = CheckBox4Click
       end
       object CheckBox3: TCheckBox
-        Left = 56
-        Top = 512
-        Width = 81
+        Left = 32
+        Top = 576
+        Width = 80
         Height = 17
         Hint = 'Percussion, saved to Upper preset'
         Caption = 'Perc 3rd'
+        Color = clBtnFace
         Font.Charset = ANSI_CHARSET
         Font.Color = 16512
         Font.Height = -12
         Font.Name = 'Arial'
         Font.Style = []
+        ParentColor = False
         ParentFont = False
         TabOrder = 11
         OnClick = CheckBox3Click
       end
       object CheckBox2: TCheckBox
-        Left = 56
-        Top = 488
-        Width = 81
+        Left = 32
+        Top = 552
+        Width = 80
         Height = 17
         Hint = 'Percussion, saved to Upper preset'
         Caption = 'Perc Fast'
+        Color = clBtnFace
         Font.Charset = ANSI_CHARSET
         Font.Color = 16512
         Font.Height = -12
         Font.Name = 'Arial'
         Font.Style = []
+        ParentColor = False
         ParentFont = False
         TabOrder = 12
         OnClick = CheckBox2Click
       end
       object CheckBox1: TCheckBox
-        Left = 56
-        Top = 464
-        Width = 73
+        Left = 32
+        Top = 528
+        Width = 80
         Height = 17
         Hint = 'Percussion, saved to Upper preset'
         Caption = 'Perc Soft'
+        Color = clBtnFace
         Font.Charset = ANSI_CHARSET
         Font.Color = 16512
         Font.Height = -12
         Font.Name = 'Arial'
         Font.Style = []
+        ParentColor = False
         ParentFont = False
         TabOrder = 13
         OnClick = CheckBox1Click
       end
       object CheckBox0: TCheckBox
-        Left = 56
-        Top = 440
-        Width = 73
+        Left = 32
+        Top = 504
+        Width = 80
         Height = 17
         Hint = 'Percussion, saved to Upper preset'
         Caption = 'Perc On'
+        Color = clBtnFace
         Font.Charset = ANSI_CHARSET
         Font.Color = 16512
         Font.Height = -12
         Font.Name = 'Arial'
         Font.Style = []
+        ParentColor = False
         ParentFont = False
         TabOrder = 14
         OnClick = CheckBox0Click
       end
       object ComboBoxUpperPreset: TComboBox
         Left = 24
-        Top = 16
+        Top = 64
         Width = 89
         Height = 23
         Hint = 'Select Preset to edit'
@@ -1840,7 +1992,7 @@ object Form1: TForm1
         Font.Height = -12
         Font.Name = 'Arial'
         Font.Style = [fsBold]
-        ItemHeight = 15
+        ItemHeight = 0
         ItemIndex = 0
         ParentFont = False
         TabOrder = 15
@@ -1865,8 +2017,8 @@ object Form1: TForm1
           'Preset 15')
       end
       object ComboBoxVibKnob: TComboBox
-        Left = 176
-        Top = 464
+        Left = 144
+        Top = 528
         Width = 73
         Height = 24
         Hint = 'Vibrato knob position, saved to Upper Preset'
@@ -1877,7 +2029,7 @@ object Form1: TForm1
         Font.Height = -13
         Font.Name = 'Arial'
         Font.Style = [fsBold]
-        ItemHeight = 16
+        ItemHeight = 0
         ItemIndex = 0
         ParentFont = False
         TabOrder = 9
@@ -1898,7 +2050,7 @@ object Form1: TForm1
       ImageIndex = 4
       object Label12: TLabel
         Left = 134
-        Top = 21
+        Top = 69
         Width = 148
         Height = 19
         Caption = 'Lower/Pedal Preset'
@@ -1911,7 +2063,7 @@ object Form1: TForm1
       end
       object Label15: TLabel
         Left = 232
-        Top = 64
+        Top = 112
         Width = 69
         Height = 15
         Caption = 'Drawbar 16'#39
@@ -1924,7 +2076,7 @@ object Form1: TForm1
       end
       object Label16: TLabel
         Left = 232
-        Top = 96
+        Top = 144
         Width = 82
         Height = 15
         Caption = 'Drawbar 5 1/3'#39
@@ -1937,7 +2089,7 @@ object Form1: TForm1
       end
       object Label17: TLabel
         Left = 232
-        Top = 128
+        Top = 176
         Width = 62
         Height = 15
         Caption = 'Drawbar 8'#39
@@ -1950,7 +2102,7 @@ object Form1: TForm1
       end
       object Label18: TLabel
         Left = 232
-        Top = 160
+        Top = 208
         Width = 62
         Height = 15
         Caption = 'Drawbar 4'#39
@@ -1963,7 +2115,7 @@ object Form1: TForm1
       end
       object Label19: TLabel
         Left = 232
-        Top = 192
+        Top = 240
         Width = 82
         Height = 15
         Caption = 'Drawbar 2 2/3'#39
@@ -1976,7 +2128,7 @@ object Form1: TForm1
       end
       object Label20: TLabel
         Left = 232
-        Top = 224
+        Top = 272
         Width = 62
         Height = 15
         Caption = 'Drawbar 2'#39
@@ -1989,7 +2141,7 @@ object Form1: TForm1
       end
       object Label21: TLabel
         Left = 232
-        Top = 256
+        Top = 304
         Width = 82
         Height = 15
         Caption = 'Drawbar 1 3/5'#39
@@ -2002,7 +2154,7 @@ object Form1: TForm1
       end
       object Label22: TLabel
         Left = 232
-        Top = 288
+        Top = 336
         Width = 82
         Height = 15
         Caption = 'Drawbar 1 1/3'#39
@@ -2015,7 +2167,7 @@ object Form1: TForm1
       end
       object Label23: TLabel
         Left = 232
-        Top = 320
+        Top = 368
         Width = 62
         Height = 15
         Caption = 'Drawbar 1'#39
@@ -2028,7 +2180,7 @@ object Form1: TForm1
       end
       object Label33: TLabel
         Left = 232
-        Top = 352
+        Top = 400
         Width = 69
         Height = 15
         Caption = 'Drawbar 16'#39
@@ -2041,7 +2193,7 @@ object Form1: TForm1
       end
       object Label34: TLabel
         Left = 232
-        Top = 384
+        Top = 432
         Width = 82
         Height = 15
         Caption = 'Drawbar 5 1/3'#39
@@ -2054,7 +2206,7 @@ object Form1: TForm1
       end
       object Label36: TLabel
         Left = 232
-        Top = 416
+        Top = 464
         Width = 62
         Height = 15
         Caption = 'Drawbar 8'#39
@@ -2067,7 +2219,7 @@ object Form1: TForm1
       end
       object Label37: TLabel
         Left = 232
-        Top = 448
+        Top = 496
         Width = 78
         Height = 15
         Caption = 'Pedal Sustain'
@@ -2078,17 +2230,9 @@ object Form1: TForm1
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Bevel8: TBevel
-        Left = 40
-        Top = 480
-        Width = 225
-        Height = 57
-        Hint = 'Saved to lower preset'
-        Style = bsRaised
-      end
       object TrackBarL0: TTrackBar
         Left = 8
-        Top = 56
+        Top = 104
         Width = 217
         Height = 45
         Hint = 'Edit parameter for Lower'
@@ -2102,7 +2246,7 @@ object Form1: TForm1
       end
       object TrackBarL1: TTrackBar
         Left = 8
-        Top = 88
+        Top = 136
         Width = 217
         Height = 45
         Hint = 'Edit parameter for Lower'
@@ -2116,7 +2260,7 @@ object Form1: TForm1
       end
       object TrackBarL2: TTrackBar
         Left = 8
-        Top = 120
+        Top = 168
         Width = 217
         Height = 45
         Hint = 'Edit parameter for Lower'
@@ -2130,7 +2274,7 @@ object Form1: TForm1
       end
       object TrackBarL3: TTrackBar
         Left = 8
-        Top = 152
+        Top = 200
         Width = 217
         Height = 45
         Hint = 'Edit parameter for Lower'
@@ -2144,7 +2288,7 @@ object Form1: TForm1
       end
       object TrackBarL4: TTrackBar
         Left = 8
-        Top = 184
+        Top = 232
         Width = 217
         Height = 45
         Hint = 'Edit parameter for Lower'
@@ -2158,7 +2302,7 @@ object Form1: TForm1
       end
       object TrackBarL5: TTrackBar
         Left = 8
-        Top = 216
+        Top = 264
         Width = 217
         Height = 45
         Hint = 'Edit parameter for Lower'
@@ -2172,7 +2316,7 @@ object Form1: TForm1
       end
       object TrackBarL6: TTrackBar
         Left = 8
-        Top = 248
+        Top = 296
         Width = 217
         Height = 45
         Hint = 'Edit parameter for Lower'
@@ -2186,7 +2330,7 @@ object Form1: TForm1
       end
       object TrackBarL7: TTrackBar
         Left = 8
-        Top = 280
+        Top = 328
         Width = 217
         Height = 45
         Hint = 'Edit parameter for Lower'
@@ -2200,7 +2344,7 @@ object Form1: TForm1
       end
       object TrackBarL8: TTrackBar
         Left = 8
-        Top = 312
+        Top = 360
         Width = 217
         Height = 45
         Hint = 'Edit parameter for Lower'
@@ -2214,7 +2358,7 @@ object Form1: TForm1
       end
       object TrackBarB0: TTrackBar
         Left = 8
-        Top = 344
+        Top = 392
         Width = 217
         Height = 45
         Hint = 'Edit parameter for pedal'
@@ -2228,7 +2372,7 @@ object Form1: TForm1
       end
       object TrackBarB1: TTrackBar
         Left = 8
-        Top = 376
+        Top = 424
         Width = 217
         Height = 45
         Hint = 'Edit parameter for pedal'
@@ -2242,7 +2386,7 @@ object Form1: TForm1
       end
       object TrackBarB2: TTrackBar
         Left = 8
-        Top = 408
+        Top = 456
         Width = 217
         Height = 45
         Hint = 'Edit parameter for pedal'
@@ -2256,7 +2400,7 @@ object Form1: TForm1
       end
       object TrackBarB3: TTrackBar
         Left = 8
-        Top = 440
+        Top = 488
         Width = 217
         Height = 45
         Hint = 'Edit parameter for pedal'
@@ -2268,57 +2412,27 @@ object Form1: TForm1
         TickStyle = tsNone
         OnChange = TrackBarB3Change
       end
-      object CheckBox11: TCheckBox
-        Left = 176
-        Top = 512
-        Width = 73
-        Height = 17
-        Hint = 'Split ON/OFF, saved to Lower preset'
-        Caption = 'Split On'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = 4227072
-        Font.Height = -12
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 13
-        OnClick = CheckBox11Click
-      end
-      object CheckBox10: TCheckBox
-        Left = 176
-        Top = 488
-        Width = 81
-        Height = 17
-        Hint = 'Audio Jack Configuration,, saved to Lower preset'
-        Caption = 'Jack A/B'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = 4227072
-        Font.Height = -12
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 14
-        OnClick = CheckBox10Click
-      end
       object CheckBox5: TCheckBox
-        Left = 64
-        Top = 488
+        Left = 32
+        Top = 560
         Width = 97
         Height = 17
         Hint = 'Vibrato Lower ON/OFF, saved to Lower preset'
         Caption = 'Vib On Lower'
+        Color = clBtnFace
         Font.Charset = ANSI_CHARSET
         Font.Color = 4227072
         Font.Height = -12
         Font.Name = 'Arial'
         Font.Style = []
+        ParentColor = False
         ParentFont = False
-        TabOrder = 15
+        TabOrder = 13
         OnClick = CheckBox5Click
       end
       object ComboBoxLowerPreset: TComboBox
         Left = 24
-        Top = 16
+        Top = 64
         Width = 89
         Height = 23
         Hint = 'Select Preset to edit'
@@ -2328,10 +2442,10 @@ object Form1: TForm1
         Font.Height = -12
         Font.Name = 'Arial'
         Font.Style = [fsBold]
-        ItemHeight = 15
+        ItemHeight = 0
         ItemIndex = 0
         ParentFont = False
-        TabOrder = 16
+        TabOrder = 14
         Text = 'Live 0'
         OnChange = ComboBoxLowerPresetChange
         Items.Strings = (
@@ -2353,102 +2467,167 @@ object Form1: TForm1
           'Preset 15')
       end
     end
-  end
-  object ToolBar1: TToolBar
-    Left = 0
-    Top = 0
-    Width = 865
-    Height = 33
-    BorderWidth = 1
-    Color = clBtnFace
-    Constraints.MaxWidth = 865
-    Images = ImageList1
-    Indent = 5
-    ParentColor = False
-    ParentShowHint = False
-    ShowHint = True
-    TabOrder = 0
-    Wrapable = False
-    object ToolButton9: TToolButton
-      Left = 5
-      Top = 2
-      Hint = 'New|Create empty param file'
-      Action = FileNew1
-    end
-    object ToolButton1: TToolButton
-      Left = 28
-      Top = 2
-      Hint = 'Open|Open param file'
-      Action = FileOpen1
-    end
-    object ToolButton2: TToolButton
-      Left = 51
-      Top = 2
-      Hint = 'Save|Save params to file'
-      Action = FileSave1
-    end
-    object ToolButton3: TToolButton
-      Left = 74
-      Top = 2
-      Width = 23
-      Caption = 'ToolButton3'
-      ImageIndex = 2
-      Style = tbsSeparator
-    end
-    object ToolButton4: TToolButton
-      Left = 97
-      Top = 2
-      Action = EditCut1
-    end
-    object ToolButton5: TToolButton
-      Left = 120
-      Top = 2
-      Action = EditCopy1
-    end
-    object ToolButton8: TToolButton
-      Left = 143
-      Top = 2
-      Width = 8
-      Caption = 'ToolButton8'
-      ImageIndex = 4
-      Style = tbsSeparator
-    end
-    object ToolButton6: TToolButton
-      Left = 151
-      Top = 2
-      Action = EditPaste1
+    object TabSheet6: TTabSheet
+      Hint = 'Click menu "Save Setup" to save these settings'
+      Caption = 'Startup'
+      ImageIndex = 5
+      object Label41: TLabel
+        Left = 16
+        Top = 80
+        Width = 231
+        Height = 15
+        Caption = 'HX3 Remote Application Startup Settings'
+      end
+      object SpeedButton1: TSpeedButton
+        Left = 384
+        Top = 144
+        Width = 23
+        Height = 22
+        Caption = '...'
+        OnClick = ImportOrganData1Click
+      end
+      object SpeedButton2: TSpeedButton
+        Left = 384
+        Top = 216
+        Width = 23
+        Height = 22
+        Caption = '...'
+        OnClick = ImportLeslieData1Click
+      end
+      object SpeedButton3: TSpeedButton
+        Left = 384
+        Top = 288
+        Width = 23
+        Height = 22
+        Caption = '...'
+        OnClick = ImportMIDICCData1Click
+      end
+      object SpeedButton4: TSpeedButton
+        Left = 384
+        Top = 360
+        Width = 23
+        Height = 22
+        Caption = '...'
+        OnClick = ImportUpperPresets1Click
+      end
+      object SpeedButton5: TSpeedButton
+        Left = 384
+        Top = 432
+        Width = 23
+        Height = 22
+        Caption = '...'
+        OnClick = ImportLowerPresets1Click
+      end
+      object EditOrganDefaultsFile: TEdit
+        Left = 16
+        Top = 144
+        Width = 360
+        Height = 23
+        Color = clInfoBk
+        Constraints.MinHeight = 22
+        TabOrder = 0
+        OnChange = EditOrganDefaultsFileChange
+      end
+      object ImportOrgan: TCheckBox
+        Left = 16
+        Top = 120
+        Width = 177
+        Height = 17
+        Hint = 'Import on StartUp or New Setup'
+        Caption = 'Import Own Organ Defaults'
+        TabOrder = 1
+      end
+      object ImportLeslie: TCheckBox
+        Left = 16
+        Top = 192
+        Width = 177
+        Height = 17
+        Hint = 'Import on StartUp or New Setup'
+        Caption = 'Import Own Leslie Defaults'
+        TabOrder = 2
+      end
+      object ImportMidiCC: TCheckBox
+        Left = 16
+        Top = 264
+        Width = 137
+        Height = 17
+        Hint = 'Import on StartUp or New Setup'
+        Caption = 'Import Own MIDI CC'
+        TabOrder = 3
+      end
+      object ImportUpper: TCheckBox
+        Left = 16
+        Top = 336
+        Width = 177
+        Height = 17
+        Hint = 'Import on StartUp or New Setup'
+        Caption = 'Import Own Upper Presets'
+        TabOrder = 4
+      end
+      object ImportLower: TCheckBox
+        Left = 16
+        Top = 408
+        Width = 185
+        Height = 17
+        Hint = 'Import on StartUp or New Setup'
+        Caption = 'Import Own Lower Presets'
+        TabOrder = 5
+      end
+      object EditLeslieDefaultsFile: TEdit
+        Left = 16
+        Top = 216
+        Width = 360
+        Height = 23
+        Color = clInfoBk
+        Constraints.MinHeight = 22
+        TabOrder = 6
+        OnChange = EditLeslieDefaultsFileChange
+      end
+      object EditMidiCCFile: TEdit
+        Left = 16
+        Top = 288
+        Width = 360
+        Height = 23
+        Color = clInfoBk
+        Constraints.MinHeight = 22
+        TabOrder = 7
+        OnChange = EditMidiCCFileChange
+      end
+      object EditUpperPresetsFile: TEdit
+        Left = 16
+        Top = 360
+        Width = 360
+        Height = 23
+        Color = clInfoBk
+        Constraints.MinHeight = 22
+        TabOrder = 8
+        OnChange = EditUpperPresetsFileChange
+      end
+      object EditLowerPresetsFile: TEdit
+        Left = 16
+        Top = 432
+        Width = 360
+        Height = 23
+        Color = clInfoBk
+        Constraints.MinHeight = 22
+        TabOrder = 9
+        OnChange = EditLowerPresetsFileChange
+      end
     end
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 698
-    Width = 865
+    Top = 695
+    Width = 934
     Height = 22
     AutoHint = True
     Panels = <>
     SimplePanel = True
   end
-  object OnOffBtn1: TColorButton
-    Left = 456
-    Top = 288
-    Width = 75
-    Height = 25
-    Hint = 'Click to toggle value'
-    Caption = 'OFF'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWhite
-    Font.Height = -13
-    Font.Name = 'Arial'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 37
-    OnClick = OnOffBtn1Click
-    Color = clMaroon
-  end
   object DeviceView: TEdit
-    Left = 256
+    Left = 72
     Top = 7
-    Width = 297
+    Width = 273
     Height = 23
     AutoSize = False
     BevelInner = bvNone
@@ -2461,23 +2640,24 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 3
+    ReadOnly = True
+    TabOrder = 2
     Text = '(not selected)'
   end
   object Memo1: TMemo
-    Left = 376
-    Top = 408
-    Width = 465
-    Height = 169
+    Left = 464
+    Top = 352
+    Width = 449
+    Height = 209
     Lines.Strings = (
       'Console')
     ScrollBars = ssVertical
-    TabOrder = 14
+    TabOrder = 10
   end
   object FPGAversion: TEdit
-    Left = 728
-    Top = 64
-    Width = 81
+    Left = 472
+    Top = 200
+    Width = 73
     Height = 24
     Hint = 'FPGA config version readout'
     Color = clBtnFace
@@ -2488,12 +2668,12 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     ReadOnly = True
-    TabOrder = 16
+    TabOrder = 12
     Text = '0'
   end
   object EditLeslieLicence: TEdit
-    Left = 392
-    Top = 152
+    Left = 472
+    Top = 168
     Width = 73
     Height = 24
     Hint = 'Enter new Leslie License Number here'
@@ -2504,13 +2684,13 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = []
     ParentFont = False
-    TabOrder = 13
+    TabOrder = 9
     Text = '0'
     OnChange = EditLeslieLicenceChange
   end
   object EditOrganLicence: TEdit
-    Left = 392
-    Top = 120
+    Left = 472
+    Top = 136
     Width = 73
     Height = 24
     Hint = 'Enter new Organ License Number here'
@@ -2521,13 +2701,13 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = []
     ParentFont = False
-    TabOrder = 12
+    TabOrder = 8
     Text = '0'
     OnChange = EditOrganLicenceChange
   end
   object EditSerialNumber: TEdit
-    Left = 392
-    Top = 88
+    Left = 472
+    Top = 104
     Width = 73
     Height = 24
     Hint = 'Serial Number readout'
@@ -2538,53 +2718,40 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = []
     ParentFont = False
-    TabOrder = 11
+    TabOrder = 7
     Text = '1234567'
   end
   object TransferProgress: TProgressBar
-    Left = 632
-    Top = 304
-    Width = 201
+    Left = 712
+    Top = 48
+    Width = 196
     Height = 17
     Hint = 'Send/Read Progress'
     Align = alCustom
     Max = 128
     Step = 1
-    TabOrder = 1
+    TabOrder = 0
   end
-  object TrackBar1: TTrackBar
-    Left = 384
-    Top = 280
-    Width = 217
-    Height = 45
-    Hint = 'Edit parameter'
-    Max = 100
-    Frequency = 10
-    TabOrder = 5
-    ThumbLength = 30
-    TickMarks = tmTopLeft
-    TickStyle = tsNone
-    OnChange = TrackBar1Change
-  end
-  object OptionTextMenu: TComboBox
-    Left = 424
-    Top = 288
-    Width = 145
-    Height = 24
-    Hint = 'Select option'
+  object ComboBox1: TComboBox
+    Left = 264
+    Top = 696
+    Width = 73
+    Height = 20
+    Hint = 'Select option from drop-down menu'
     AutoDropDown = True
     Style = csDropDownList
     Color = clBtnFace
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlue
-    Font.Height = -13
+    Font.Height = -10
     Font.Name = 'Arial'
     Font.Style = [fsBold]
-    ItemHeight = 16
+    ItemHeight = 12
+    ItemIndex = 0
     ParentFont = False
-    TabOrder = 6
+    TabOrder = 4
     Visible = False
-    OnChange = OptionTextMenuChange
+    OnChange = ComboBox1Change
     Items.Strings = (
       ''
       ''
@@ -2593,24 +2760,24 @@ object Form1: TForm1
       '')
   end
   object UpdateFPGA: TBitBtn
-    Left = 640
-    Top = 64
+    Left = 712
+    Top = 176
     Width = 81
     Height = 25
     Hint = 'Upload FPGA configuration (Sound Engine) and scan cores'
     Caption = 'Update FPGA'
     Font.Charset = ANSI_CHARSET
-    Font.Color = 8388863
+    Font.Color = clFuchsia
     Font.Height = -12
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 9
+    TabOrder = 5
     OnClick = UpdateFPGAClick
   end
   object UpdateAVR: TBitBtn
-    Left = 640
-    Top = 256
+    Left = 824
+    Top = 176
     Width = 81
     Height = 25
     Hint = 'Start AVRdude and update HX3 firmware with .HEX file'
@@ -2621,12 +2788,12 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 10
+    TabOrder = 6
     OnClick = UpdateAVRClick
   end
   object BtnSetLicence: TBitBtn
-    Left = 392
-    Top = 184
+    Left = 472
+    Top = 264
     Width = 97
     Height = 25
     Hint = 'Send new licence numbers and user name to HX3'
@@ -2637,13 +2804,13 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 15
+    TabOrder = 11
     OnClick = BtnSetLicenceClick
   end
   object EditFirmwareVersion: TEdit
-    Left = 728
-    Top = 256
-    Width = 81
+    Left = 472
+    Top = 232
+    Width = 73
     Height = 24
     Hint = 'AVR firmware version readout'
     Color = clBtnFace
@@ -2654,31 +2821,12 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     ReadOnly = True
-    TabOrder = 17
+    TabOrder = 13
     Text = '0'
   end
-  object ReadAll: TBitBtn
-    Left = 120
-    Top = 48
-    Width = 89
-    Height = 25
-    Hint = 'Read all params from HX3 to active tab'
-    Caption = 'Read Params'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clGreen
-    Font.Height = -12
-    Font.Name = 'Arial'
-    Font.Style = [fsBold]
-    ParentFont = False
-    ParentShowHint = False
-    ShowHint = True
-    TabOrder = 4
-    TabStop = False
-    OnClick = ReadAllClick
-  end
   object EditUserName: TEdit
-    Left = 392
-    Top = 48
+    Left = 472
+    Top = 72
     Width = 129
     Height = 24
     Hint = 'Enter new User Name (only letters)'
@@ -2689,13 +2837,13 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = []
     ParentFont = False
-    TabOrder = 21
+    TabOrder = 17
     Text = 'KeyboardPartner'
     OnChange = EditUserNameChange
   end
   object BtnRefreshInfo: TBitBtn
-    Left = 504
-    Top = 184
+    Left = 584
+    Top = 264
     Width = 97
     Height = 25
     Hint = 'Read version and licence numbers from HX3'
@@ -2706,49 +2854,12 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 22
+    TabOrder = 18
     OnClick = BtnRefreshInfoClick
   end
-  object EditValue: TEdit
-    Left = 544
-    Top = 239
-    Width = 49
-    Height = 22
-    Hint = 'Edited value'
-    AutoSelect = False
-    AutoSize = False
-    BevelInner = bvSpace
-    BevelKind = bkSoft
-    BorderStyle = bsNone
-    Color = clBtnFace
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clBlack
-    Font.Height = -16
-    Font.Name = 'System'
-    Font.Style = [fsBold]
-    ParentFont = False
-    ReadOnly = True
-    TabOrder = 7
-    Text = '0'
-  end
-  object sendWEN: TCheckBox
-    Left = 24
-    Top = 80
-    Width = 185
-    Height = 17
-    Hint = 'Write all values of active tab to defaults'
-    Caption = 'Store changes to EEPROM'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Arial'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 8
-  end
   object BtnClose: TButton
-    Left = 192
-    Top = 3
+    Left = 8
+    Top = 5
     Width = 57
     Height = 24
     Hint = 'Close HX3 USB Device'
@@ -2759,12 +2870,12 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 18
+    TabOrder = 14
     OnClick = BtnCloseClick
   end
   object BtnRescan: TButton
-    Left = 192
-    Top = 3
+    Left = 8
+    Top = 5
     Width = 57
     Height = 24
     Hint = 'Open HX3 USB Device'
@@ -2775,12 +2886,12 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 1
     OnClick = BtnRescanClick
   end
   object BtnScanCore: TBitBtn
-    Left = 640
-    Top = 112
+    Left = 712
+    Top = 224
     Width = 81
     Height = 25
     Hint = 'Upload a single Scan Core with .DAT file'
@@ -2791,96 +2902,93 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 23
+    TabOrder = 19
     OnClick = BtnScanCoreClick
   end
   object BtnLicenceGen: TBitBtn
-    Left = 528
-    Top = 88
+    Left = 608
+    Top = 104
     Width = 73
     Height = 25
     Hint = 'Decrypt Serial number and generate licences'
     Caption = 'LicenceGen'
+    Enabled = False
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlue
     Font.Height = -12
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 24
+    TabOrder = 20
     OnClick = BtnLicenceGenClick
   end
   object BtnReset: TBitBtn
-    Left = 536
-    Top = 3
-    Width = 73
+    Left = 824
+    Top = 136
+    Width = 81
     Height = 25
     Hint = 'Reset HX3 board to power-on state'
     Caption = 'Reset HX3'
     Font.Charset = ANSI_CHARSET
-    Font.Color = clTeal
+    Font.Color = 33023
     Font.Height = -13
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 25
+    TabOrder = 21
     OnClick = BtnResetClick
   end
-  object SendAll: TBitBtn
-    Left = 24
-    Top = 48
-    Width = 89
-    Height = 25
-    Hint = 'Send all params of active tab to HX3'
-    Caption = 'Write Params'
+  object ComboBoxScancore: TComboBox
+    Left = 800
+    Top = 225
+    Width = 105
+    Height = 23
+    Hint = 'ScanCore to replace'
+    Style = csDropDownList
     Font.Charset = ANSI_CHARSET
-    Font.Color = 33023
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ItemHeight = 15
+    ItemIndex = 1
+    ParentFont = False
+    TabOrder = 26
+    Text = 'MIDI input'
+    Items.Strings = (
+      'OrganScan61'
+      'MIDI input'
+      'FatarScan'
+      'Scan16/44'
+      'Scan16/49'
+      'Scan16/61'
+      'HW Test'
+      'Opto or XB2'
+      '--------------'
+      'Update ALL')
+  end
+  object BtnDSP: TBitBtn
+    Left = 712
+    Top = 264
+    Width = 81
+    Height = 25
+    Hint = 'Upload Reverb DSP core with  .BIN file'
+    Caption = 'Update DSP'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clMaroon
     Font.Height = -12
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
-    ParentShowHint = False
-    ShowHint = True
-    TabOrder = 26
-    TabStop = False
-    OnClick = SendAllClick
-  end
-  object CheckBox6: TCheckBox
-    Left = 392
-    Top = 350
-    Width = 89
-    Height = 17
-    Caption = 'Leslie Run'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clBlack
-    Font.Height = -12
-    Font.Name = 'Arial'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 27
-    OnClick = CheckBox6Click
-  end
-  object CheckBox7: TCheckBox
-    Left = 504
-    Top = 350
-    Width = 89
-    Height = 17
-    Caption = 'Leslie Fast'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clBlack
-    Font.Height = -12
-    Font.Name = 'Arial'
-    Font.Style = []
-    ParentFont = False
     TabOrder = 28
-    OnClick = CheckBox7Click
+    OnClick = BtnDSPClick
   end
-  object ComboBoxScancore: TComboBox
-    Left = 728
-    Top = 113
-    Width = 105
+  object BasicScanMode: TComboBox
+    Left = 472
+    Top = 608
+    Width = 113
     Height = 23
-    Hint = 'ScanCore to replace'
+    Hint = 'Set active ScanCore'
     Style = csDropDownList
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -2900,55 +3008,10 @@ object Form1: TForm1
       'Scan16/49'
       'Scan16/61'
       'HW Test'
-      'Opto or XB2'
-      '--------------'
-      'Update ALL')
-  end
-  object BtnDSP: TBitBtn
-    Left = 640
-    Top = 160
-    Width = 81
-    Height = 25
-    Hint = 'Upload Reverb DSP core with  .BIN file'
-    Caption = 'Update DSP'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clMaroon
-    Font.Height = -12
-    Font.Name = 'Arial'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 32
-    OnClick = BtnDSPClick
-  end
-  object BasicScanMode: TComboBox
-    Left = 392
-    Top = 608
-    Width = 105
-    Height = 23
-    Hint = 'Set active ScanCore'
-    Style = csDropDownList
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Arial'
-    Font.Style = [fsBold]
-    ItemHeight = 15
-    ItemIndex = 1
-    ParentFont = False
-    TabOrder = 34
-    Text = 'MIDI input'
-    Items.Strings = (
-      'OrganScan61'
-      'MIDI input'
-      'FatarScan'
-      'Scan16/44'
-      'Scan16/49'
-      'Scan16/61'
-      'HW Test'
       'Opto or XB2')
   end
   object BasicExpanderMode: TCheckBox
-    Left = 392
+    Left = 472
     Top = 640
     Width = 105
     Height = 17
@@ -2960,13 +3023,13 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = []
     ParentFont = False
-    TabOrder = 36
+    TabOrder = 32
     OnClick = BasicExpanderModeClick
   end
   object BasicJackA: TComboBox
-    Left = 520
+    Left = 600
     Top = 608
-    Width = 105
+    Width = 113
     Height = 23
     Hint = 'Set jack config A (Jack Config switch/button OFF)'
     Style = csDropDownList
@@ -2976,18 +3039,11 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ItemHeight = 15
-    ItemIndex = 0
     ParentFont = False
-    TabOrder = 29
-    Text = 'RotaryStereo'
-    Items.Strings = (
-      'RotaryStereo'
-      'RotarySt+Pedal'
-      'Organ/Pedal'
-      'Amp122/Pedal')
+    TabOrder = 25
   end
   object BtnWriteBasics: TBitBtn
-    Left = 696
+    Left = 776
     Top = 608
     Width = 105
     Height = 33
@@ -3003,14 +3059,14 @@ object Form1: TForm1
     ParentFont = False
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 31
+    TabOrder = 27
     TabStop = False
     OnClick = BtnWriteBasicsClick
   end
   object BasicJackB: TComboBox
-    Left = 520
+    Left = 600
     Top = 656
-    Width = 105
+    Width = 113
     Height = 23
     Hint = 'Set jack config B (Jack Config switch/button ON)'
     Style = csDropDownList
@@ -3020,18 +3076,11 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ItemHeight = 15
-    ItemIndex = 3
     ParentFont = False
-    TabOrder = 33
-    Text = 'Amp122/Pedal'
-    Items.Strings = (
-      'RotaryStereo'
-      'RotarySt+Pedal'
-      'Organ/Pedal'
-      'Amp122/Pedal')
+    TabOrder = 29
   end
   object BasicToneEna: TCheckBox
-    Left = 392
+    Left = 472
     Top = 664
     Width = 113
     Height = 17
@@ -3043,11 +3092,11 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = []
     ParentFont = False
-    TabOrder = 35
+    TabOrder = 31
   end
   object LedOrganOk: TPanel
-    Left = 560
-    Top = 126
+    Left = 640
+    Top = 142
     Width = 32
     Height = 16
     BevelOuter = bvLowered
@@ -3061,11 +3110,11 @@ object Form1: TForm1
     Font.Style = []
     ParentBackground = False
     ParentFont = False
-    TabOrder = 38
+    TabOrder = 33
   end
   object LedLeslieOk: TPanel
-    Left = 560
-    Top = 158
+    Left = 640
+    Top = 174
     Width = 32
     Height = 16
     BevelOuter = bvLowered
@@ -3079,11 +3128,11 @@ object Form1: TForm1
     Font.Style = []
     ParentBackground = False
     ParentFont = False
-    TabOrder = 39
+    TabOrder = 34
   end
   object LEDbusy: TPanel
-    Left = 760
-    Top = 348
+    Left = 840
+    Top = 84
     Width = 32
     Height = 20
     BevelOuter = bvLowered
@@ -3096,11 +3145,11 @@ object Form1: TForm1
     Font.Style = []
     ParentBackground = False
     ParentFont = False
-    TabOrder = 40
+    TabOrder = 35
   end
   object BtnUpdateFIR: TBitBtn
-    Left = 640
-    Top = 208
+    Left = 824
+    Top = 264
     Width = 81
     Height = 25
     Hint = 'Upload horn FIR filter with COE or PAS file'
@@ -3111,35 +3160,286 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 41
+    TabOrder = 36
     OnClick = BtnFIRClick
+  end
+  object Panel1: TPanel
+    Left = 344
+    Top = 696
+    Width = 49
+    Height = 25
+    Hint = 'Click to toggle ON/OFF'
+    BorderStyle = bsSingle
+    Caption = 'Panel1'
+    ParentBackground = False
+    TabOrder = 37
+    Visible = False
+    OnClick = Panel1Click
+  end
+  object CheckboxEEwrite: TCheckBox
+    Left = 320
+    Top = 88
+    Width = 105
+    Height = 17
+    Hint = 'Write changes immediately to non-volatile EEPROM'
+    Caption = 'EEPROM Write'
+    TabOrder = 38
+  end
+  object ReadAll: TBitBtn
+    Left = 120
+    Top = 80
+    Width = 89
+    Height = 25
+    Hint = 'Read all params from HX3 to active tab'
+    Caption = 'Read Params'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clGreen
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+    TabStop = False
+    OnClick = ReadAllClick
+  end
+  object SendAll: TBitBtn
+    Left = 24
+    Top = 80
+    Width = 89
+    Height = 25
+    Hint = 'Send all params of active tab to HX3 and store to EEPROM'
+    Caption = 'Write Params'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = 33023
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 22
+    TabStop = False
+    OnClick = SendAllClick
+  end
+  object CheckBox6: TCheckBox
+    Left = 472
+    Top = 6
+    Width = 81
+    Height = 17
+    Caption = 'Leslie Run'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 23
+    OnClick = CheckBox6Click
+  end
+  object CheckBox7: TCheckBox
+    Left = 560
+    Top = 6
+    Width = 89
+    Height = 17
+    Caption = 'Leslie Fast'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 24
+    OnClick = CheckBox7Click
+  end
+  object CheckBox8: TCheckBox
+    Left = 648
+    Top = 6
+    Width = 57
+    Height = 17
+    Hint = 'Saved to defaults'
+    Caption = 'Rev I'
+    Color = clBtnFace
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 39
+    OnClick = CheckBox8Click
+  end
+  object CheckBox9: TCheckBox
+    Left = 712
+    Top = 6
+    Width = 57
+    Height = 17
+    Hint = 'Saved to defaults'
+    Caption = 'Rev II'
+    Color = clBtnFace
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 40
+    OnClick = CheckBox9Click
+  end
+  object CheckBox10: TCheckBox
+    Left = 776
+    Top = 6
+    Width = 73
+    Height = 17
+    Hint = 'Audio Jack Configuration,, saved to Lower preset'
+    Caption = 'JackConf'
+    Color = clBtnFace
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 41
+    OnClick = CheckBox10Click
+  end
+  object CheckBox11: TCheckBox
+    Left = 856
+    Top = 6
+    Width = 65
+    Height = 17
+    Hint = 'Split ON/OFF, saved to Lower preset'
+    Caption = 'Split On'
+    Color = clBtnFace
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 42
+    OnClick = CheckBox11Click
+  end
+  object ScrollBar1: TScrollBar
+    Left = 128
+    Top = 696
+    Width = 121
+    Height = 17
+    LargeChange = 5
+    Max = 255
+    PageSize = 0
+    TabOrder = 43
+    Visible = False
+    OnChange = Scrollbar1Change
+  end
+  object ComboBoxScanDetected: TComboBox
+    Left = 600
+    Top = 201
+    Width = 73
+    Height = 23
+    Hint = 'ScanCore detected'
+    Style = csSimple
+    Enabled = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ItemHeight = 15
+    ItemIndex = 1
+    ParentFont = False
+    TabOrder = 44
+    Text = 'MIDI input'
+    Items.Strings = (
+      'OrganScan61'
+      'MIDI input'
+      'FatarScan'
+      'Scan16/44'
+      'Scan16/49'
+      'Scan16/61'
+      'HW Test'
+      'Opto or XB2'
+      '--------------'
+      'Update ALL')
   end
   object MainMenu1: TMainMenu
     Images = ImageList1
-    Left = 728
-    Top = 8
+    Left = 592
+    Top = 704
     object File1: TMenuItem
       Caption = '&File'
       Hint = 'Setup Files'
-      object FileNewItem: TMenuItem
-        Action = FileNew1
-        Caption = '&New Param Set'
-        Hint = 'New|New settings and parameter (blank)'
+      object New1: TMenuItem
+        Caption = '&New'
+        ShortCut = 16462
+        OnClick = New1Click
       end
       object FileOpenItem: TMenuItem
         Action = FileOpen1
-        Caption = '&Open Param File'
-        Hint = 'Open|Open settings and parameter file'
+        Caption = '&Open Setup File'
+        Hint = 'Open|Open Setup File'
       end
       object FileSaveItem: TMenuItem
         Action = FileSave1
-        Caption = '&Save Param File'
-        Hint = 'Save settings|Save settings and params to file'
+        Caption = '&Save Setup File'
+        Hint = 'Save settings|Save setup and params to file'
       end
       object FileSaveAsItem: TMenuItem
         Action = FileSaveAs1
-        Caption = 'Save Param File  &as...'
-        Hint = 'Save settings|Save settingsSave settings and params to new file'
+        Caption = 'Save Setup File  &as...'
+        Hint = 'Save settings|Save settingsSave setup and params to new file'
+        ShortCut = 16449
+      end
+      object N10: TMenuItem
+        Caption = '-'
+      end
+      object ImportOrganData1: TMenuItem
+        Caption = 'Import Organ Data'
+        OnClick = ImportOrganData1Click
+      end
+      object ImportLeslieData1: TMenuItem
+        Caption = 'Import Leslie Data'
+        OnClick = ImportLeslieData1Click
+      end
+      object ImportMIDICCData1: TMenuItem
+        Caption = 'Import MIDI CC Data'
+        OnClick = ImportMIDICCData1Click
+      end
+      object ImportUpperPresets1: TMenuItem
+        Caption = 'Import Upper Presets'
+        OnClick = ImportUpperPresets1Click
+      end
+      object ImportLowerPresets1: TMenuItem
+        Caption = 'Import Lower Presets'
+        OnClick = ImportLowerPresets1Click
+      end
+      object N7: TMenuItem
+        Caption = '-'
+      end
+      object ExportOrganData1: TMenuItem
+        Caption = 'Export Organ Data'
+        OnClick = ExportOrganData1Click
+      end
+      object ExportLeslieData1: TMenuItem
+        Caption = 'Export Leslie Data'
+        OnClick = ExportLeslieData1Click
+      end
+      object ExportMIDICCData1: TMenuItem
+        Caption = 'Export MIDI CC Data'
+        OnClick = ExportMIDICCData1Click
+      end
+      object ExportUpperPresets1: TMenuItem
+        Caption = 'Export Upper Presets'
+        OnClick = ExportUpperPresets1Click
+      end
+      object ExportLowerPresets1: TMenuItem
+        Caption = 'Export Lower Presets'
+        OnClick = ExportLowerPresets1Click
       end
       object N1: TMenuItem
         Caption = '-'
@@ -3148,6 +3448,7 @@ object Form1: TForm1
         Action = FileExit1
         Caption = '&Quit'
         Hint = 'Quit|Quit program'
+        ShortCut = 16465
       end
     end
     object Edit1: TMenuItem
@@ -3242,8 +3543,8 @@ object Form1: TForm1
   end
   object ActionList1: TActionList
     Images = ImageList1
-    Left = 664
-    Top = 8
+    Left = 528
+    Top = 704
     object FileNew1: TAction
       Category = 'File'
       Caption = '&Neu'
@@ -3311,8 +3612,8 @@ object Form1: TForm1
     end
   end
   object ImageList1: TImageList
-    Left = 696
-    Top = 8
+    Left = 560
+    Top = 704
     Bitmap = {
       494C01010F001300040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
@@ -3987,31 +4288,29 @@ object Form1: TForm1
       ' Cores|*.dat;*.bin|FIR coeffs|*.pas; *.coe|All files (*.*)|*.*'
     FilterIndex = 0
     Options = [ofHideReadOnly, ofFileMustExist, ofEnableSizing]
-    Left = 800
-    Top = 8
+    Left = 656
+    Top = 704
   end
   object SaveParamDialog: TSaveDialog
     DefaultExt = '.hx3'
-    Filter = 'HX3 Parameter|*.hx3'
-    Title = 'HX3 Parameter Setting File'
-    Left = 632
-    Top = 8
+    Filter = 'HX3 Remote Setup|*.hx3|Export Data|*.csv'
+    Left = 496
+    Top = 704
   end
   object OpenParamDialog: TOpenDialog
     DefaultExt = '.hx3'
-    Filter = 'HX3 Parameter|*.hx3'
-    Title = 'HX3 Parameter Setting File'
-    Left = 600
-    Top = 8
+    Filter = 'HX3 Remote Setup|*.hx3|Import Data|*.csv'
+    Left = 464
+    Top = 704
   end
   object Timer1: TTimer
     Interval = 10
     OnTimer = Timer1Timer
-    Left = 768
-    Top = 8
+    Left = 624
+    Top = 704
   end
   object XPManifest1: TXPManifest
-    Left = 832
-    Top = 8
+    Left = 688
+    Top = 704
   end
 end
