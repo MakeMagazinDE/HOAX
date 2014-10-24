@@ -16,12 +16,19 @@ are only required for updating the reverb DSP.
 
 ### Last Build
 
-* HX3 Remote: #1.20	hx3_remote.exe for Windows XP and up
-* AVR:  #3.55       .hex and .eep files, Latest Firmware for AVR controller
-* FPGA: #28052014   .bit file for FPGA update
-* SCAN: #$0D        .dat files, Needed for #3.51 and up; only FATAR and MIDI scan cores finished yet, others will follow 
+* HX3 Remote: #3.63	hx3_remote.exe for Windows XP and up
+* AVR:  #3.63       .hex and .eep files, Latest Firmware for AVR controller
+* FPGA: #22102014   .bit file for FPGA update
+* SCAN: #$0D        .dat files, Needed for firmware #3.51 and up
 
 ### Changelog
+
+10/22/2014
+
+* Changed directory structure on Github repo, all files available as packed ZIP for easy download 
+* Revised swell curve with more accurate frequency response 
+* Adjustable minimal swell volume down to zero by menu or parameter 482 (see HX3 Remote). Needs FPGA configuration #22102014 and, if applicable, HX3 Remote 3.63 
+* AO28 amplifier noise without digital artefacts
 
 06/13/2014
 
