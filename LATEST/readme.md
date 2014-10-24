@@ -1,9 +1,7 @@
 HX3 Latest Firmware
 ===================
 
-<b>Not released yet, but working beta releases for evaluation. You should know what you're doing!</b>
-
-<b>LATEST NEWS:</b> New update program for Windows available - makes fiddling with AVRdude and TeraTerm obsolete!
+<b>Working releases for update with HX3 Remote application</b>
 
 ### Using the new HX3 remote/update program
 
@@ -26,7 +24,7 @@ are only required for updating the reverb DSP.
 10/22/2014
 
 * Changed directory structure on Github repo, all files available as packed ZIP for easy download 
-* Revised swell curve with more accurate frequency response 
+* Revised swell curve with more accurate frequency response on FW 3.63
 * Adjustable minimal swell volume down to zero by menu or parameter 482 (see HX3 Remote). Needs FPGA configuration #22102014 and, if applicable, HX3 Remote 3.63 
 * AO28 amplifier noise without digital artefacts
 
