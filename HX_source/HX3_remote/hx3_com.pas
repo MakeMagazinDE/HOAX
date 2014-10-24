@@ -333,7 +333,6 @@ begin
     ftdi := nil;
     exit;
   end;
-  ftdi.cycleDevice;
 
   if not ftdi.openDeviceBySerial(ftdi_sernum_arr[my_device]) then begin
     result:= '### Failed to open device';
@@ -344,6 +343,8 @@ begin
 
   { Configure for 57600 baud, 8 bit, 1 stop bit, no parity, no flow control }
   if ftdi.resetDevice then begin
+    ftdi.closeDevice; // cycle device in case of previous power save mode (bug!)
+    ftdi.openDeviceBySerial(ftdi_sernum_arr[my_device]);
     ftdi_isopen:= true;
     ftdi.setBaudRate(fBaud57600);
     ftdi.setDataCharacteristics(fBits8, fStopBits1, fParityNone);

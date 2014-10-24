@@ -24,6 +24,12 @@ begin
   Form1.Memo1.lines.Add('##### Warning: Process cancelled by user');
 end;
 
+procedure TimeOutMsg;
+begin
+  Form1.TransferProgress.Position:= 0;
+  Form1.Memo1.lines.Add('##### Warning: No response or process timed out');
+end;
+
 procedure LEDstate(is_on: boolean);
 // liefert vorherigen Zustand zurück
 begin
@@ -207,8 +213,6 @@ begin
   Form1.EditLeslieLicence.Text    := IntToStr(HX3record.LeslieLicence);
   Form1.EditSerialNumber.Text     := IntToStr(HX3record.SerialNumber);
 
-  Form1.BasicJackA.ItemIndex      := HX3record.OrganBasicSettings[38];
-  Form1.BasicJackB.ItemIndex      := HX3record.OrganBasicSettings[39];
   Form1.BasicScanMode.ItemIndex   := HX3record.OrganBasicSettings[76];
   Form1.BasicExpanderMode.Checked := boolean(HX3record.OrganBasicSettings[77]);
   Form1.BasicToneEna.Checked      := boolean(HX3record.OrganBasicSettings[80]);
@@ -216,7 +220,7 @@ end;
 
 procedure FileErrorMemo(my_name: String);
 begin
-    Form1.Memo1.lines.Add('##### Êrror: Missing file ' + my_name);
+    Form1.Memo1.lines.Add('##### Error: Missing file ' + my_name);
 end;
 
 //##############################################################################
@@ -446,10 +450,6 @@ begin
   if FileExists(my_filename) then begin
     DropDownList.LoadFromFile(my_filename);
     my_idx:= DropDownList.IndexOfName('OutConfig');
-    for i:= 0 to 31 do begin
-      Form1.BasicJackA.Items.Add(DropDownList.ValueFromIndex[my_idx+i]);
-      Form1.BasicJackB.Items.Add(DropDownList.ValueFromIndex[my_idx+i]);
-    end;
   end else
     FileErrorMemo('hx3_dropdown_menus.csv');
 
@@ -461,17 +461,24 @@ end;
 procedure HX3_resync;
 var
   my_str:String;
+  my_try: Integer;
 begin
+  my_try:= 0;
   repeat begin
     LEDflash;
     my_str:= HX3_QueryStr(253);
-    delay(500);
-    if CancelProc then begin
-      CancelMsg;
-      CancelProc:= false;
+    delay(250);
+    inc(my_try);
+    if my_try > 25 then begin
+      CancelProc:= true;
+      TimeOutMsg;
       exit;
     end;
-  end until pos('253',my_str) >0;
+    if CancelProc then begin
+      CancelMsg;
+      exit;
+    end;
+  end until (pos('253',my_str) >0);
 end;
 
 procedure HX3_reset;
@@ -480,7 +487,7 @@ var
 begin
   my_str:= HX3_QueryStr(9999);
   LEDflash;
-  delay(500);
+  delay(1000);
   HX3_resync;
 end;
 
@@ -511,6 +518,7 @@ var
   my_val, my_pos1, my_pos2: Integer;
 begin
   HX3_resync;
+  if CancelProc then exit;
   HX3record.FirmwareVersion:= HX3_QueryFloat(254);
   my_str:=HX3_QueryStr(254);
   HX3record.FirmwareVersion:= HX3_StrToFloat(my_str);
@@ -540,9 +548,14 @@ begin
   my_str:=HX3_QueryStr(9910);  // FPGA Info
   Form1.Memo1.lines.Add(my_str);
   my_val:= HX3_StrToInt(my_str);
-  if my_val < 0 then
-    Form1.Memo1.lines.Add('##### Warning: FPGA version too old, does not match firmware');
+  if my_val < 0 then begin
+    if IsFPGAcorrupted then
+      Form1.Memo1.lines.Add('##### Error: FPGA config corrupted or empty')
+    else
+      Form1.Memo1.lines.Add('##### Warning: FPGA config too old')
+   end;
   HX3_resync;
+  if CancelProc then exit;
 
   my_str:=HX3_QueryStr(9952);
   Form1.Memo1.lines.Add(my_str);
@@ -577,7 +590,6 @@ begin
   end else
     HasBootLoaderJump:= true;
   if IsFPGAcorrupted then begin
-    Form1.Memo1.lines.Add('##### Warning: FPGA config seems to be corrupted');
     Form1.Memo1.lines.Add('##### Warning: Update FPGA first and insert CONF_DIS JP if requested');
     Form1.BtnScanCore.Enabled:=false;
     Form1.BtnDSP.Enabled:=false;
@@ -616,9 +628,18 @@ begin
   my_packets:= (my_size-1) div 128;
   Form1.TransferProgress.Max:= my_packets;
   for i:= 0 to my_packets do begin
+    if CancelProc then begin
+      CancelMsg;
+      TxEOT;
+      exit;
+    end;
     my_str:= TxPacket(i);
-    if my_str[1] <> 'P' then
+    if my_str[1] <> 'P' then begin
       Form1.Memo1.lines.Add('##### Error: Xmodem '+ my_str);
+      TxEOT;
+      CancelProc:= true;
+      exit;
+    end;
     if (i mod 8 = 0) or (my_packets < 100) then begin
       LEDflash;
       Form1.TransferProgress.Position:= i;
@@ -630,17 +651,13 @@ begin
       end;
 }
     end;
-    if CancelProc then begin
-      CancelMsg;
-      exit;
-    end;
   end;
   TxEOT;
   LEDflash;
   delay(100);
   Form1.Memo1.lines.Add('#--- Packets sent: '+ IntToStr(my_packets+1));
   Form1.Memo1.lines.Add(HX3_ResponseWait(2000));
-  delay(500);
+  delay(250);
 end;
 
 
@@ -680,7 +697,6 @@ begin
     BtnRefreshInfo.Enabled:=true;
     BtnScanCore.Enabled:=true;
     UpdateAVR.Enabled:=true;
-    BtnCancel.Enabled:=true;
     BtnReset.Enabled:=true;
     BtnWriteBasics.Enabled:= true;
     BtnUpdateFIR.Enabled:= true;
@@ -707,7 +723,6 @@ begin
     BtnRefreshInfo.Enabled:=false;
     BtnScanCore.Enabled:=false;
     UpdateAVR.Enabled:=false;
-    BtnCancel.Enabled:=false;
     BtnReset.Enabled:=false;
     Actions1.Enabled:= false;
     Connect1.Enabled:= true;

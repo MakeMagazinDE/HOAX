@@ -844,32 +844,6 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label13: TLabel
-    Left = 600
-    Top = 592
-    Width = 73
-    Height = 15
-    Caption = 'Jack Config A'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Arial'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label14: TLabel
-    Left = 600
-    Top = 640
-    Width = 75
-    Height = 15
-    Caption = 'Jack Config B'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Arial'
-    Font.Style = []
-    ParentFont = False
-  end
   object Label38: TLabel
     Left = 472
     Top = 592
@@ -888,7 +862,7 @@ object Form1: TForm1
     Top = 664
     Width = 159
     Height = 15
-    Caption = '(only these 5 params written)'
+    Caption = '(only these 3 params written)'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -930,7 +904,7 @@ object Form1: TForm1
     Hint = 
       'Read Params / Write Params will update only displayed page of pa' +
       'rameters'
-    ActivePage = TabSheet6
+    ActivePage = TabSheet1
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -2953,7 +2927,7 @@ object Form1: TForm1
     ItemHeight = 15
     ItemIndex = 1
     ParentFont = False
-    TabOrder = 26
+    TabOrder = 25
     Text = 'MIDI input'
     Items.Strings = (
       'OrganScan61'
@@ -2980,7 +2954,7 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 28
+    TabOrder = 27
     OnClick = BtnDSPClick
   end
   object BasicScanMode: TComboBox
@@ -2998,7 +2972,7 @@ object Form1: TForm1
     ItemHeight = 15
     ItemIndex = 1
     ParentFont = False
-    TabOrder = 30
+    TabOrder = 28
     Text = 'MIDI input'
     Items.Strings = (
       'OrganScan61'
@@ -3023,24 +2997,8 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = []
     ParentFont = False
-    TabOrder = 32
+    TabOrder = 30
     OnClick = BasicExpanderModeClick
-  end
-  object BasicJackA: TComboBox
-    Left = 600
-    Top = 608
-    Width = 113
-    Height = 23
-    Hint = 'Set jack config A (Jack Config switch/button OFF)'
-    Style = csDropDownList
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Arial'
-    Font.Style = [fsBold]
-    ItemHeight = 15
-    ParentFont = False
-    TabOrder = 25
   end
   object BtnWriteBasics: TBitBtn
     Left = 776
@@ -3059,40 +3017,24 @@ object Form1: TForm1
     ParentFont = False
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 27
+    TabOrder = 26
     TabStop = False
     OnClick = BtnWriteBasicsClick
-  end
-  object BasicJackB: TComboBox
-    Left = 600
-    Top = 656
-    Width = 113
-    Height = 23
-    Hint = 'Set jack config B (Jack Config switch/button ON)'
-    Style = csDropDownList
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Arial'
-    Font.Style = [fsBold]
-    ItemHeight = 15
-    ParentFont = False
-    TabOrder = 29
   end
   object BasicToneEna: TCheckBox
     Left = 472
     Top = 664
-    Width = 113
+    Width = 185
     Height = 17
     Hint = 'Set Tone pot analog enable'
-    Caption = 'Tone Pot Enable'
+    Caption = 'Tone / Leslie Vol Pot Enable'
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
     Font.Height = -12
     Font.Name = 'Arial'
     Font.Style = []
     ParentFont = False
-    TabOrder = 31
+    TabOrder = 29
   end
   object LedOrganOk: TPanel
     Left = 640
@@ -3110,7 +3052,7 @@ object Form1: TForm1
     Font.Style = []
     ParentBackground = False
     ParentFont = False
-    TabOrder = 33
+    TabOrder = 31
   end
   object LedLeslieOk: TPanel
     Left = 640
@@ -3128,7 +3070,7 @@ object Form1: TForm1
     Font.Style = []
     ParentBackground = False
     ParentFont = False
-    TabOrder = 34
+    TabOrder = 32
   end
   object LEDbusy: TPanel
     Left = 840
@@ -3145,7 +3087,7 @@ object Form1: TForm1
     Font.Style = []
     ParentBackground = False
     ParentFont = False
-    TabOrder = 35
+    TabOrder = 33
   end
   object BtnUpdateFIR: TBitBtn
     Left = 824
@@ -3160,7 +3102,7 @@ object Form1: TForm1
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 36
+    TabOrder = 34
     OnClick = BtnFIRClick
   end
   object Panel1: TPanel
@@ -3172,7 +3114,7 @@ object Form1: TForm1
     BorderStyle = bsSingle
     Caption = 'Panel1'
     ParentBackground = False
-    TabOrder = 37
+    TabOrder = 35
     Visible = False
     OnClick = Panel1Click
   end
@@ -3183,7 +3125,7 @@ object Form1: TForm1
     Height = 17
     Hint = 'Write changes immediately to non-volatile EEPROM'
     Caption = 'EEPROM Write'
-    TabOrder = 38
+    TabOrder = 36
   end
   object ReadAll: TBitBtn
     Left = 120
@@ -3268,7 +3210,7 @@ object Form1: TForm1
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 39
+    TabOrder = 37
     OnClick = CheckBox8Click
   end
   object CheckBox9: TCheckBox
@@ -3286,7 +3228,7 @@ object Form1: TForm1
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 40
+    TabOrder = 38
     OnClick = CheckBox9Click
   end
   object CheckBox10: TCheckBox
@@ -3304,7 +3246,7 @@ object Form1: TForm1
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 41
+    TabOrder = 39
     OnClick = CheckBox10Click
   end
   object CheckBox11: TCheckBox
@@ -3322,7 +3264,7 @@ object Form1: TForm1
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 42
+    TabOrder = 40
     OnClick = CheckBox11Click
   end
   object ScrollBar1: TScrollBar
@@ -3333,7 +3275,7 @@ object Form1: TForm1
     LargeChange = 5
     Max = 255
     PageSize = 0
-    TabOrder = 43
+    TabOrder = 41
     Visible = False
     OnChange = Scrollbar1Change
   end
@@ -3353,7 +3295,7 @@ object Form1: TForm1
     ItemHeight = 15
     ItemIndex = 1
     ParentFont = False
-    TabOrder = 44
+    TabOrder = 42
     Text = 'MIDI input'
     Items.Strings = (
       'OrganScan61'
@@ -3509,16 +3451,16 @@ object Form1: TForm1
         Caption = '-'
       end
       object UpdateFPGAandScanCores1: TMenuItem
-        Caption = 'Update FPGA and Scan Cores'
+        Caption = 'Update FPGA'
         OnClick = UpdateFPGAClick
       end
       object UpdateScanCoresonly1: TMenuItem
-        Caption = 'Update Scan Cores only'
-        OnClick = UpdateScanCoresonly1Click
+        Caption = 'Update All Scan Cores'
+        OnClick = UpdateScanCoresClick
       end
       object UpdateSingleScanCore1: TMenuItem
-        Caption = 'Update Single Scan Core'
-        OnClick = BtnScanCoreClick
+        Caption = 'Update Reverb DSP'
+        OnClick = BtnDSPClick
       end
       object UpdateAVRFirmware1: TMenuItem
         Caption = 'Update AVR Firmware'

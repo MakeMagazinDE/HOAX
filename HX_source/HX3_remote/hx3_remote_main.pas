@@ -182,11 +182,7 @@ type
     Bevel11: TBevel;
     Label10: TLabel;
     BasicExpanderMode: TCheckBox;
-    BasicJackA: TComboBox;
     BtnWriteBasics: TBitBtn;
-    Label13: TLabel;
-    Label14: TLabel;
-    BasicJackB: TComboBox;
     Label38: TLabel;
     BasicToneEna: TCheckBox;
     Label39: TLabel;
@@ -328,7 +324,7 @@ type
     procedure CheckBox2Click(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
     procedure CheckBox0Click(Sender: TObject);
-    procedure UpdateScanCoresonly1Click(Sender: TObject);
+    procedure UpdateScanCoresClick(Sender: TObject);
     procedure BtnResetClick(Sender: TObject);
     procedure BtnLicenceGenClick(Sender: TObject);
     procedure BtnScanCoreClick(Sender: TObject);
@@ -389,7 +385,7 @@ type
 
 const
 //### Länge des Parameter-EEPROMs
-  VersionInfo='Version 1.42';
+  VersionInfo='Version 3.63';
   FroschDefaultDesc='FT232R USB UART';
   FroschDefDriveName='HOAX';
   FroschRegKeyName='HX3remote';
@@ -433,6 +429,7 @@ uses about, deviceselect, hx3_com, hx3_MenuItems, FTDIchip;
 procedure TForm1.BtnRefreshInfoClick(Sender: TObject);
 // vorhandene Lizenznummern von HX3 holen
 begin
+  CancelProc:= false;
   Form1.Memo1.Lines.Clear;
   HX3_info;
 end;
@@ -440,6 +437,7 @@ end;
 procedure TForm1.BtnSetLicenceClick(Sender: TObject);
 // Lizenznummern senden
 begin
+  CancelProc:= false;
   HX3_resync;
   HX3_SetStr('wen=1');
   HX3_SetStr('9950='+trim(EditOrganLicence.Text)+'!');
@@ -454,8 +452,8 @@ end;
 
 procedure TForm1.UpdateFPGAClick(Sender: TObject);
 begin
-  if IsFPGAcorrupted then FPGAcorruptedMsg;
   CancelProc:= false;
+  if IsFPGAcorrupted then FPGAcorruptedMsg;
   OpenDialog.DefaultExt:='*.bit';
   OpenDialog.Title:= 'Open HX3 FPGA SoundEngine config (BIT):';
   OpenDialog.FilterIndex:= 1;
@@ -466,7 +464,6 @@ begin
     CoreLoad(OpenDialog.Filename, -1);
     if CancelProc then begin
       CancelMsg;
-      CancelProc:= false;
       exit;
     end;
     HX3_resync;
@@ -483,6 +480,7 @@ end;
 
 procedure TForm1.BtnScanCoreClick(Sender: TObject);
 begin
+  CancelProc:= false;
   OpenDialog.DefaultExt:='*.dat';
   OpenDialog.FilterIndex:= 3;
   if ComboBoxScanCore.ItemIndex = 8 then exit;
@@ -509,6 +507,7 @@ end;
 
 procedure TForm1.BtnDSPClick(Sender: TObject);
 begin
+  CancelProc:= false;
   OpenDialog.DefaultExt:='*.bin';
   OpenDialog.FilterIndex:= 3;
   OpenDialog.Title:= 'Open FV-1 Reverb DSP binary file (BIN):';
@@ -526,8 +525,9 @@ begin
   showmessage('Remove JP7/JP8 I2C jumpers from HX3 board and click OK when done');
 end;
 
-procedure TForm1.UpdateScanCoresonly1Click(Sender: TObject);
+procedure TForm1.UpdateScanCoresClick(Sender: TObject);
 begin
+  CancelProc:= false;
   ComboBoxScanCore.ItemIndex := 9;
   BtnScanCoreClick(Sender);
 end;
@@ -538,6 +538,7 @@ var
   i, my_int: LongInt;
   my_str, my_resp: String;
 begin
+  CancelProc:= false;
   OpenDialog.DefaultExt:='*.pas';
   OpenDialog.FilterIndex:= 4;
   OpenDialog.Title:= 'Open FIR coeff file (PAS, COE):';
@@ -577,7 +578,6 @@ begin
     inc(i);
     if CancelProc then begin
       CancelMsg;
-      CancelProc:= false;
       break;
     end;
   end;
@@ -602,7 +602,6 @@ begin
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
-          CancelProc:= false;
           exit;
         end;
       end;
@@ -616,7 +615,6 @@ begin
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
-          CancelProc:= false;
           exit;
         end;
       end;
@@ -630,7 +628,6 @@ begin
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
-          CancelProc:= false;
           exit;
         end;
       end;
@@ -644,7 +641,6 @@ begin
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
-          CancelProc:= false;
           exit;
         end;
       end;
@@ -658,7 +654,6 @@ begin
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
-          CancelProc:= false;
           exit;
         end;
       end;
@@ -682,7 +677,6 @@ begin
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
-          CancelProc:= false;
           exit;
         end;
       end;
@@ -697,7 +691,6 @@ begin
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
-          CancelProc:= false;
           exit;
         end;
       end;
@@ -711,7 +704,6 @@ begin
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
-          CancelProc:= false;
           exit;
         end;
       end;
@@ -727,7 +719,6 @@ begin
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
-          CancelProc:= false;
           exit;
         end;
       end;
@@ -744,7 +735,6 @@ begin
         TransferProgress.Position:= i;
         if CancelProc then begin
           CancelMsg;
-          CancelProc:= false;
           exit;
         end;
       end;
@@ -761,6 +751,7 @@ procedure TForm1.BtnRescanClick(Sender: TObject);
 var i : Integer; LV : TListItem;
 begin
 // Alle verfügbaren COM-Ports prüfen, Ergebnisse in Array speichern
+  CancelProc:= false;
   LEDflash;
   for i := 0 to 31 do begin
     ComPortAvailableList[i] := CheckCom(i);
@@ -773,7 +764,6 @@ begin
 // another Error
 }
   end;
-  CancelProc:= false;
   deviceselectbox.ListView1.Items.clear;
   SetUpFTDI;
   if ftdi_device_count > 0 then
@@ -794,12 +784,21 @@ begin
     ftdi_selected_device:= deviceselectbox.ListView1.itemindex;
     InitFTDI(ftdi_selected_device);
     if ftdi_isopen then begin
-      EnableButtons;
       Form1.Memo1.lines.clear;
       HX3_info;
       DeviceView.Text:= ftdi_sernum_arr[ftdi_selected_device]
       + ' - ' + ftdi_desc_arr[ftdi_selected_device];
       LEDflash;
+      if CancelProc then begin
+        CancelProc:= false;
+        if ftdi_isopen then
+          ftdi.closeDevice;
+        ftdi_isopen:= false;
+        DisableButtons;
+        DeviceView.Text:= '(not selected)';
+        exit;
+      end else
+        EnableButtons;
       for i := 0 to 31 do begin
     // Erneut alle verfügbaren COM-Ports prüfen, Ergebnis mit Array vergleichen
     // Wenn Port jetzt gesperrt, ist er durch gewähltes ftdi-Device belegt
@@ -815,6 +814,7 @@ end;
 
 procedure TForm1.BtnCloseClick(Sender: TObject);
 begin
+  CancelProc:= false;
   if ftdi_isopen then
     ftdi.closeDevice;
   ftdi_isopen:= false;
@@ -1049,6 +1049,7 @@ end;
 
 procedure TForm1.BtnResetClick(Sender: TObject);
 begin
+  CancelProc:= false;
   Form1.Memo1.Lines.Clear;
   ResetCheckboxes;
   HX3_reset;
@@ -1174,31 +1175,30 @@ end;
 //####################### Basic Configuration Buttons ##########################
 //##############################################################################
 
-
 procedure TForm1.BtnWriteBasicsClick(Sender: TObject);
+var i, j, p: Integer;
 begin
-  HX3record.OrganBasicSettings[76]:= BasicScanMode.ItemIndex;
-  HX3record.OrganBasicSettings[77]:= BoolToByte(BasicExpanderMode.Checked);
-  HX3record.OrganBasicSettings[38]:= BasicJackA.ItemIndex;
-  HX3record.OrganBasicSettings[39]:= BasicJackB.ItemIndex;
-  HX3record.OrganBasicSettings[80]:= BoolToByte(BasicToneEna.Checked);
-  HX3record.OrganBasicSettings[81]:= BoolToByte(not BasicExpanderMode.Checked);
+  CancelProc:= false;
   if ftdi_isopen then begin
-    Form1.Memo1.Lines.Clear;
 //    HX3_info;
 //    BtnLicenceGenClick(Sender);
     LEDflash;
-    HX3_send(438,HX3record.OrganBasicSettings[38],true);
-    HX3_send(439,HX3record.OrganBasicSettings[39],true);
-    HX3_send(476,HX3record.OrganBasicSettings[76],true);
-    HX3_send(477,HX3record.OrganBasicSettings[77],true);
-    HX3_send(480,HX3record.OrganBasicSettings[80],true); // Tone Pot Ena
-    HX3_send(481,HX3record.OrganBasicSettings[81],true); // Amp122 Volume Pot Ena
+
+    p:= BasicScanMode.ItemIndex;
+    Memo1.lines.Add('#--- Set HX3 Param 477 to ' + IntToSTr(p));
+    HX3_send(477, p, true);
+
+    p:= BoolToByte(BasicExpanderMode.Checked);
+    Memo1.lines.Add('#--- Set HX3 Param 478 to ' + IntToSTr(p));
+    HX3_send(478, p, true);
+
+    p:= BoolToByte(BasicToneEna.Checked);  // Tone Pot Ena
+    Memo1.lines.Add('#--- Set HX3 Param 481 to ' + IntToSTr(p));
+    HX3_send(481, p, true);
+
     LEDflash;
 //    BtnSetLicenceClick(Sender);
-    Memo1.lines.Add('#--- HX3 set to current Basic Setting controls');
   end;
-  HX3record2Form;
 end;
 
 procedure TForm1.BasicExpanderModeClick(Sender: TObject);
