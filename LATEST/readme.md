@@ -14,12 +14,20 @@ are only required for updating the reverb DSP.
 
 ### Last Build
 
-* HX3 Remote: #3.63	hx3_remote.exe for Windows XP and up
-* AVR:  #3.63       .hex and .eep files, Latest Firmware for AVR controller
+* HX3 Remote: #3.71	hx3_remote.exe for Windows XP and up
+* AVR:  #3.71       .hex and .eep files, Latest Firmware for AVR controller
 * FPGA: #22102014   .bit file for FPGA update
-* SCAN: #$0D        .dat files, Needed for firmware #3.51 and up
+* SCAN: #$11        .dat files, Needed for firmware #3.51 and up
 
 ### Changelog
+
+01/07/2015
+
+* Streamlined firmware to fit into 60 kByte; firmware 3.63 update did not work due to memory overlap
+* Auto-Restore feature for Licence numbers an HX3 Remote
+* Common Presets save Percussion/Vibrato/Efx tab settings and Preset numbers (default 10..13)
+* Presets only save Drawbar settings on non-Expander boards
+* Added repair program (ZIP archive) to recover non-working HX3 to usable condition
 
 10/22/2014
 
