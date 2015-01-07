@@ -43,17 +43,6 @@ HX3 Firmware Installation (english)
 
 FPGA configuration and scan cores may be uploaded by provided HX3 Remote application. 
 
-### AVR flash files
-
-Flash files for serial upload via HX3 Remote 
-
-* <b>HOAX_main.hex</b>             standard version with rotary vibrato switch, optional Preset24 or Preset16-Panel<br>
-* <b>HOAX_main_latching.hex</b>	  version for latching preset keys with old Preset12 MPX board<br>
-* <b>HOAX_main_tabvib.hex</b>      as standard, but 3 switches (V1,V2,CH - V3=V1+V2) instead of rotary vibrato switch at PL5<br>
-* <b>HOAX_main_buttonvib.hex</b>   as standard, but vibrato setting (V1..V3, CH) by four Common Preset buttons on Panel16<br>
-* <b>HOAX_main_xb2.hex</b>         special version for XB2 retrofit kit, uses XB2's buttons and display<br>
-* <b>HOAX_main_xb2_panel16.hex</b> special version for XB2 retrofit kit, uses installed Panel16<br>
-
 ### directories
 
 * <b>LATEST</b>                    last firmware revisions and FPGA configurations, testing only<br>
