@@ -5,12 +5,8 @@ HX3 Latest Firmware
 
 ### Using the new HX3 remote/update program
 
-Copy whole contents of this directory to a new folder on your hard disk, for 
-example E:\LATEST\. See 
-http://wiki.keyboardpartner.de/index.php?title=HX3_Remote/Update_Application for 
-details. Note: For operation with firmware 3.5 and up, remove jumpers JP7 and 
-JP8 which may still sit on your board from factory programming. These jumpers 
-are only required for updating the reverb DSP.
+Copy whole contents of this directory to a new folder on your hard disk, for example E:\HOAX\LATEST\. 
+See http://wiki.keyboardpartner.de/index.php?title=HX3_Remote/Update_Application for details. 
 
 ### Last Build
 
@@ -18,6 +14,31 @@ are only required for updating the reverb DSP.
 * AVR:  #3.71       .hex and .eep files, Latest Firmware for AVR controller
 * FPGA: #22102014   .bit file for FPGA update
 * SCAN: #$11        .dat files, Needed for firmware #3.51 and up
+
+### Files
+
+Flash files for serial upload via AVRdude or HX3 Remote. Each .HEX file has a corresponding .EEP file. 
+Versions for mk2 and mk3 version boards are in separate ZIP archives.
+Please update only the file appropriate for your product.
+
+Note: For operation with firmware 3.5 and up, remove jumpers JP7 and 
+JP8 which may still sit on your board from factory programming. These jumpers 
+are only required for updating the reverb DSP (no need to update unless noted).
+
+<b>HX3mkX_std.hex</b> Standard version, mainboard with button presets or Preset16<br>
+<b>HX3mkX_expander.hex</b> MIDI expander box version<br>
+<b>HX3mkX_latching.hex</b> Mainboard with latching presets on Preset12<br>
+<b>HX3mkX_preset24.hex</b> Mainboard with presets on external Preset24<br>
+<b>HX3mkX_single.hex</b> Mainboard with button presets or Preset16, single manual drawbar assignment<br>
+<b>HX3mkX_single_bv.hex</b> Mainboard with button presets or Preset16, single manual drawbar assignment, button vibrato on Panel16<br>
+<b>HX3mk3_xb2.hex</b> HX3 Retrofit Kit for XB2 (mk3 only)<br>
+
+<b>HX_xxx.dat</b>  Scan cores for different scan boards or MIDI input<br>
+<b>fpga_DDMMYYY.bit</b>  FPGA configuration (Sound Engine), creation date (version) encoded DDMMYYYY<br>
+<b>dsp_rev.bin</b>  Spin-FV1 Reverb DSP program<br>
+
+<b>HX3_avr_repair.ZIP</b>  Repair tool (command line batch) to restore corrupted firmware - see README in archive<br>
+
 
 ### Changelog
 
@@ -75,24 +96,6 @@ are only required for updating the reverb DSP.
 * Virtual key contacts have "mutual resistance" now which yields a more "decent" click response
 * New remote parameters 400..481 directly access 81 params like menu selection by MenuPanel
 * Deleted obsolete remote params 500..563 despite some for compatibility (519..524)
-
-### Files
-
-<b>HOAX_main.hex</b> Flash file for serial upload via AVRdude, button presets or Preset16<br>
-<b>HOAX_expander.hex</b> Flash file for serial upload via AVRdude, MIDI expander version<br>
-<b>HOAX_boot_main.hex</b> Flash file complete with Bootloader, for OEM programming by ISP programmer<br>
-<b>HOAX_boot_main.hex</b> Flash file complete with Bootloader, for OEM programming by ISP programmer<br>
-
-<b>HOAX_main.eep</b> EEPROM file for upload via AVRdude<br>
-<b>HOAX_expander.eep</b> EEPROM file for upload via AVRdude, expander version<br>
-<b>HOAX_boot_main.eep</b> EEPROM file for ISP programming<br>
-<b>HOAX_boot_expander.eep</b> EEPROM file for ISP programming, expander version<br>
-
-<b>HX_xxx.dat</b>  Scan cores for upload with TeraTerm macro<br>
-<b>main.midi.bit</b>  FPGA configuration for upload with TeraTerm macro<br>
-<b>hoax3rev.bin</b>  Reverb DSP program for upload with TeraTerm macro<br>
-
-<b>HOAX3_mk3_Syntax.xls</b>  Excel Sheet with new remote syntax<br>
 
 Please also regard installation instructions on http://wiki.keyboardpartner.de!
 
