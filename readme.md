@@ -17,19 +17,11 @@ HX3-Firmware-Installation
 
 Bitte beachten Sie die ausführliche Anleitung auf http://wiki.keyboardpartner.de! Geänderte File-Struktur im Repository: Alle zusemmengehörigen Dateien sind jetzt für einfacheren Download in entsprechende ZIP-Dateien verpackt.
 
-### Enthaltene Flash-Dateien
+### Flash-Dateiformate
 
-* <b>HOAX_main.hex</b>             HX3 Standard, ggf. mit Preset24 oder 1 bis 2 Preset16-Panel<br>
-* <b>HOAX_main_latching.hex</b>	   Latching Presets (einrastende Tasten) mit alter Preset12 MPX Platine<br>
-* <b>HOAX_main_tabvib.hex</b>      wie Standard, jedoch drei Schalter (V1,V2,CH - V3=V1+V2) statt Drehschalter an PL5<br>
-* <b>HOAX_main_buttonvib.hex</b>   wie Standard, jedoch Vibrato-Einstellung über die vier Common-Preset-Taster von Panel16 statt Drehschalter<br>
-* <b>HOAX_main_xb2.hex</b>         Spezialversion für XB2-Einbausatz, nutzt vorhandene Bedienelemente und Display<br>
-* <b>HOAX_main_xb2_panel16.hex</b> Spezialversion für alten XB2-Einbausatz mit Panel16<br>
+* <b>HX3mkX_xxx.hex</b>            Verschiedene Versionen für HX3 Mainboard, ggf. mit Preset24 oder 1 bis 2 Preset16-Panel<br>
 * <b>Preset24.hex</b>              Firmware für ATmega8 auf Preset25-Platine<br>
-
-### im Verzeichnis FPGACORES
-
-* <b>fpga_*.bit</b>                FPGA-Konfiguration zum Upload mit HX3 Remote<br>
+* <b>fpga_DDMMYYYY.bit</b>         FPGA-Konfiguration zum Upload mit HX3 Remote<br>
 * <b>*.dat</b>                     Keyscan-Routinen, zum Upload mit HX3 Remote<br>
 * <b>*.bin</b>                     SPIN-1 externe I2C Rerverb Programme, zum Upload mit HX3 Remote<br>
 
