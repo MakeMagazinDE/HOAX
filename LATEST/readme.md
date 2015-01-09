@@ -45,7 +45,7 @@ are only required for updating the reverb DSP (no need to update unless noted).
 01/09/2015 Firmware 3.72
 
 * Fixed Bug in Common Preset assignment
-* Fixed Bug in Single Drawbar versions
+* Fixed Bug in Single Drawbar versions which prevented pots Amp Vol and Tone from working
 * Several menu entries no longer skipped on non-Expander versions
 * FPGA #09012015 with level adjustment for Bass on Leslie signal
 * Streamlined firmware to fit into 60 kByte; firmware 3.63 update did not work due to memory overlap
