@@ -5,7 +5,7 @@ HX3 Latest Firmware
 
 ### Using the new HX3 remote/update program
 
-Copy whole contents of this directory to a new folder on your hard disk, for example E:\HOAX\LATEST\. 
+Copy whole contents of this directory to a new folder on your hard disk, for example E:\HX3\LATEST\. 
 See http://wiki.keyboardpartner.de/index.php?title=HX3_Remote/Update_Application for details. 
 
 ### Last Build
@@ -17,13 +17,10 @@ See http://wiki.keyboardpartner.de/index.php?title=HX3_Remote/Update_Application
 
 ### Files
 
-Flash files for serial upload via AVRdude or HX3 Remote. Each .HEX file has a corresponding .EEP file. 
-Versions for mk2 and mk3 version boards are in separate ZIP archives.
-Please update only the file appropriate for your product.
-
-Note: For operation with firmware 3.5 and up, remove jumpers JP7 and 
-JP8 which may still sit on your board from factory programming. These jumpers 
-are only required for updating the reverb DSP (no need to update unless noted).
+Flash files for serial upload via AVRdude or HX3 Remote. Each .HEX file has a corresponding .EEP file. Versions for mk2 
+and mk3 version boards are in separate ZIP archives. Please update only the file appropriate for your product. 
+<b>Note:</b> For operation with firmware 3.5 and up, remove jumpers JP7 and JP8 which may still sit on your board from 
+factory programming. These jumpers are only required for updating the reverb DSP (no need to update unless noted).
 
 <b>HX3mkX_std.hex</b> Standard version, mainboard with button presets or Preset16<br>
 <b>HX3mkX_expander.hex</b> MIDI expander box version<br>
@@ -42,17 +39,17 @@ are only required for updating the reverb DSP (no need to update unless noted).
 
 ### Changelog
 
-01/09/2015 Firmware #3.72, FPGA #09012015
+01/10/2015 Firmware #3.72, FPGA #09012015, HX3 Remote #3.7
 
-* Fixed small Bug in Percussion Drawbar Muting (#3.721)
-* Fixed Bug in Common Preset assignment
-* Fixed Bug in Single Drawbar versions which prevented pots Amp Vol and Tone from working
+* Fixed small bug in percussion drawbar muting (#3.721)
+* Fixed bug in common presets assignment
+* Fixed bug in single drawbar versions which prevented pots AmpVol and TonePot from working
 * Several menu entries no longer skipped on non-Expander versions
 * FPGA #09012015 with appropriate level adjustment for Bass on Leslie signal
 * Streamlined firmware to fit into 60 kByte; firmware 3.63 update did not work due to memory overlap
-* Auto-Restore feature for Licence numbers an HX3 Remote
-* Common Presets save Percussion/Vibrato/Efx tab settings and Preset numbers (default 10..13)
-* Presets only save Drawbar settings on non-Expander boards
+* Auto-Restore feature for Licence numbers in HX3 Remote 3.7
+* Common Presets save Percussion/Vibrato/Efx tab settings and Upper/Lower Preset numbers (default 1..4)
+* Manual presets only save drawbar settings on HX3 standard firmware; Expander and single drawbar versions save tabs on presets
 * Added repair program (ZIP archive) to recover non-working HX3 to usable condition
 
 10/22/2014 Firmware #3.62
