@@ -11,7 +11,7 @@ See http://wiki.keyboardpartner.de/index.php?title=HX3_Remote/Update_Application
 ### Last Build
 
 * HX3 Remote: #3.72	hx3_remote.exe for Windows XP and up
-* AVR:  #3.72       .hex and .eep files, Latest Firmware for AVR controller
+* AVR:  #3.721      .hex and .eep files, Latest Firmware for AVR controller
 * FPGA: #09012015   .bit file for FPGA update
 * SCAN: #$11        .dat files, Needed for firmware #3.51 and up
 
@@ -42,26 +42,28 @@ are only required for updating the reverb DSP (no need to update unless noted).
 
 ### Changelog
 
-01/09/2015 Firmware 3.72
+01/09/2015 Firmware #3.72, FPGA #09012015
 
+* Fixed small Bug in Percussion Drawbar Muting (#3.721)
 * Fixed Bug in Common Preset assignment
 * Fixed Bug in Single Drawbar versions which prevented pots Amp Vol and Tone from working
 * Several menu entries no longer skipped on non-Expander versions
-* FPGA #09012015 with level adjustment for Bass on Leslie signal
+* FPGA #09012015 with appropriate level adjustment for Bass on Leslie signal
 * Streamlined firmware to fit into 60 kByte; firmware 3.63 update did not work due to memory overlap
 * Auto-Restore feature for Licence numbers an HX3 Remote
 * Common Presets save Percussion/Vibrato/Efx tab settings and Preset numbers (default 10..13)
 * Presets only save Drawbar settings on non-Expander boards
 * Added repair program (ZIP archive) to recover non-working HX3 to usable condition
 
-10/22/2014 Firmware 3.62
+10/22/2014 Firmware #3.62
 
+* Please Note: #3.6x update procedure did not work due to memory overlap
 * Changed directory structure on Github repo, all files available as packed ZIP for easy download 
 * Revised swell curve with more accurate frequency response on FW 3.63
 * Adjustable minimal swell volume down to zero by menu or parameter 482 (see HX3 Remote). Needs FPGA configuration #22102014 and, if applicable, HX3 Remote 3.63 
 * AO28 amplifier noise without digital artefacts
 
-06/13/2014 Firmware 3.55 
+06/13/2014 Firmware #3.55 
 
 * New HX3 Remote with improved MIDI CC assignment. In conjunction with firmware 3.55, it will display and select received MIDI CCs for easier assignment of custom MIDI CC sets.
 * MIDI Route-Thru to HX3 Remote. Small bug fixed in Voce MIDI CC setup, added controllers 87 (Treble Equ/Tone) and 88 (Bass Equ).
