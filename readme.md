@@ -1,19 +1,18 @@
 HX3 Hammond Clone
 =================
 
-<b>LATEST NEWS:</b> New update program for Windows available - makes fiddling with AVRdude and TeraTerm obsolete! See directory LATEST.
+(Scroll to bottom for english description) 
 
 HX3/HOAX steht kurz für Hammond On A Xilinx FPGA und ist ein völlig neuer Ansatz einer Tonewheel-Emulation als 
 eigenständiges Soundmodul auf einer Platine, erhältlich bei KeyboardPartner (http://shop.keyboardpartner.de). Hier 
 finden Sie alle Schaltpläne, Zeichnungen und Firmware-Updates.
 
-HX3 is a full-featured Hammond clone module with physical modelled tone generation from KeyboardPartner 
-(http://shop.keyboardpartner.de). Please find here all documentation, schematics, drawings and firmware/configuration updates.
-
-(Scroll to bottom for english description) 
-
 HX3-Firmware-Installation
 =========================
+
+Dateien können mit Anklicken von "View Raw" einzeln heruntergeladen werden. Es empfiehlt sich, das komplette Repo als 
+ZIP downzuloaden (Download-Link: https://github.com/heise/HOAX/archive/master.zip) und auf einem Windows-PC zu entpacken, z.B. in 
+E:\HX3\. Beachten Sie zum Update Ihrer HX3-Platine unser Wiki: http://wiki.keyboardpartner.de/index.php?title=HX3_Remote/Update_Application . 
 
 Bitte beachten Sie die ausführliche Anleitung auf http://wiki.keyboardpartner.de! Geänderte File-Struktur im Repository: Alle zusemmengehörigen Dateien sind jetzt für einfacheren Download in entsprechende ZIP-Dateien verpackt.
 
@@ -39,7 +38,12 @@ Controllers. Außerdem: <b>ATmegaBOOT_xx8.c</b> und <b>Makefile</b>, nur für Neuk
 HX3 Firmware Installation (english)
 ===================================
 
-<b>LATEST NEWS:</b> New update program for Windows available - makes fiddling with AVRdude and TeraTerm obsolete! See directory LATEST.
+HX3 is a full-featured Hammond clone module with physical modelled tone generation from KeyboardPartner 
+(http://shop.keyboardpartner.de). Please find here all documentation, schematics, drawings and firmware/configuration updates.
+
+Copy and unzip whole contents of this repo (full download link: https://github.com/heise/HOAX/archive/master.zip) to a new 
+folder on your hard disk, for example E:\HX3\LATEST\. See 
+http://wiki.keyboardpartner.de/index.php?title=HX3_Remote/Update_Application for details un update procedure. 
 
 FPGA configuration and scan cores may be uploaded by provided HX3 Remote application. 
 
