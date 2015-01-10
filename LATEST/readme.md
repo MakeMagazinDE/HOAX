@@ -3,17 +3,15 @@ HX3 Latest Firmware
 
 <b>Working releases for update with HX3 Remote application</b>
 
-### Using the new HX3 remote/update program
-
-Copy whole contents of this directory to a new folder on your hard disk, for example E:\HX3\LATEST\. 
-See http://wiki.keyboardpartner.de/index.php?title=HX3_Remote/Update_Application for details. 
+Copy and unzip whole contents of this directory to a new folder on your hard disk, for example E:\HX3\LATEST\. 
+See http://wiki.keyboardpartner.de/index.php?title=HX3_Remote/Update_Application for details un update procedure. 
 
 ### Last Build
 
-* HX3 Remote: #3.72	hx3_remote.exe for Windows XP and up
-* AVR:  #3.721      .hex and .eep files, Latest Firmware for AVR controller
-* FPGA: #09012015   .bit file for FPGA update
-* SCAN: #$14        .dat files, Needed for firmware #3.51 and up
+* HX3 Remote: #3.72	.exe for Windows XP and up
+* AVR:  #3.721      .hex and .eep files, latest firmware for AVR controller
+* FPGA: #09012015   .bit configuration file for FPGA update
+* SCAN: #$14        .dat ScanCore files
 
 ### Files
 
@@ -39,7 +37,7 @@ factory programming. These jumpers are only required for updating the reverb DSP
 
 ### Changelog
 
-01/10/2015 Firmware #3.72, FPGA #09012015, HX3 Remote #3.7, Scan Rev. #14
+<b>01/10/2015</b> Firmware #3.72, FPGA #09012015, HX3 Remote #3.7, Scan Rev. #14
 
 * Fixed Bug in ScanCores OrganScan61 and Strip16, Bass Split was not working
 * Fixed small bug in percussion drawbar muting (#3.721)
@@ -53,7 +51,7 @@ factory programming. These jumpers are only required for updating the reverb DSP
 * Manual presets only save drawbar settings on HX3 standard firmware; Expander and single drawbar versions save tabs on presets
 * Added repair program (ZIP archive) to recover non-working HX3 to usable condition
 
-10/22/2014 Firmware #3.62
+<b>10/22/2014</b> Firmware #3.62
 
 * Please Note: #3.6x update procedure did not work due to memory overlap
 * Changed directory structure on Github repo, all files available as packed ZIP for easy download 
@@ -61,34 +59,34 @@ factory programming. These jumpers are only required for updating the reverb DSP
 * Adjustable minimal swell volume down to zero by menu or parameter 482 (see HX3 Remote). Needs FPGA configuration #22102014 and, if applicable, HX3 Remote 3.63 
 * AO28 amplifier noise without digital artefacts
 
-06/13/2014 Firmware #3.55 
+<b>06/13/2014</b> Firmware #3.55 
 
 * New HX3 Remote with improved MIDI CC assignment. In conjunction with firmware 3.55, it will display and select received MIDI CCs for easier assignment of custom MIDI CC sets.
 * MIDI Route-Thru to HX3 Remote. Small bug fixed in Voce MIDI CC setup, added controllers 87 (Treble Equ/Tone) and 88 (Bass Equ).
 
-06/04/2014 
+<b>06/04/2014</b> 
 
 * Fixed small bug in ScanCores which would have shown up later
 * Added FIR Upload to HX Remote
-* Added ScanCore for Scan16 Strip 61 Keys
+* Added ScanCore for Scan16, 61 Keys
 
-05/28/2014
+<b>05/28/2014</b>
 
 * Added FPGA #28052014 with better treble response on Leslie sim
 * HX3 Remote had a small bug in "Write Basics" function that transmitted "1" instead of "255" value with Booleans (Enables etc.) of value "true".  Fixed with version 1.09 (online).
 * Fixed small bug in HX3 firmware that prevented saving of Amp122 resp. Leslie Volume Pot Enable by MenuPanel.
 
-05/20/2014
+<b>05/20/2014</b>
 
 * Bugfix on HX_remote.exe, organ param list, last parameter Amp122 Volume Enable was missing
 
-05/19/2014
+<b>05/19/2014</b>
 
 * Bugfix on HX_remote.exe, EEPROM programming was faulty
 * Bugfix on FPGA configuration, fixed sporadic crackling noise on right Leslie channel
 * Experimental custom MIDI CC set, editor added to HX3_remote
 
-05/01/2014
+<b>05/01/2014</b>
 
 * Stereo Leslie simulation with improved modulation
 * New vibrato algorithm with delay line "aging" parameter
