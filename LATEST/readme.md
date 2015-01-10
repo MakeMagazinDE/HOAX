@@ -3,8 +3,9 @@ HX3 Latest Firmware
 
 <b>Working releases for update with HX3 Remote application</b>
 
-Copy and unzip whole contents of this directory to a new folder on your hard disk, for example E:\HX3\LATEST\. 
-See http://wiki.keyboardpartner.de/index.php?title=HX3_Remote/Update_Application for details un update procedure. 
+Copy and unzip whole contents of this repo (full download link: https://github.com/heise/HOAX/archive/master.zip) to a new 
+folder on your hard disk, for example E:\HX3\LATEST\. See 
+http://wiki.keyboardpartner.de/index.php?title=HX3_Remote/Update_Application for details un update procedure. 
 
 ### Last Build
 
