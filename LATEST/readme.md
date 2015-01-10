@@ -13,7 +13,7 @@ See http://wiki.keyboardpartner.de/index.php?title=HX3_Remote/Update_Application
 * HX3 Remote: #3.72	hx3_remote.exe for Windows XP and up
 * AVR:  #3.721      .hex and .eep files, Latest Firmware for AVR controller
 * FPGA: #09012015   .bit file for FPGA update
-* SCAN: #$11        .dat files, Needed for firmware #3.51 and up
+* SCAN: #$14        .dat files, Needed for firmware #3.51 and up
 
 ### Files
 
@@ -39,8 +39,9 @@ factory programming. These jumpers are only required for updating the reverb DSP
 
 ### Changelog
 
-01/10/2015 Firmware #3.72, FPGA #09012015, HX3 Remote #3.7
+01/10/2015 Firmware #3.72, FPGA #09012015, HX3 Remote #3.7, Scan Rev. #14
 
+* Fixed Bug in ScanCores OrganScan61 and Strip16, Bass Split was not working
 * Fixed small bug in percussion drawbar muting (#3.721)
 * Fixed bug in common presets assignment
 * Fixed bug in single drawbar versions which prevented pots AmpVol and TonePot from working
